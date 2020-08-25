@@ -62,6 +62,7 @@ DISTSTYLE EVEN;
 songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS songplays
     (
+        songplay_id IDENTITY(0,1),
         start_time TIMESTAMP,
         user_id INTEGER,
         level VARCHAR,
