@@ -1,5 +1,5 @@
 # Udacity Data Engineering Nano-Degree
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Data Engineering Image](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/data_engineer.jpeg)
 
 ## Introduction
 - This [Udacity Nanodegree](https://www.udacity.com/course/data-engineer-nanodegree--nd027) teaches how to model data for analytics at scale
