@@ -15,6 +15,11 @@ The task is to build an ETL Pipeline that:
 3. Transforming data into a set of Dimensional and Fact Tables for their Analytics Team to continue finding Insights to what songs their users are listening to.
 4. Prepare Queries on the Materialized views.
 
+### 1.3. ETL Pipeline
+1. JSON on S3
+2. Staging Tables on RedShift
+3. Star Schema on same RedShift Cluster
+4. Views on same RedShift Cluster
 
 ---
 ## 2. Data Analysis
@@ -70,7 +75,14 @@ Records in event data associated with song plays i.e. records with page NextSong
 - song_id,
 - artist_id, session_id,
 - location,
-- user_agent
+- user_agent    
+
+This Table will:
+- Use as primary key the start_time and user_id.
+- Generate a songplay ID for each row
+- Use a DistStyle by user id (to speed-up queries on users and balance the distribution)
+- Use a SortKey by user Id and Start_time (to simplify user and time-related queries)
+- For more details on Dist Key and Sort Key, see the references below
 
 #### 2.2.2. Dimension Tables
 ##### Users
@@ -81,6 +93,10 @@ users in the app
 - gender,
 - level
 
+This table will:
+- Use as primary the user id
+- Use a DistStyle by User Id (To speed-up queries on users)
+
 ##### songs
 songs in music database
 - song_id,
@@ -88,6 +104,14 @@ songs in music database
 - artist_id,
 - year,
 - duration
+
+This table will:
+- Use as primary the song id
+- Use a DistStyle by song Id
+    - Although here, I am not so sure it is the right choice.
+    - Will that result in shuffling of data?
+    - To be tested and refined in a productive environement after analyzis of performance
+    - But it is certainly too big to big broadcasted using Dist Style ALL
 
 ##### artists
 Artists in music database
@@ -97,6 +121,11 @@ Artists in music database
 - lattitude,
 - longitude
 
+This table will:
+- Use as primary the artist id
+- Use a DistStyle by artist Id, with same caveats as for song id
+
+
 ##### time
 timestamps of records in songplays broken down into specific units
 - start_time,
@@ -105,6 +134,11 @@ timestamps of records in songplays broken down into specific units
 - week, month,
 - year,
 - weekday
+
+This table will:
+- Use as primary the start_time
+- Use a dist style ALL to broadcast this dimension into all tables.
+
 
 ### 2.3. [Bonus] Output queries (Example)
 #### Top 30 Most played artists
@@ -130,43 +164,15 @@ timestamps of records in songplays broken down into specific units
 - create_main.py: this calls the src.create_tables module and creates the tables
 - etl.py: This calls the src.etl module and loads the table into the staging and then into the star schema.
 
-### Project Steps
-Below are steps you can follow to complete each component of this project.
-
-#### Create Table Schemas
-Design schemas for your fact and dimension tables:
-- Write a SQL CREATE statement for each of these tables in sql_queries.py
-- Complete the logic in create_tables.py to connect to the database and create these tables
-- Write SQL DROP statements to drop tables in the beginning of create_tables.py if the tables already exist.
-  - This way, you can run create_tables.py whenever you want to reset your database and test your ETL pipeline.
-
-#### Set-up Cluster
-- Launch a redshift cluster
-- create an IAM role that has read access to S3.
-- Add redshift database and IAM role info to dwh.cfg.
-
-Test by running create_tables.py and checking the table schemas in your redshift database. You can use Query Editor in the AWS Redshift console for this.
-
-#### Build ETL Pipeline
-- Implement the logic in etl.py to load data from S3 to staging tables on Redshift.
-- Implement the logic in etl.py to load data from staging tables to analytics tables on Redshift.
-- Test by running etl.py after running create_tables.py and running the analytic queries on your Redshift database to compare your results with the expected results.
-- Delete your redshift cluster when finished.
-
-#### Document Process
-Do the following steps in your README.md file.
-- Discuss the purpose of this database in context of the startup, Sparkify, and their analytical goals.
-- State and justify your database schema design and ETL pipeline.
-- [Optional] Provide example queries and results for song play analysis.
 
 #### Optional
 - Add data quality checks
 - Create a dashboard for analytic queries on your new database
+- [Optional] Provide example queries and results for song play analysis.
 
 
-## Notes
-The SERIAL command in Postgres is not supported in Redshift. The equivalent in redshift is IDENTITY(0,1), which you can read more on in the Redshift Create Table Docs.
 ### External References Used:
+- [Using Dist Key for Star Schema](https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on-amazon-redshift/)
 - [Using Dist Key and Sort Key (Flydata introduction)](https://www.flydata.com/blog/amazon-redshift-distkey-and-sortkey/)
 - [Copy from JSON (AWS documentation)](https://docs.aws.amazon.com/redshift/latest/dg/copy-usage_notes-copy-from-json.html)
 - [Rewritten query with the COPY command](https://aws.amazon.com/premiumsupport/knowledge-center/redshift-fix-copy-analyze-statupdate-off/)
