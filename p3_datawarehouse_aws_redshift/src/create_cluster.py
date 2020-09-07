@@ -10,6 +10,8 @@ import json
 # - Updated the doc strings
 # - added condition to only open ports on myIP
 # - the main routine needs a config parameter
+# - added sample test of connector
+
 
 def create_iam_role(iam, DWH_IAM_ROLE_NAME):
     """
@@ -52,9 +54,22 @@ def create_iam_role(iam, DWH_IAM_ROLE_NAME):
 
 def create_cluster(redshift, roleArn, DWH_CLUSTER_TYPE, DWH_NODE_TYPE, DWH_NUM_NODES, DWH_DB, DWH_CLUSTER_IDENTIFIER,
                    DWH_DB_USER, DWH_DB_PASSWORD):
-    '''
-    Creates Redshift cluster
-    '''
+    """
+    Create Redshift Cluster
+    Args:
+        redshift:
+        roleArn:
+        DWH_CLUSTER_TYPE:
+        DWH_NODE_TYPE:
+        DWH_NUM_NODES:
+        DWH_DB:
+        DWH_CLUSTER_IDENTIFIER:
+        DWH_DB_USER:
+        DWH_DB_PASSWORD:
+
+    Returns:
+        None
+    """
 
     try:
         print("2.1. Creating redshift cluster")
@@ -81,13 +96,15 @@ def create_cluster(redshift, roleArn, DWH_CLUSTER_TYPE, DWH_NODE_TYPE, DWH_NUM_N
 
 def get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER):
     """
-
+    Read the cluster properties, including:
+    ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
+    "NumberOfNodes", 'VpcId', 'DWH_ENDPOINT', 'DWH_ARN']
     Args:
         redshift (bot3.client): Redshift Client
         DWH_CLUSTER_IDENTIFIER: Cluster Id
 
     Returns:
-        pd.DataFrame: Properties of the cluster
+        pd.Series: Properties of the cluster
     """
     print("2.2. Showing cluster properties")
     x = redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]
@@ -105,9 +122,18 @@ def get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER):
 
 
 def open_ports(ec2, cluster_properties, DWH_PORT):
-    '''
+    """
     Update clusters security group to allow access through redshift port
-    '''
+    Authorize ingres on executable IP
+    Args:
+        ec2 (bot3.client): ec2 client
+        cluster_properties (pd.Series): Pandas Series
+        DWH_PORT (str): port of the database
+
+    Returns:
+
+    """
+
     print("2.3 Opening port of the cluster")
     def get_myip():
         import requests
@@ -167,12 +193,6 @@ def main(config):
                          aws_access_key_id=KEY,
                          aws_secret_access_key=SECRET
                          )
-
-    s3 = boto3.resource('s3',
-                        region_name="us-west-2",
-                        aws_access_key_id=KEY,
-                        aws_secret_access_key=SECRET
-                        )
 
     iam = boto3.client('iam',
                        aws_access_key_id=KEY,
