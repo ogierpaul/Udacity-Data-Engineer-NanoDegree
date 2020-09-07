@@ -3,7 +3,7 @@ from psycopg2 import sql
 
 # CONFIG
 config = configparser.ConfigParser()
-config.read('dwh.cfg')
+config.read('admin_config.cfg')
 
 # DROP TABLES
 
@@ -20,6 +20,7 @@ time_table_drop = "DROP TABLE IF EXISTS time;"
 staging_events_table_create= ("""
 CREATE TABLE IF NOT EXISTS staging_events
 (
+staging_event_id BIGINT IDENTITY(0,1),
 artist          VARCHAR,
 auth            VARCHAR, 
 firstName       VARCHAR,
@@ -37,7 +38,8 @@ song            VARCHAR,
 status          INTEGER,
 ts              TIMESTAMP,
 userAgent       VARCHAR,
-userId          INTEGER
+userId          INTEGER,
+PRIMARY KEY (staging_event_id)
 )
 DISTSTYLE EVEN;
 """)
@@ -45,6 +47,7 @@ DISTSTYLE EVEN;
 staging_songs_table_create = ("""
 CREATE TABLE IF NOT EXISTS staging_songs
 (
+staging_song_id BIGINT IDENTITY(0,1),
 artist_id          VARCHAR,
 artist_latitude    FLOAT,
 artist_location    VARCHAR,
@@ -54,7 +57,8 @@ duration           FLOAT,
 num_songs          INTEGER,
 song_id            VARCHAR,
 title              VARCHAR,
-year               INTEGER
+year               INTEGER,
+PRIMARY KEY (staging_song_id)
 )
 DISTSTYLE EVEN;
 """)
@@ -133,8 +137,6 @@ SORTKEY (start_time);
 """)
 
 # STAGING TABLES INSERT
-
-
 staging_events_copy = """COPY staging_events
 FROM '{}'
 IAM_ROLE '{}'
