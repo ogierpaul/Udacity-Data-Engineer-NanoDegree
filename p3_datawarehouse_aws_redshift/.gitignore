@@ -1,3 +1,4 @@
-admin_config.cfg
+config/admin_config.cfg
+config/dbuser_config.cfg
 mainconnect.py
 gistconn.py
