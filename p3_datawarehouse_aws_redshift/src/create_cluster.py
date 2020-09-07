@@ -132,10 +132,7 @@ def open_ports(ec2, cluster_properties, DWH_PORT):
         print(e)
 
 
-if __name__ == '__main__':
-    import configparser
-    config = configparser.ConfigParser()
-    config.read_file(open('/p3_datawarehouse_aws_redshift/admin_config.cfg'))
+def main(config):
     KEY = config.get('AWS', 'KEY')
     SECRET = config.get('AWS', 'SECRET')
 
@@ -223,6 +220,7 @@ if __name__ == '__main__':
         print(row)
     print('Connected')
     conn.close()
+    return None
 
 
 
