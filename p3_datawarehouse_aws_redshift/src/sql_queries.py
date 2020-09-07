@@ -138,30 +138,34 @@ SORTKEY (start_time);
 
 # STAGING TABLES INSERT
 staging_events_copy = """COPY staging_events
-FROM '{}'
-IAM_ROLE '{}'
+FROM '{filelocation}'
+IAM_ROLE '{arn}'
 COMPUPDATE OFF
 REGION 'us-west-2'
 TIMEFORMAT as 'epochmillisecs'
 TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL
-FORMAT AS JSON '{}' ;""".format(
-    config.get("S3", "LOG_DATA"),
-    config.get('IAM_ROLE', 'ARN'),
-    config.get('S3', 'LOG_JSONPATH'),
-)
+FORMAT AS JSON '{jsonpath}' ;"""
+#
+# .format(
+#     config.get("S3", "LOG_DATA"),
+#     config.get('IAM_ROLE', 'ARN'),
+#     config.get('S3', 'LOG_JSONPATH'),
+#
 
-staging_songs_copy = ("""
+staging_songs_copy = """
 COPY staging_songs
-FROM '{}'
-IAM_ROLE '{}'
+FROM '{filelocation}'
+IAM_ROLE '{arn}'
 COMPUPDATE OFF
 REGION 'us-west-2'
 TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL
 FORMAT AS JSON 'auto' ;
-""").format(
-    config.get("S3", "SONG_DATA"),
-    config.get('IAM_ROLE', 'ARN')
-)
+"""
+#
+#     .format(
+#     config.get("S3", "SONG_DATA"),
+#     config.get('IAM_ROLE', 'ARN')
+# )
 
 # FINAL TABLES INSERT
 
