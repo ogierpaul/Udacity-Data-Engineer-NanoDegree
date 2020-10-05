@@ -160,6 +160,22 @@ def open_ports(ec2, cluster_properties, DWH_PORT):
 
 
 def main(config):
+    """
+    Use the admin config file
+    In this order:
+    Instructs AWS to:
+    1. create a IAM role for the DWH
+    2. create a Redshift Cluster with the associate DWH IAM Role
+    3. get the cluster properties
+    4. open the ports on EC2 for the DWH
+    5. test connection
+
+    Args:
+        config:
+
+    Returns:
+        None
+    """
     KEY = config.get('AWS', 'KEY')
     SECRET = config.get('AWS', 'SECRET')
 
