@@ -11,6 +11,7 @@ import json
 # - added condition to only open ports on myIP
 # - the main routine needs a config parameter
 # - added sample test of connector
+#TODO: Create dbuser
 
 
 def create_iam_role(iam, DWH_IAM_ROLE_NAME):

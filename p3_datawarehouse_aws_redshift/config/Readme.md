@@ -26,10 +26,33 @@ DWH_CLUSTER_IDENTIFIER=<Cluster identifier>
 DB_NAME=<Database name>
 DB_USER=<Database user>
 DB_PASSWORD=<Database password>
-DB_PORT=5439
+DB_PORT=<Port>
 
 [IAM]
 DWH_IAM_ROLE_NAME=<IAM role name>
+````
+
+## Db User config
+- This parameters can be configured safely after the cluster has been created
+- Get the ARN and Host parameter for step 1), create_cluster_main.py
+
+````buildoutcfg
+[AWS]
+KEY=<db user key>
+SECRET=<db user secret key>
+
+[REGION]
+REGION=us-west-2
+
+[DB]
+DB_NAME=
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_PORT=
+
+[IAM]
+ARN=<ARN ROLE NAME>
 ````
 
 

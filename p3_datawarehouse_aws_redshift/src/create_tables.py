@@ -16,9 +16,7 @@ def create_tables(cur, conn):
 
 def main(config):
     jdbcstring = "host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values())
-    awsjdbcstring = "jdbc:redshift://redshift-cluster-1.ccczdenythtf.eu-central-1.redshift.amazonaws.com:5439/dwh"
     conn = psycopg2.connect(jdbcstring)
-    #TODO: Remove
     print('*****\nChecking Connectionstatus:\n{}\n********'.format(conn.closed))
     cur = conn.cursor()
 
