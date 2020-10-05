@@ -58,15 +58,15 @@ def create_cluster(redshift, roleArn, DWH_CLUSTER_TYPE, DWH_NODE_TYPE, DWH_NUM_N
     """
     Create Redshift Cluster
     Args:
-        redshift:
-        roleArn:
-        DWH_CLUSTER_TYPE:
-        DWH_NODE_TYPE:
-        DWH_NUM_NODES:
-        DWH_DB:
-        DWH_CLUSTER_IDENTIFIER:
-        DWH_DB_USER:
-        DWH_DB_PASSWORD:
+        redshift: Redshift boto3 client
+        roleArn: ARN of DWH_IAM_ROLE
+        DWH_CLUSTER_TYPE: Cluster Type (Ex: multi-node)
+        DWH_NODE_TYPE: Node type (Ex: dc2.large)
+        DWH_NUM_NODES: Number of nodes (Ex: 2)
+        DWH_DB: Database name (Ex: mydatabase)
+        DWH_CLUSTER_IDENTIFIER: (Ex: mycluster)
+        DWH_DB_USER: (Ex: myuser)
+        DWH_DB_PASSWORD: (Ex: mypassword)
 
     Returns:
         None

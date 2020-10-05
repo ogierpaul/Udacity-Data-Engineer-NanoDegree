@@ -14,4 +14,21 @@ Instructs AWS to:
 3. Drop the tables if they previously exists
 4. Create the tables
 
-### Parameters
+## Architecture Schema
+### Tables created
+
+### Rationale
+
+## Parameters
+* All those parameters can be found in the admin_config file
+
+|Name|Description|Example|
+|---|---|---|
+|DWH_IAM_ROLE|Name of the db user IAM Role||
+|DWH_CLUSTER_TYPE|Cluster Type|multi-node|
+|DWH_NODE_TYPE|Node type|dc2.large|
+|DWH_NUM_NODES|Number of nodes in cluster|2|
+|DWH_DB|Database Name|mydatabase|
+|DWH_CLUSTER_IDENTIFIER|Redshift Cluster identifier|mycluster|
+|DWH_DB_USER|Redshift user name|myuser|
+|DWH_DB_PASSWORD|Redshift user password|myuser|
