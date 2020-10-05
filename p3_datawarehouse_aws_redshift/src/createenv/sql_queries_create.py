@@ -6,7 +6,7 @@ user_table_drop = "DROP TABLE IF EXISTS  users;"
 song_table_drop = "DROP TABLE IF EXISTS  songs;"
 artist_table_drop = "DROP TABLE IF EXISTS  artists;"
 time_table_drop = "DROP TABLE IF EXISTS time;"
-staging_events_table_create= ("""
+staging_events_table_create = ("""
 CREATE TABLE IF NOT EXISTS staging_events
 (
 staging_event_id BIGINT IDENTITY(0,1),
@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS users (
 DISTKEY (user_id)
 SORTKEY (user_id);
 """)
+
 song_table_create = ("""
 CREATE TABLE IF NOT EXISTS songs (
     song_id VARCHAR,
@@ -88,9 +89,10 @@ CREATE TABLE IF NOT EXISTS songs (
     duration DOUBLE PRECISION,
     PRIMARY KEY (song_id)
 )
-DISTKEY (song_id)
-SORTKEY (song_id);
+DISTKEY (artist_id)
+SORTKEY (artist_id, year);
 """)
+
 artist_table_create = ("""
 CREATE TABLE IF NOT EXISTS artists (
     artist_id VARCHAR,
@@ -104,6 +106,7 @@ DISTKEY (artist_id)
 SORTKEY (artist_id)
 ;
 """)
+
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time (
     start_time TIMESTAMP,

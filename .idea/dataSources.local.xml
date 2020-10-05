@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="dwh@redshift-cluster-1.ccczdenythtf.eu-central-1.redshift.amazonaws.com" uuid="5e6660da-da11-46b1-aa6d-9d8b0e517356">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="REDSHIFT" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>dwhuser</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
