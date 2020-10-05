@@ -7,7 +7,7 @@
     - But he can not create new cluster, or launch EC2 clusters
 
 ## Schema
-![IAM Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/IAM%Architecture%Diagram.jpeg)
+![IAM Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/IAM%Architecture%Diagram.jpg)
 
 
 ## Admin config
