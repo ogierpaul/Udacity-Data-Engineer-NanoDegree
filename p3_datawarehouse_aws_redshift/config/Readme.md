@@ -1,12 +1,13 @@
 # Config files
 - contains two files:
-    - admin_config to set-up the cluster and roles
-    - dbuser_config to perform the ETL
-- Separating admin rights from routine access enhances security:
-    - One data engineer executant could continue develop on RedShift using dbuser rights
-    - But he could not create new cluster, or launch EC2 clusters
+    - admin_config.cfg to set-up the cluster and roles
+    - dbuser_config.cfg to perform the ETL
+- Separates admin rights from routine access enhances security:
+    - One data engineer executant can continue develop on RedShift using dbuser rights
+    - But he can not create new cluster, or launch EC2 clusters
 
 ## Admin config
+### Content
 
 ````buildoutcfg
 [AWS]
@@ -29,7 +30,7 @@ DB_PASSWORD=<Database password>
 DB_PORT=<Port>
 
 [IAM]
-DWH_IAM_ROLE_NAME=<IAM role name>
+IAM_ROLE_NAME=<IAM role name>
 ````
 
 ## Db User config
@@ -45,16 +46,32 @@ SECRET=<db user secret key>
 REGION=us-west-2
 
 [DB]
-DB_NAME=
-DB_HOST=
-DB_USER=
-DB_PASSWORD=
-DB_PORT=
+DB_NAME=<Database name>
+DB_USER=<Database user>
+DB_PASSWORD=<Database password>
+DB_PORT=<Port>
 
 [IAM]
-ARN=<ARN ROLE NAME>
+IAM_ROLE_NAME=<IAM role name>
 ````
 
+### Variables
+#### AWS:
+* [AWS User Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)
+* Allow to access AWS programatically
+* Key
+* Secret Key
+
+#### Region:
+* Region should be in the same bucket as the DEND data sample bucket
+* That is, US-West-2 (Oregon)
+
+#### DB:
+* All DB-specific variables, like for a standard JDBC connection
+
+#### IAM:
+* [IAM Role Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
+* You should have two separate roles for the admin and the db user
 
 
     
