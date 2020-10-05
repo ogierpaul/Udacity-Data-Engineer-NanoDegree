@@ -18,7 +18,7 @@ Instructs AWS to:
 ### Users and Roles
 ![IAM Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/wip/99-Appendix/IAM_Architecture_Diagram.jpg)
 
-### Data Flow
+### Data Flow Target for ETL
 ![DataFlow](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/wip/99-Appendix/DataTransformation.jpg)
 
 ### Tables created
