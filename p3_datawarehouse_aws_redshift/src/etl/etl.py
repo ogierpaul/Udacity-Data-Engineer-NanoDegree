@@ -1,6 +1,5 @@
-import configparser
 import psycopg2
-from p3_datawarehouse_aws_redshift.src.sql_queries import copy_table_queries, insert_table_queries
+from p3_datawarehouse_aws_redshift.src.etl.sql_queries_etl import copy_table_queries, insert_table_queries
 
 
 def load_staging_tables(cur, conn):
