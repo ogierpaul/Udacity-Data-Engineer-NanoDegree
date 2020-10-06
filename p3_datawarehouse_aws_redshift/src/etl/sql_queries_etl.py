@@ -41,21 +41,21 @@ FORMAT AS JSON 'auto' ;
 # FINAL TABLES INSERT
 
 songplay_table_insert = ("""
-INSERT INTO songplay(start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
-SELECT DISTINCT to_timestamp(to_char(se.ts, '9999-99-99 99:99:99'),'YYYY-MM-DD HH24:MI:SS'),
-                a.userId as user_id,
-                a.level as level,
-                b.song_id as song_id,
-                b.artist_id as artist_id,
-                a.sessionId as session_id,
-                a.location as location,
-                a.userAgent as user_agent
-FROM staging_events a
-JOIN staging_songs b
-ON
-    a.song = b.title
-AND
-    a.artist = b.artist_name;
+    INSERT INTO songplay(start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
+    SELECT DISTINCT to_timestamp(to_char(a.ts, '9999-99-99 99:99:99'),'YYYY-MM-DD HH24:MI:SS'),
+                    a.userId as user_id,
+                    a.level as level,
+                    b.song_id as song_id,
+                    b.artist_id as artist_id,
+                    a.sessionId as session_id,
+                    a.location as location,
+                    a.userAgent as user_agent
+    FROM (SELECT * FROM staging_events WHERE user_id IS NOT NULL) a
+    LEFT JOIN staging_songs b
+    ON
+        a.song = b.title
+    AND
+        a.artist = b.artist_name;
 """)
 
 user_table_insert = ("""

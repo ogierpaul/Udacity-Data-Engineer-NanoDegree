@@ -44,7 +44,7 @@ CREATE TABLE staging_songs(
 )
 DISTSTYLE EVEN;
 
-COPY staging_songs FROM 's3://udacity-dend/song_data/A/A/'
+COPY staging_songs FROM 's3://udacity-dend/log_data/'
 CREDENTIALS 'aws_iam_role=arn:aws:iam::075227836161:role/dwhRole'
 COMPUPDATE OFF
 region 'us-west-2'

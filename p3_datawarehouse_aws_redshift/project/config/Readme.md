@@ -57,6 +57,10 @@ DB_USER=<Database user>
 DB_PASSWORD=<Database password>
 DB_PORT=<Port>
 
+[S3]
+LOGPATH=s3://udacity-dend/log_data
+LOGJSONPATH=s3://udacity-dend/log_json_path.json
+SONGPATH=s3://udacity-dend/song_data
 ````
 
 ### Variables

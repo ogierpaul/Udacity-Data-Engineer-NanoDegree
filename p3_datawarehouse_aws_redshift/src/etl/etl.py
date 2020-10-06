@@ -82,9 +82,9 @@ def etl_main(config):
     conn = get_conn(config)
     cur = conn.cursor()
     print('load staging tables')
-    loglocation = 's3://udacity-dend/log_data'
-    logjsonpath = 's3://udacity-dend/log_json_path.json'
-    songlocation = 's3://udacity-dend/song_data'
+    loglocation = config.get("S3", "LOGPATH")
+    logjsonpath = config.get("S3", "LOGJSONPATH")
+    songlocation = config.get("S3", "SONGPATH")
     print('\nStart loading data into staging tables\n')
     load_staging_events(cur, conn, filelocation=loglocation, jsonpath=logjsonpath, arn=arn_role)
     load_staging_songs(cur, conn, filelocation=songlocation, arn=arn_role)
