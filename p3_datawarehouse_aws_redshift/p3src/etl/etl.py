@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import sql
-from p3_datawarehouse_aws_redshift.src.etl.sql_queries_etl import insert_table_queries, staging_events_copy, staging_songs_copy
-from p3_datawarehouse_aws_redshift.src.utils import get_cluster_properties
+from p3_datawarehouse_aws_redshift.p3src.etl.sql_queries_etl import insert_table_queries, staging_events_copy, staging_songs_copy
+from p3_datawarehouse_aws_redshift.p3src.utils import get_cluster_properties
 
 
 def load_staging_songs(cur, conn, arn, filelocation):

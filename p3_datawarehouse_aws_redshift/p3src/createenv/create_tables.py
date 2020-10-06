@@ -1,15 +1,17 @@
 import psycopg2
-from p3_datawarehouse_aws_redshift.src.createenv.sql_queries_create import create_table_queries, drop_table_queries
-from p3_datawarehouse_aws_redshift.src.utils import get_cluster_properties
+from p3_datawarehouse_aws_redshift.p3src.createenv.sql_queries_create import create_table_queries, drop_table_queries
+from p3_datawarehouse_aws_redshift.p3src.utils import get_cluster_properties
 
 def drop_tables(cur, conn):
     for query in drop_table_queries:
+        print(query)
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
     for query in create_table_queries:
+        print(query)
         cur.execute(query)
         conn.commit()
 

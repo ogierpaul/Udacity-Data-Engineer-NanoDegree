@@ -1,4 +1,4 @@
-# Source Code Module
+# Source Code Module for Project 3
 ## Purpose
 * Create the Redshift cluster
 * Create the Redshift tables
@@ -29,4 +29,7 @@
 
 
 ## Parameters
+TODO
+
+## Installation
 TODO

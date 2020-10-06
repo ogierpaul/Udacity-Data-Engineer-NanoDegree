@@ -3,7 +3,7 @@ import psycopg2
 import boto3
 import json
 import time
-from p3_datawarehouse_aws_redshift.src.utils import get_myip, get_cluster_properties
+from p3_datawarehouse_aws_redshift.p3src.utils import get_myip, get_cluster_properties
 
 # Inspired from https://github.com/Flor91/Data-engineering-nanodegree/blob/master/2_dend_cloud_data_warehouses/P3_Data_Warehouse_Project/create_cluster.py
 ## Changes / Addition
