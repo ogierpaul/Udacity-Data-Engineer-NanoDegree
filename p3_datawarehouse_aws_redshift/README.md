@@ -13,13 +13,13 @@ The task is to build an ETL Pipeline that:
 1. Extracts their data from S3
 2. Staging it in Redshift
 3. Transforming data into a set of Dimensional and Fact Tables for their Analytics Team to continue finding Insights to what songs their users are listening to.
-4. Prepare Queries on the Materialized views.
+4. Run some analytics queries
 
 ### 1.3. ETL Pipeline
 1. JSON on S3
 2. Staging Tables on RedShift
 3. Star Schema on same RedShift Cluster
-4. Views on same RedShift Cluster
+4. Analytics queries output in pandas DataFrame
 
 ---
 ## 2. Data Analysis
@@ -65,6 +65,9 @@ The task is to build an ETL Pipeline that:
 See the Jupyter Notebook **Visualizing the JSON input data.ipynb**
 
 ### 2.2. Star Schema
+#### Representation:
+TODO
+
 #### 2.2.1. Fact Table
 ##### Songplays
 Records in event data associated with song plays i.e. records with page NextSong
@@ -151,9 +154,6 @@ This table will:
 - This query can be used to analyze one user behaviour
 - We will pick a sample user for demo
 
-#### Average of song length duration
-- This query can be used to analyze if all users listen to the complete song or skip halfway through
-
 ## 3. Project Structure
 ### Code Build
 - src: Main Code folder. This is where I put the etl code and pipeline.
@@ -170,10 +170,12 @@ This table will:
 - Create a dashboard for analytic queries on your new database
 - [Optional] Provide example queries and results for song play analysis.
 
+### Next steps
+* Use UPSERT or MERGE : [Upsert or Merge in Redshift](https://docs.aws.amazon.com/redshift/latest/dg/t_updating-inserting-using-staging-tables-.html)
 
 ### External References Used:
-- [Using Dist Key for Star Schema](https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on-amazon-redshift/)
-- [Using Dist Key and Sort Key (Flydata introduction)](https://www.flydata.com/blog/amazon-redshift-distkey-and-sortkey/)
-- [Copy from JSON (AWS documentation)](https://docs.aws.amazon.com/redshift/latest/dg/copy-usage_notes-copy-from-json.html)
-- [Rewritten query with the COPY command](https://aws.amazon.com/premiumsupport/knowledge-center/redshift-fix-copy-analyze-statupdate-off/)
-
+* [Using Dist Key for Star Schema](https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on-amazon-redshift/)
+* [Using Dist Key and Sort Key (Flydata introduction)](https://www.flydata.com/blog/amazon-redshift-distkey-and-sortkey/)
+* [Copy from JSON (AWS documentation)](https://docs.aws.amazon.com/redshift/latest/dg/copy-usage_notes-copy-from-json.html)
+* [Rewritten query with the COPY command](https://aws.amazon.com/premiumsupport/knowledge-center/redshift-fix-copy-analyze-statupdate-off/)
+* [Redshift does not enforce primary key](http://www.sqlhaven.com/amazon-redshift-what-you-need-to-think-before-defining-primary-key/)

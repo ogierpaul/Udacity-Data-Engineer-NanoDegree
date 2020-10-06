@@ -2,16 +2,17 @@ import pandas as pd
 import psycopg2
 import boto3
 import json
-
+import time
+from p3src.utils import get_myip, get_cluster_properties, get_conn
 
 # Inspired from https://github.com/Flor91/Data-engineering-nanodegree/blob/master/2_dend_cloud_data_warehouses/P3_Data_Warehouse_Project/create_cluster.py
 ## Changes / Addition
 # - Rewrote script using my style to better understand the steps
 # - Updated the doc strings
 # - added condition to only open ports on myIP
+# - added a pause in the execution to let the cluster time to start
 # - the main routine needs a config parameter
 # - added sample test of connector
-#TODO: Create dbuser
 
 
 def create_iam_role(iam, DWH_IAM_ROLE_NAME):
@@ -58,15 +59,15 @@ def create_cluster(redshift, roleArn, DWH_CLUSTER_TYPE, DWH_NODE_TYPE, DWH_NUM_N
     """
     Create Redshift Cluster
     Args:
-        redshift:
-        roleArn:
-        DWH_CLUSTER_TYPE:
-        DWH_NODE_TYPE:
-        DWH_NUM_NODES:
-        DWH_DB:
-        DWH_CLUSTER_IDENTIFIER:
-        DWH_DB_USER:
-        DWH_DB_PASSWORD:
+        redshift: Redshift boto3 client
+        roleArn: ARN of DWH_IAM_ROLE
+        DWH_CLUSTER_TYPE: Cluster Type (Ex: multi-node)
+        DWH_NODE_TYPE: Node type (Ex: dc2.large)
+        DWH_NUM_NODES: Number of nodes (Ex: 2)
+        DWH_DB: Database name (Ex: mydatabase)
+        DWH_CLUSTER_IDENTIFIER: (Ex: mycluster)
+        DWH_DB_USER: (Ex: myuser)
+        DWH_DB_PASSWORD: (Ex: mypassword)
 
     Returns:
         None
@@ -95,37 +96,10 @@ def create_cluster(redshift, roleArn, DWH_CLUSTER_TYPE, DWH_NODE_TYPE, DWH_NUM_N
         print(e)
 
 
-def get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER):
-    """
-    Read the cluster properties, including:
-    ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
-    "NumberOfNodes", 'VpcId', 'DWH_ENDPOINT', 'DWH_ARN']
-    Args:
-        redshift (bot3.client): Redshift Client
-        DWH_CLUSTER_IDENTIFIER: Cluster Id
-
-    Returns:
-        pd.Series: Properties of the cluster
-    """
-    print("2.2. Showing cluster properties")
-    x = redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]
-    x = [(k, v) for k, v in x.items()]
-    x = pd.DataFrame(data=x, columns=['Key', 'Value']).set_index('Key')['Value']
-
-    keysToShow = ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
-                  "NumberOfNodes", 'VpcId']
-    print(x.loc[keysToShow])
-    x.loc['DWH_ENDPOINT'] = x.loc['Endpoint']['Address']
-    x.loc['ROLE_ARN'] = x.loc['IamRoles'][0]['IamRoleArn']
-    print("DWH_ENDPOINT :: ", x.loc['DWH_ENDPOINT'])
-    print("DWH_ROLE_ARN :: ", x.loc['ROLE_ARN'])
-    return x
-
-
 def open_ports(ec2, cluster_properties, DWH_PORT):
     """
     Update clusters security group to allow access through redshift port
-    Authorize ingres on executable IP
+    Authorize ingres on IP of the executable
     Args:
         ec2 (bot3.client): ec2 client
         cluster_properties (pd.Series): Pandas Series
@@ -136,12 +110,6 @@ def open_ports(ec2, cluster_properties, DWH_PORT):
     """
 
     print("2.3 Opening port of the cluster")
-    def get_myip():
-        import requests
-        r = requests.get('http://checkip.amazonaws.com/')
-        r = r.text.rstrip('\n')
-        r += '/32'
-        return r
     myip = get_myip()
     print('Cidr IP block of executable:', myip)
     try:
@@ -159,7 +127,23 @@ def open_ports(ec2, cluster_properties, DWH_PORT):
         print(e)
 
 
-def main(config):
+def create_cluster_main(config):
+    """
+    Use the admin config file
+    In this order:
+    Instructs AWS to:
+    1. create a IAM role for the DWH
+    2. create a Redshift Cluster with the associate DWH IAM Role
+    3. get the cluster properties
+    4. open the ports on EC2 for the DWH
+    5. test connection
+
+    Args:
+        config:
+
+    Returns:
+        None
+    """
     KEY = config.get('AWS', 'KEY')
     SECRET = config.get('AWS', 'SECRET')
 
@@ -172,7 +156,7 @@ def main(config):
     DWH_DB_USER = config.get("DB", "DB_USER")
     DWH_DB_PASSWORD = config.get("DB", "DB_PASSWORD")
     DWH_PORT = config.get("DB", "DB_PORT")
-
+    region = config.get("REGION", "REGION")
     DWH_IAM_ROLE_NAME = config.get("IAM", "DWH_IAM_ROLE_NAME")
 
     params = {
@@ -190,7 +174,7 @@ def main(config):
     print(df)
 
     ec2 = boto3.resource('ec2',
-                         region_name="us-west-2",
+                         region_name=region,
                          aws_access_key_id=KEY,
                          aws_secret_access_key=SECRET
                          )
@@ -198,11 +182,11 @@ def main(config):
     iam = boto3.client('iam',
                        aws_access_key_id=KEY,
                        aws_secret_access_key=SECRET,
-                       region_name='us-west-2'
+                       region_name=region
                        )
 
     redshift = boto3.client('redshift',
-                            region_name="us-west-2",
+                            region_name=region,
                             aws_access_key_id=KEY,
                             aws_secret_access_key=SECRET
                             )
@@ -219,20 +203,19 @@ def main(config):
                    DWH_DB_USER,
                    DWH_DB_PASSWORD
                    )
-
-    cluster_properties = get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER)
-
+    print('waiting 10 seconds after cluster creation')
+    time.sleep(10)
+    print('resuming')
+    print("2.2. Showing cluster properties")
+    cluster_properties = get_cluster_properties(config)
+    print(cluster_properties.loc[["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
+                  "NumberOfNodes", 'VpcId']])
+    print("2.3. Opening Port")
     open_ports(ec2, cluster_properties, DWH_PORT)
-    host = cluster_properties.loc['DWH_ENDPOINT']
+    host = cluster_properties.loc['Endpoint_address']
     print('host:', host)
     print("3. Testing connections")
-    conn=psycopg2.connect(
-            dbname=DWH_DB,
-            host=host,
-            port=DWH_PORT,
-            user=DWH_DB_USER,
-            password=DWH_DB_PASSWORD
-    )
+    conn = get_conn(config)
     print(conn)
     cur = conn.cursor()
     cur.execute("""select 1 as foo""")
