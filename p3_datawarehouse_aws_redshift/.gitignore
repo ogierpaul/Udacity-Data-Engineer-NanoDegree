@@ -2,3 +2,4 @@ project/config/admin_config.cfg
 project/config/dbuser_config.cfg
 mainconnect.py
 gistconn.py
+project/exploration/*

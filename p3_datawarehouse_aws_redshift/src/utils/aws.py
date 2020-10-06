@@ -1,5 +1,6 @@
 import requests
 import boto3
+import pandas as pd
 
 def get_myip():
     """
@@ -13,14 +14,16 @@ def get_myip():
     r += '/32'
     return r
 
-def get_endpoint(config):
+def get_cluster_properties(config):
     """
-    Endpoint of the Redshift cluster
+    Read the cluster properties, returns the following keys:
+    ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
+    "NumberOfNodes", 'VpcId', 'Endpoint_address', 'Role_arn']
     Args:
-        config: Config file with the AWS KEY and SECRET key, as well as the DWH_CLUSTER_IDENTIFIER
+        config:
 
     Returns:
-        str: Endpoint (Example: mycluster.jlkjafljlk12kb.us-west-2.redshift.amazonaws.com
+        pd.Series (Keys:
     """
     KEY = config.get('AWS', 'KEY')
     SECRET = config.get('AWS', 'SECRET')
@@ -32,5 +35,15 @@ def get_endpoint(config):
                             aws_secret_access_key=SECRET
                             )
     x = redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]
-    v = x['Endpoint']['Address']
-    return v
+    x = [(k, v) for k, v in x.items()]
+    x = pd.DataFrame(data=x, columns=['Key', 'Value']).set_index('Key')['Value']
+    keysToShow = ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
+                  "NumberOfNodes", 'VpcId']
+    for k in keysToShow:
+        try:
+            assert k in x.index
+        except:
+            raise KeyError('Missing key {}'.format(k))
+    x.loc['Endpoint_address'] = x.loc['Endpoint']['Address']
+    x.loc['Role_arn'] = x.loc['IamRoles'][0]['IamRoleArn']
+    return x

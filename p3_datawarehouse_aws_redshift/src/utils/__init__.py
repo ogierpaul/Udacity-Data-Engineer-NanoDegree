@@ -1,1 +1,1 @@
-from p3_datawarehouse_aws_redshift.src.utils.aws import get_myip, get_endpoint
+from p3_datawarehouse_aws_redshift.src.utils.aws import get_myip, get_cluster_properties

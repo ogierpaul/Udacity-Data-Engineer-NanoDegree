@@ -4,6 +4,7 @@ import configparser
 
 config = configparser.ConfigParser()
 config.read('admin_config.cfg')
+
 # STAGING TABLES INSERT
 staging_events_copy = """COPY staging_events
 FROM '{filelocation}'
