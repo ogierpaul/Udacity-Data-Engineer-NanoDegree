@@ -1,7 +1,7 @@
 # Config files
 - contains two files:
     - admin_config.cfg to set-up the cluster and roles
-    - dbuser_config.cfg to perform the ETL
+    - dbuser_config.cfg to work on the Redshift cluster (create the tables and perform the ETL)
 - Separates admin rights from routine access enhances security:
     - One data engineer executant can continue develop on RedShift using dbuser rights
     - But he can not create new cluster, or launch EC2 clusters
@@ -39,7 +39,6 @@ IAM_ROLE_NAME=<IAM role name>
 
 ## Db User config
 - This parameters can be configured safely after the cluster has been created
-- Get the ARN and Host parameter for step 1), create_cluster_main.py
 
 ````buildoutcfg
 [AWS]
