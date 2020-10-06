@@ -5,7 +5,7 @@ Instructs AWS to:
 1. create a IAM role for the DWH
 2. create a Redshift Cluster with the associate DWH IAM Role
 3. get the cluster properties
-4. open the ports on EC2 for the DWH
+4. open the ports for the current IP on EC2 for the DWH
 5. test connection
 
 ### Create the tables in Redshift

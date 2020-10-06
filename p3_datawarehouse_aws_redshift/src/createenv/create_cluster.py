@@ -11,7 +11,6 @@ import json
 # - added condition to only open ports on myIP
 # - the main routine needs a config parameter
 # - added sample test of connector
-#TODO: Create dbuser
 
 
 def create_iam_role(iam, DWH_IAM_ROLE_NAME):
@@ -125,7 +124,7 @@ def get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER):
 def open_ports(ec2, cluster_properties, DWH_PORT):
     """
     Update clusters security group to allow access through redshift port
-    Authorize ingres on executable IP
+    Authorize ingres on IP of the executable
     Args:
         ec2 (bot3.client): ec2 client
         cluster_properties (pd.Series): Pandas Series
@@ -159,7 +158,7 @@ def open_ports(ec2, cluster_properties, DWH_PORT):
         print(e)
 
 
-def main(config):
+def create_cluster_main(config):
     """
     Use the admin config file
     In this order:
