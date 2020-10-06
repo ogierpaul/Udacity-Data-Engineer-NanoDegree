@@ -13,13 +13,13 @@ The task is to build an ETL Pipeline that:
 1. Extracts their data from S3
 2. Staging it in Redshift
 3. Transforming data into a set of Dimensional and Fact Tables for their Analytics Team to continue finding Insights to what songs their users are listening to.
-4. Prepare Queries on the Materialized views.
+4. Run some analytics queries
 
 ### 1.3. ETL Pipeline
 1. JSON on S3
 2. Staging Tables on RedShift
 3. Star Schema on same RedShift Cluster
-4. Views on same RedShift Cluster
+4. Analytics queries output in pandas DataFrame
 
 ---
 ## 2. Data Analysis
