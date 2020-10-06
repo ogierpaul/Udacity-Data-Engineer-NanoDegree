@@ -1,0 +1,1 @@
+from p3_datawarehouse_aws_redshift.src.etl.etl import etl_main

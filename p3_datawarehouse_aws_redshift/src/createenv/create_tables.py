@@ -14,7 +14,7 @@ def create_tables(cur, conn):
         conn.commit()
 
 
-def main(config):
+def create_tables_main(config):
     jdbcstring = "host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values())
     conn = psycopg2.connect(jdbcstring)
     print('*****\nChecking Connectionstatus:\n{}\n********'.format(conn.closed))

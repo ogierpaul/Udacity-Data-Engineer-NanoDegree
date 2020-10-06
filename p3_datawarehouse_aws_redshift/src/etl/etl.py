@@ -15,7 +15,7 @@ def insert_tables(cur, conn):
         conn.commit()
 
 
-def main(config):
+def etl_main(config):
     conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
     cur = conn.cursor()
     
@@ -23,6 +23,3 @@ def main(config):
     # insert_tables(cur, conn)
 
     conn.close()
-
-if __name__ == "__main__":
-    main()
