@@ -9,6 +9,7 @@ import time
 # - Rewrote script using my style to better understand the steps
 # - Updated the doc strings
 # - added condition to only open ports on myIP
+# - added a pause in the execution to let the cluster time to start
 # - the main routine needs a config parameter
 # - added sample test of connector
 
@@ -239,9 +240,9 @@ def create_cluster_main(config):
                    DWH_DB_USER,
                    DWH_DB_PASSWORD
                    )
-
+    print('waiting 10 seconds after cluster creation')
     time.sleep(10)
-
+    print('resuming')
     cluster_properties = get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER)
 
     open_ports(ec2, cluster_properties, DWH_PORT)
