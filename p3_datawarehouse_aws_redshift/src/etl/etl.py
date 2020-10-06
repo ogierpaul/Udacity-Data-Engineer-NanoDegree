@@ -3,15 +3,56 @@ from psycopg2 import sql
 from p3_datawarehouse_aws_redshift.src.etl.sql_queries_etl import insert_table_queries, staging_events_copy, staging_songs_copy
 from p3_datawarehouse_aws_redshift.src.utils import get_cluster_properties
 
-def load_staging_table(cur, conn, query, filelocation, jsonpath):
-    q = sql.SQL(query).format(filelocation=sql.Literal(filelocation), jsonpath=sql.Literal(jsonpath))
-    print(q)
+
+def load_staging_songs(cur, conn, arn, filelocation):
+    """
+    Load the song data from s3 into the staging tables for songs
+    Args:
+        cur (psycopg2.Cursor):
+        conn (psycopg2.Connector):
+        arn (str): ARN role to user
+        filelocation (str): s3 bucket location
+    Returns:
+        None
+    """
+    q = sql.SQL(staging_songs_copy).format(
+        filelocation=sql.Literal(filelocation),
+        arn=sql.Literal(arn)
+    )
+    print(q.as_string(conn))
     cur.execute(q)
     conn.commit()
+    return None
+
+def load_staging_events(cur, conn, arn, filelocation, jsonpath):
+    """
+    Load the log (events) data from s3 into the staging table for events
+    Args:
+        cur (psycopg2.Cursor):
+        conn (psycopg2.Connector):
+        arn (str): ARN role to user
+        filelocation (str): s3 bucket location
+        jsonpath (str): jsonpath
+
+    Returns:
+        None
+    """
+    q = sql.SQL(staging_events_copy).format(
+        filelocation=sql.Literal(filelocation),
+        jsonpath=sql.Literal(jsonpath),
+        arn=sql.Literal(arn)
+    )
+    print(q.as_string(conn))
+    cur.execute(q)
+    conn.commit()
+    return None
+
+
 
 
 def insert_tables(cur, conn):
     for query in insert_table_queries:
+        print(query)
         cur.execute(query)
         conn.commit()
 
@@ -31,6 +72,7 @@ def get_conn(config):
         DWH_PORT
     )
     conn = psycopg2.connect(jdbcstring)
+    print(jdbcstring)
     print('*****\nChecking Connectionstatus:\n{}\n********'.format(conn.closed))
     return conn
 
@@ -40,8 +82,13 @@ def etl_main(config):
     conn = get_conn(config)
     cur = conn.cursor()
     print('load staging tables')
-    load_staging_table(cur, conn, query=staging_events_copy, filelocation=)
-    print('insert tables')
+    loglocation = 's3://udacity-dend/log_data'
+    logjsonpath = 's3://udacity-dend/log_json_path.json'
+    songlocation = 's3://udacity-dend/song_data'
+    print('\nStart loading data into staging tables\n')
+    load_staging_events(cur, conn, filelocation=loglocation, jsonpath=logjsonpath, arn=arn_role)
+    load_staging_songs(cur, conn, filelocation=songlocation, arn=arn_role)
+    print('\nStart inserting data into star schema\n')
     insert_tables(cur, conn)
-    print('closing connection')
+    print('\nclosing connection\n')
     conn.close()

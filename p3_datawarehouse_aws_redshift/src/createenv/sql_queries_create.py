@@ -51,7 +51,7 @@ PRIMARY KEY (staging_song_id)
 DISTSTYLE EVEN;
 """)
 songplay_table_create = ("""
-CREATE TABLE IF NOT EXISTS songplays
+CREATE TABLE IF NOT EXISTS songplay
     (
         songplay_id BIGINT IDENTITY(0,1),
         start_time TIMESTAMP,

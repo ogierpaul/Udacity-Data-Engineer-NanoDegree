@@ -6,14 +6,16 @@ config = configparser.ConfigParser()
 config.read('admin_config.cfg')
 
 # STAGING TABLES INSERT
-staging_events_copy = """COPY staging_events
-FROM '{filelocation}'
-IAM_ROLE '{arn}'
+staging_events_copy = """
+COPY staging_events
+FROM {filelocation}
+IAM_ROLE {arn}
 COMPUPDATE OFF
 REGION 'us-west-2'
 TIMEFORMAT as 'epochmillisecs'
 TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL
-FORMAT AS JSON '{jsonpath}' ;"""
+FORMAT AS JSON {jsonpath} ;
+"""
 #
 # .format(
 #     config.get("S3", "LOG_DATA"),
@@ -23,8 +25,8 @@ FORMAT AS JSON '{jsonpath}' ;"""
 
 staging_songs_copy = """
 COPY staging_songs
-FROM '{filelocation}'
-IAM_ROLE '{arn}'
+FROM {filelocation}
+IAM_ROLE {arn}
 COMPUPDATE OFF
 REGION 'us-west-2'
 TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL
