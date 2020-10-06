@@ -65,6 +65,9 @@ The task is to build an ETL Pipeline that:
 See the Jupyter Notebook **Visualizing the JSON input data.ipynb**
 
 ### 2.2. Star Schema
+#### Representation:
+TODO
+
 #### 2.2.1. Fact Table
 ##### Songplays
 Records in event data associated with song plays i.e. records with page NextSong
@@ -170,10 +173,12 @@ This table will:
 - Create a dashboard for analytic queries on your new database
 - [Optional] Provide example queries and results for song play analysis.
 
+### Next steps
+* Use UPSERT or MERGE : [Upsert or Merge in Redshift](https://docs.aws.amazon.com/redshift/latest/dg/t_updating-inserting-using-staging-tables-.html)
 
 ### External References Used:
-- [Using Dist Key for Star Schema](https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on-amazon-redshift/)
-- [Using Dist Key and Sort Key (Flydata introduction)](https://www.flydata.com/blog/amazon-redshift-distkey-and-sortkey/)
-- [Copy from JSON (AWS documentation)](https://docs.aws.amazon.com/redshift/latest/dg/copy-usage_notes-copy-from-json.html)
-- [Rewritten query with the COPY command](https://aws.amazon.com/premiumsupport/knowledge-center/redshift-fix-copy-analyze-statupdate-off/)
-- [Redshift does not enforce primary key](http://www.sqlhaven.com/amazon-redshift-what-you-need-to-think-before-defining-primary-key/#:~:text=Redshift%20does%20not%20enforce%20these,exists%20in%20the%20referenced%20table)
+* [Using Dist Key for Star Schema](https://aws.amazon.com/blogs/big-data/optimizing-for-star-schemas-and-interleaved-sorting-on-amazon-redshift/)
+* [Using Dist Key and Sort Key (Flydata introduction)](https://www.flydata.com/blog/amazon-redshift-distkey-and-sortkey/)
+* [Copy from JSON (AWS documentation)](https://docs.aws.amazon.com/redshift/latest/dg/copy-usage_notes-copy-from-json.html)
+* [Rewritten query with the COPY command](https://aws.amazon.com/premiumsupport/knowledge-center/redshift-fix-copy-analyze-statupdate-off/)
+* [Redshift does not enforce primary key](http://www.sqlhaven.com/amazon-redshift-what-you-need-to-think-before-defining-primary-key/)
