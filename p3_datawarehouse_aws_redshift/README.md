@@ -66,7 +66,7 @@ See the Jupyter Notebook **Visualizing the JSON input data.ipynb**
 
 ### 2.2. Star Schema
 #### Representation:
-TODO
+[Star Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/p3_datawarehouse_aws_redshift/images/star_schema.jpg)
 
 #### 2.2.1. Fact Table
 ##### Songplays
