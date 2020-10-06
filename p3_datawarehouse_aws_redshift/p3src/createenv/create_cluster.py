@@ -3,7 +3,7 @@ import psycopg2
 import boto3
 import json
 import time
-from p3_datawarehouse_aws_redshift.p3src.utils import get_myip, get_cluster_properties
+from p3src.utils import get_myip, get_cluster_properties, get_conn
 
 # Inspired from https://github.com/Flor91/Data-engineering-nanodegree/blob/master/2_dend_cloud_data_warehouses/P3_Data_Warehouse_Project/create_cluster.py
 ## Changes / Addition
@@ -215,13 +215,7 @@ def create_cluster_main(config):
     host = cluster_properties.loc['Endpoint_address']
     print('host:', host)
     print("3. Testing connections")
-    conn=psycopg2.connect(
-            dbname=DWH_DB,
-            host=host,
-            port=DWH_PORT,
-            user=DWH_DB_USER,
-            password=DWH_DB_PASSWORD
-    )
+    conn = get_conn(config)
     print(conn)
     cur = conn.cursor()
     cur.execute("""select 1 as foo""")

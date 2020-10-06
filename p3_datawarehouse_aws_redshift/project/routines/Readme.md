@@ -9,3 +9,14 @@
 ## Parameters
 * They need as input the path to the config file for the admin and the database user
 * Normally stored in the config file of the project
+
+## Use
+- Make sure the module p3src has been installed
+- Make sure you have the pre-requisites imports
+- Launch the routines via the command line
+
+### Example for create_cluster_main:
+
+```buildoutcfg
+python create_cluster_main.py
+```

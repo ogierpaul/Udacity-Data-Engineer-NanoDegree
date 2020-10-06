@@ -50,7 +50,7 @@ songplay_table_insert = ("""
                     a.sessionId as session_id,
                     a.location as location,
                     a.userAgent as user_agent
-    FROM (SELECT * FROM staging_events WHERE user_id IS NOT NULL) a
+    FROM (SELECT * FROM staging_events WHERE userId IS NOT NULL) a
     LEFT JOIN staging_songs b
     ON
         a.song = b.title

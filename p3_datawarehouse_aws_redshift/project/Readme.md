@@ -4,4 +4,4 @@
 - Store the routines the can be called by the end-user or automated
 
 ## Use
-- Make sure the module p3_datawarehouse_aws_
+* See the config Readme and the routines Readme for use

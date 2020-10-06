@@ -1,4 +1,4 @@
-from p3_datawarehouse_aws_redshift.p3src import create_cluster_main
+from p3src import create_cluster_main
 import configparser
 
 # Input here the path to the admin config file

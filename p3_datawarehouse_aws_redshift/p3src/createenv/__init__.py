@@ -1,2 +1,2 @@
-from p3_datawarehouse_aws_redshift.p3src.createenv.create_cluster import create_cluster_main
-from p3_datawarehouse_aws_redshift.p3src.createenv.create_tables import create_tables_main
+from p3src.createenv.create_cluster import create_cluster_main
+from p3src.createenv.create_tables import create_tables_main

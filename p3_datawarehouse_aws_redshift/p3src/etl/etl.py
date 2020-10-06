@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import sql
-from p3_datawarehouse_aws_redshift.p3src.etl.sql_queries_etl import insert_table_queries, staging_events_copy, staging_songs_copy
-from p3_datawarehouse_aws_redshift.p3src.utils import get_cluster_properties
+from p3src.etl.sql_queries_etl import insert_table_queries, staging_events_copy, staging_songs_copy
+from p3src.utils import get_cluster_properties, get_conn
 
 
 def load_staging_songs(cur, conn, arn, filelocation):
@@ -55,26 +55,6 @@ def insert_tables(cur, conn):
         print(query)
         cur.execute(query)
         conn.commit()
-
-
-def get_conn(config):
-    x = get_cluster_properties(config)
-    host = x['Endpoint_address']
-    DWH_DB = config.get("DB", "DB_NAME")
-    DWH_DB_USER = config.get("DB", "DB_USER")
-    DWH_DB_PASSWORD = config.get("DB", "DB_PASSWORD")
-    DWH_PORT = config.get("DB", "DB_PORT")
-    jdbcstring = "host={} dbname={} user={} password={} port={}".format(
-        host,
-        DWH_DB,
-        DWH_DB_USER,
-        DWH_DB_PASSWORD,
-        DWH_PORT
-    )
-    conn = psycopg2.connect(jdbcstring)
-    print(jdbcstring)
-    print('*****\nChecking Connectionstatus:\n{}\n********'.format(conn.closed))
-    return conn
 
 def etl_main(config):
     x = get_cluster_properties(config)
