@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="test rebase" />
+    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/createenv/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/createenv/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/etl/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/etl/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/config/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/config/Readme.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -267,21 +273,7 @@
       <workItem from="1599503726855" duration="1752000" />
       <workItem from="1601924176537" duration="19197000" />
       <workItem from="1602013367805" duration="4085000" />
-      <workItem from="1602018607533" duration="248000" />
-    </task>
-    <task id="LOCAL-00008" summary="updated project structure">
-      <created>1598790888381</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1598790888381</updated>
-    </task>
-    <task id="LOCAL-00009" summary="created create_cluster file&#10;Create_cluster will use aws programmatic access to set-up a cluster with the right configuration for the project">
-      <created>1599475254371</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1599475254371</updated>
+      <workItem from="1602018607533" duration="568000" />
     </task>
     <task id="LOCAL-00010" summary="moved create_cluster.py to the src code directory">
       <created>1599475273128</created>
@@ -612,7 +604,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602018437081</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="test rebase">
+      <created>1602018961894</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1602018961894</updated>
+    </task>
+    <task id="LOCAL-00058" summary="removed diagram">
+      <created>1602019001679</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1602019001679</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,8 +631,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="Started work on etl&#10;- Added data flow chart&#10;- Movded into sub-module" />
-    <MESSAGE value="added Readme and init" />
     <MESSAGE value="moved to etl sub-module" />
     <MESSAGE value="moved sub-module" />
     <MESSAGE value="updated etl&#10;refreshed create_cluster" />
@@ -650,7 +654,9 @@
     <MESSAGE value="Added analytics queries" />
     <MESSAGE value="fixed project scope" />
     <MESSAGE value="Removed pics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed pics" />
+    <MESSAGE value="test rebase" />
+    <MESSAGE value="removed diagram" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed diagram" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599471165534">
@@ -669,10 +675,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1601972522396" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1602018961580">
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1602019001276">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1602018961580" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1602019001276" />
     <state x="430" y="300" key="Github.ShareDialog" timestamp="1598347656609">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

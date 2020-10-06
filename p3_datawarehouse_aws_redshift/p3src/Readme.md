@@ -11,7 +11,7 @@
 
 ## Architecture Schema
 ### Users and Roles
-![IAM Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/wip/99-Appendix/IAM_Architecture_Diagram.jpg)
+![IAM Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/p3_datawarehouse_aws_redshift/images/IAM_Architecture_Diagram.jpg)
 
 ### Tables created
 
@@ -26,7 +26,7 @@
 |time|start_time|ALL|start_time
 
 ### Data Flow Target for ETL
-![DataFlow](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/wip/99-Appendix/DataTransformation.jpg)
+![DataFlow](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/p3_datawarehouse_aws_redshift/images/DataTransformation.jpg)
 
 ## Installation
 ### Install package locally

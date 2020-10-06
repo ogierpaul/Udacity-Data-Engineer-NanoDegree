@@ -5,7 +5,6 @@
 * Executed by connecting to the Redshift Cluster 
 
 ## Data Flow Target for ETL
-![DataFlow](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/wip/99-Appendix/DataTransformation.jpg)
+![DataFlow](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/tree/master/p3_datawarehouse_aws_redshift/images/DataTransformation.jpg)
 
-## Parameters
-TODO
+

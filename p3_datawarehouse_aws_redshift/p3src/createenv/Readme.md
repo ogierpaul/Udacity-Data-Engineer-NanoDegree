@@ -16,7 +16,7 @@ Instructs AWS to:
 
 ## Architecture Schema
 ### Users and Roles
-![IAM Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/wip/99-Appendix/IAM_Architecture_Diagram.jpg)
+![IAM Schema](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/tree/master/p3_datawarehouse_aws_redshift/images/IAM_Architecture_Diagram.jpg)
 
 ### Tables created
 
