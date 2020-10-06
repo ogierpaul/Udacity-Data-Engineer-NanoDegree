@@ -154,9 +154,6 @@ This table will:
 - This query can be used to analyze one user behaviour
 - We will pick a sample user for demo
 
-#### Average of song length duration
-- This query can be used to analyze if all users listen to the complete song or skip halfway through
-
 ## 3. Project Structure
 ### Code Build
 - src: Main Code folder. This is where I put the etl code and pipeline.
