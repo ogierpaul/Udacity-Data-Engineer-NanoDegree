@@ -1,7 +1,7 @@
 from p3_datawarehouse_aws_redshift.src import create_tables_main
 import configparser
 # Input here the path to the admin config file
-config_path = '/Users/paulogier/81-GithubPackages/Udacity-Data-Engineer-NanoDegree/p3_datawarehouse_aws_redshift/project/config/admin_config.cfg'
+config_path = '/Users/paulogier/81-GithubPackages/Udacity-Data-Engineer-NanoDegree/p3_datawarehouse_aws_redshift/project/config/dbuser_config.cfg'
 
 if __name__ == '__main__':
     config = configparser.ConfigParser()

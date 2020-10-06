@@ -3,6 +3,7 @@ import psycopg2
 import boto3
 import json
 import time
+from p3_datawarehouse_aws_redshift.src.utils import get_myip
 
 # Inspired from https://github.com/Flor91/Data-engineering-nanodegree/blob/master/2_dend_cloud_data_warehouses/P3_Data_Warehouse_Project/create_cluster.py
 ## Changes / Addition
@@ -101,7 +102,7 @@ def get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER):
     ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
     "NumberOfNodes", 'VpcId', 'DWH_ENDPOINT', 'DWH_ARN']
     Args:
-        redshift (bot3.client): Redshift Client
+        redshift (boto3.client): Redshift Client
         DWH_CLUSTER_IDENTIFIER: Cluster Id
 
     Returns:
@@ -141,12 +142,6 @@ def open_ports(ec2, cluster_properties, DWH_PORT):
     """
 
     print("2.3 Opening port of the cluster")
-    def get_myip():
-        import requests
-        r = requests.get('http://checkip.amazonaws.com/')
-        r = r.text.rstrip('\n')
-        r += '/32'
-        return r
     myip = get_myip()
     print('Cidr IP block of executable:', myip)
     try:
@@ -193,7 +188,7 @@ def create_cluster_main(config):
     DWH_DB_USER = config.get("DB", "DB_USER")
     DWH_DB_PASSWORD = config.get("DB", "DB_PASSWORD")
     DWH_PORT = config.get("DB", "DB_PORT")
-
+    region = config.get("REGION", "REGION")
     DWH_IAM_ROLE_NAME = config.get("IAM", "DWH_IAM_ROLE_NAME")
 
     params = {
@@ -211,7 +206,7 @@ def create_cluster_main(config):
     print(df)
 
     ec2 = boto3.resource('ec2',
-                         region_name="us-west-2",
+                         region_name=region,
                          aws_access_key_id=KEY,
                          aws_secret_access_key=SECRET
                          )
@@ -219,11 +214,11 @@ def create_cluster_main(config):
     iam = boto3.client('iam',
                        aws_access_key_id=KEY,
                        aws_secret_access_key=SECRET,
-                       region_name='us-west-2'
+                       region_name=region
                        )
 
     redshift = boto3.client('redshift',
-                            region_name="us-west-2",
+                            region_name=region,
                             aws_access_key_id=KEY,
                             aws_secret_access_key=SECRET
                             )

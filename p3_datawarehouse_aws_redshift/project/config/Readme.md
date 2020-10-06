@@ -49,14 +49,15 @@ SECRET=<db user secret key>
 [REGION]
 REGION=us-west-2
 
+[DWH]
+DWH_CLUSTER_IDENTIFIER = <cluster identifier>
+
 [DB]
 DB_NAME=<Database name>
 DB_USER=<Database user>
 DB_PASSWORD=<Database password>
 DB_PORT=<Port>
 
-[IAM]
-IAM_ROLE_NAME=<IAM role name>
 ````
 
 ### Variables

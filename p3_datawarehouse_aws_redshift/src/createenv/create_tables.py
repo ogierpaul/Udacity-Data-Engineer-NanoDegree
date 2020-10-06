@@ -1,6 +1,6 @@
 import psycopg2
 from p3_datawarehouse_aws_redshift.src.createenv.sql_queries_create import create_table_queries, drop_table_queries
-
+from p3_datawarehouse_aws_redshift.src.utils import get_endpoint
 
 def drop_tables(cur, conn):
     for query in drop_table_queries:
@@ -15,14 +15,25 @@ def create_tables(cur, conn):
 
 
 def create_tables_main(config):
-    jdbcstring = "host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values())
+    host = get_endpoint(config)
+    DWH_DB = config.get("DB", "DB_NAME")
+    DWH_DB_USER = config.get("DB", "DB_USER")
+    DWH_DB_PASSWORD = config.get("DB", "DB_PASSWORD")
+    DWH_PORT = config.get("DB", "DB_PORT")
+    jdbcstring = "host={} dbname={} user={} password={} port={}".format(
+        host,
+        DWH_DB,
+        DWH_DB_USER,
+        DWH_DB_PASSWORD,
+        DWH_PORT
+    )
     conn = psycopg2.connect(jdbcstring)
     print('*****\nChecking Connectionstatus:\n{}\n********'.format(conn.closed))
     cur = conn.cursor()
 
     drop_tables(cur, conn)
     create_tables(cur, conn)
-
     conn.close()
+    print('tables created')
 
 
