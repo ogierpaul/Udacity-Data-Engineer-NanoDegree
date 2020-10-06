@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="dwh@redshift-cluster-1.ccczdenythtf.eu-central-1.redshift.amazonaws.com" uuid="5e6660da-da11-46b1-aa6d-9d8b0e517356">
+      <driver-ref>redshift</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.amazon.redshift.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:redshift://redshift-cluster-1.ccczdenythtf.eu-central-1.redshift.amazonaws.com:5439/dwh</jdbc-url>
+    </data-source>
+  </component>
+</project>

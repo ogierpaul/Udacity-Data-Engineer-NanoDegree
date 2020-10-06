@@ -1,0 +1,6 @@
+awscli==1.18.125
+boto3==1.14.40
+numpy==1.16.2
+pandas==0.24.2
+psycopg2==2.8.5
+ptyprocess==0.6.0
