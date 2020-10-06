@@ -2,7 +2,7 @@ import pandas as pd
 import psycopg2
 import boto3
 import json
-
+import time
 
 # Inspired from https://github.com/Flor91/Data-engineering-nanodegree/blob/master/2_dend_cloud_data_warehouses/P3_Data_Warehouse_Project/create_cluster.py
 ## Changes / Addition
@@ -113,6 +113,11 @@ def get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER):
 
     keysToShow = ["ClusterIdentifier", "NodeType", "ClusterStatus", "MasterUsername", "DBName", "Endpoint",
                   "NumberOfNodes", 'VpcId']
+    for k in keysToShow:
+        try:
+            assert k in x.index
+        except:
+            raise KeyError('Missing key {}'.format(k))
     print(x.loc[keysToShow])
     x.loc['DWH_ENDPOINT'] = x.loc['Endpoint']['Address']
     x.loc['ROLE_ARN'] = x.loc['IamRoles'][0]['IamRoleArn']
@@ -234,6 +239,8 @@ def create_cluster_main(config):
                    DWH_DB_USER,
                    DWH_DB_PASSWORD
                    )
+
+    time.sleep(10)
 
     cluster_properties = get_cluster_properties(redshift, DWH_CLUSTER_IDENTIFIER)
 
