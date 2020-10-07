@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="added gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oth.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -76,15 +74,16 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/P4-Data_Lake_with_Spark/Emptycode" />
       <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/exploration" />
       <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/routines" />
       <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project" />
       <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/src/etl" />
-      <recent name="$PROJECT_DIR$/99-Appendix" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
     </key>
   </component>
   <component name="RunManager" selected="Python.create_cluster_main">
@@ -271,28 +270,7 @@
       <workItem from="1599503726855" duration="1752000" />
       <workItem from="1601924176537" duration="19197000" />
       <workItem from="1602013367805" duration="4085000" />
-      <workItem from="1602018607533" duration="1337000" />
-    </task>
-    <task id="LOCAL-00014" summary="updated readme with sample config">
-      <created>1599504683179</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1599504683179</updated>
-    </task>
-    <task id="LOCAL-00015" summary="adapated create_cluster to new version of config file">
-      <created>1599505323706</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1599505323706</updated>
-    </task>
-    <task id="LOCAL-00016" summary="created two main routines in src, and their equivalent outside of the src code">
-      <created>1601924265173</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1601924265174</updated>
+      <workItem from="1602018607533" duration="1494000" />
     </task>
     <task id="LOCAL-00017" summary="Clarified Readme.md&#10;Linked to AWS Documentation">
       <created>1601924728135</created>
@@ -616,7 +594,28 @@
       <option name="project" value="LOCAL" />
       <updated>1602057893485</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="added gitignore">
+      <created>1602057965607</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057965608</updated>
+    </task>
+    <task id="LOCAL-00064" summary="added gitignore">
+      <created>1602057979778</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057979778</updated>
+    </task>
+    <task id="LOCAL-00065" summary="added gitignore">
+      <created>1602058016288</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1602058016288</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +628,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="script will pause for 10 seconds after creating the cluster" />
     <MESSAGE value="renamed routine to create the tables" />
     <MESSAGE value="Added one util package to: get executable IP, get Cluster Endpoint&#10;Fixed region in create_cluster.py&#10;Fixed config file for admin and dbuser" />
     <MESSAGE value="Fixed Readme and initiated elsewhere" />
@@ -654,7 +652,8 @@
     <MESSAGE value="updated README.md" />
     <MESSAGE value="Copied file from Udacity" />
     <MESSAGE value="Added row files from udacity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added row files from udacity" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599471165534">
@@ -677,10 +676,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1601972522396" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1602058002208">
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1602058024352">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1602058002208" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1602058024352" />
     <state x="430" y="300" key="Github.ShareDialog" timestamp="1598347656609">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -705,10 +704,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="353" y="123" key="MultipleFileMergeDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018981243" />
-    <state x="149" y="39" key="SettingsEditor" timestamp="1601994037802">
+    <state x="149" y="39" key="SettingsEditor" timestamp="1602058115389">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="149" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1601994037802" />
+    <state x="149" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1602058115389" />
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog" timestamp="1602018803593">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
