@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/createenv/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/createenv/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/etl/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/etl/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/config/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/config/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oth.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wip" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +63,7 @@
     <property name="DatabaseDriversLRU" value="redshift" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -273,35 +271,7 @@
       <workItem from="1599503726855" duration="1752000" />
       <workItem from="1601924176537" duration="19197000" />
       <workItem from="1602013367805" duration="4085000" />
-      <workItem from="1602018607533" duration="568000" />
-    </task>
-    <task id="LOCAL-00010" summary="moved create_cluster.py to the src code directory">
-      <created>1599475273128</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1599475273128</updated>
-    </task>
-    <task id="LOCAL-00011" summary="config file is now a parameter of the main routine">
-      <created>1599475362484</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1599475362484</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Script to set-up cluster with config outside of the source code&#10;- Updated sql queries to defer dynamic formatting of the queries until called by project">
-      <created>1599475990969</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1599475990969</updated>
-    </task>
-    <task id="LOCAL-00013" summary="added readme to the config folder">
-      <created>1599504451530</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1599504451530</updated>
+      <workItem from="1602018607533" duration="1337000" />
     </task>
     <task id="LOCAL-00014" summary="updated readme with sample config">
       <created>1599504683179</created>
@@ -618,7 +588,35 @@
       <option name="project" value="LOCAL" />
       <updated>1602019001679</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Updated images path">
+      <created>1602019190362</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1602019190362</updated>
+    </task>
+    <task id="LOCAL-00060" summary="updated README.md">
+      <created>1602019248807</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1602019248807</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Copied file from Udacity">
+      <created>1602057874209</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057874209</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Added row files from udacity">
+      <created>1602057893485</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057893485</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,10 +629,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="moved to etl sub-module" />
-    <MESSAGE value="moved sub-module" />
-    <MESSAGE value="updated etl&#10;refreshed create_cluster" />
-    <MESSAGE value="cleaned project structure, pre-test" />
     <MESSAGE value="script will pause for 10 seconds after creating the cluster" />
     <MESSAGE value="renamed routine to create the tables" />
     <MESSAGE value="Added one util package to: get executable IP, get Cluster Endpoint&#10;Fixed region in create_cluster.py&#10;Fixed config file for admin and dbuser" />
@@ -656,13 +650,21 @@
     <MESSAGE value="Removed pics" />
     <MESSAGE value="test rebase" />
     <MESSAGE value="removed diagram" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed diagram" />
+    <MESSAGE value="Updated images path" />
+    <MESSAGE value="updated README.md" />
+    <MESSAGE value="Copied file from Udacity" />
+    <MESSAGE value="Added row files from udacity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added row files from udacity" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599471165534">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1599471165534" />
+    <state x="369" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602057923075">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="369" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1602057923075" />
     <state x="377" y="191" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1598356152442">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -675,10 +677,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1601972522396" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1602019189775">
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1602057893160">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1602019189775" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1602057893160" />
     <state x="430" y="300" key="Github.ShareDialog" timestamp="1598347656609">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -711,10 +713,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1602019193400">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1602019251110">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1602019193400" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1602019251110" />
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1602018697851">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
