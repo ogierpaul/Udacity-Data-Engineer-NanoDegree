@@ -81,6 +81,7 @@ Also, I used inspiration from other students of the Udacity Data Engineering Nan
 - [Naresh Kumar](https://github.com/nareshk1290/Udacity-Data-Engineering)
 - [Florencia Silvestre](https://github.com/Flor91/Data-engineering-nanodegree)
 - [Sanchit Kumar](https://github.com/san089/Udacity-Data-Engineering-Projects)
+- [Tran Nguyen](https://github.com/nhntran/aws_spark_cluster_tutorial)
 - And many thanks to the students on the Udacity Chat
 
 
