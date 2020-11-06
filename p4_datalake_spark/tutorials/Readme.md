@@ -9,8 +9,11 @@
 - [Installing Java 11 ODK with Homebrew](https://medium.com/w-logs/installing-java-11-on-macos-with-homebrew-7f73c1e9fadf)
 - [Launching Pyspark and Jupyter Notebook](https://www.sicara.ai/blog/2017-05-02-get-started-pyspark-jupyter-notebook-3-minutes)
 - [Using Findspark](https://github.com/minrk/findspark)
+- [Spark Session or Context](https://medium.com/@achilleus/spark-session-10d0d66d1d24#:~:text=Spark%20session%20is%20a%20unified,encapsulated%20in%20a%20Spark%20session.)
 
 ### localsparkcontext.py
 - Assuming Spark and Pyspark are available locally
 - Create a Spark Context
 - Calculate Pi
+
+### localsparksession.py
