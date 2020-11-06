@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/23302184/running-pyspark-script-on-emr

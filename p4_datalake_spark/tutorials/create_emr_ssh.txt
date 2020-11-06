@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/55696985/get-aws-emr-dns-address-using-cli
