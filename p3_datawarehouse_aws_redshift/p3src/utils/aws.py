@@ -77,3 +77,21 @@ def get_conn(config):
     else:
         print('Check connection')
     return conn
+
+def s3_list_objects(s3c, bucket, prefix):
+    """
+
+    Args:
+        s3c (boto3.Client): s3 CLIENT
+        bucket (str): bucket
+        prefix (str): prefix
+
+
+    Returns:
+        list
+    """
+    m = []
+    for key in s3c.list_objects(Bucket=bucket, Prefix=prefix)['Contents']:
+        k = key['Key']
+        m.append(k)
+    return m
