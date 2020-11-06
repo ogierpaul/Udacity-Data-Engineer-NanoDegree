@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/createenv/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/createenv/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/etl/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/p3src/etl/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/config/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/config/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jupyter Notebook" />
         <option value="Python Script" />
       </list>
     </option>
@@ -37,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="wip" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,8 +62,8 @@
     <property name="DatabaseDriversLRU" value="redshift" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -79,17 +76,19 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/exploration" />
-      <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/routines" />
-      <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project" />
-      <recent name="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/src/etl" />
-      <recent name="$PROJECT_DIR$/99-Appendix" />
+      <recent name="$PROJECT_DIR$/p4_datalake_spark/tutorials" />
+      <recent name="$PROJECT_DIR$/p4_datalake_spark/emrsubmit" />
+      <recent name="$PROJECT_DIR$/p4_datalake_spark/p4src" />
+      <recent name="$PROJECT_DIR$/p4_datalake_spark" />
+      <recent name="$PROJECT_DIR$/p4_datalake_spark/p4src/" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.create_cluster_main">
+  <component name="RunManager" selected="Python.etl">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,7 +111,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_cluster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="etl (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Udacity-Data-Engineer-NanoDegree" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/udacitypostgres/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p4_Data_Lake_with_Spark/p4src/etl" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p4_Data_Lake_with_Spark/p4src/etl/etl.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="etl" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Udacity-Data-Engineer-NanoDegree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -120,12 +141,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p4_datalake_spark/" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/src/createenv/create_cluster.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p4_datalake_spark/p4src/etl/etl.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -134,7 +155,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_cluster_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="localsparkcontext" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Udacity-Data-Engineer-NanoDegree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -142,12 +163,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/udacitypostgres/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P4-Data_Lake_with_Spark/tutorials" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/create_cluster_main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P4-Data_Lake_with_Spark/tutorials/localsparkcontext.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +177,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sparklocaltest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Udacity-Data-Engineer-NanoDegree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,12 +185,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/udacitypostgres/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p4-Data_Lake_with_Spark/p4src/etl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/create_main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p4-Data_Lake_with_Spark/tutorials/sparklocaltest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,7 +199,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gistconn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sparksessiontest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Udacity-Data-Engineer-NanoDegree" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -186,34 +207,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/udacitypostgres/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p4-Data_Lake_with_Spark/p4src/etl" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/gistconn.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="mainconnect" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Udacity-Data-Engineer-NanoDegree" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/udacitypostgres/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/mainconnect.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p4-Data_Lake_with_Spark/tutorials/sparksessiontest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -239,19 +238,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.create_main (1)" />
-      <item itemvalue="Python.mainconnect" />
-      <item itemvalue="Python.gistconn" />
-      <item itemvalue="Python.create_cluster" />
-      <item itemvalue="Python.create_cluster_main" />
+      <item itemvalue="Python.localsparkcontext" />
+      <item itemvalue="Python.sparklocaltest (1)" />
+      <item itemvalue="Python.sparksessiontest (1)" />
+      <item itemvalue="Python.etl (1)" />
+      <item itemvalue="Python.etl" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.create_cluster_main" />
-        <item itemvalue="Python.create_cluster" />
-        <item itemvalue="Python.gistconn" />
-        <item itemvalue="Python.mainconnect" />
-        <item itemvalue="Python.create_main (1)" />
+        <item itemvalue="Python.etl" />
+        <item itemvalue="Python.etl (1)" />
+        <item itemvalue="Python.sparksessiontest (1)" />
+        <item itemvalue="Python.sparklocaltest (1)" />
+        <item itemvalue="Python.localsparkcontext" />
       </list>
     </recent_temporary>
   </component>
@@ -273,161 +272,16 @@
       <workItem from="1599503726855" duration="1752000" />
       <workItem from="1601924176537" duration="19197000" />
       <workItem from="1602013367805" duration="4085000" />
-      <workItem from="1602018607533" duration="568000" />
-    </task>
-    <task id="LOCAL-00010" summary="moved create_cluster.py to the src code directory">
-      <created>1599475273128</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1599475273128</updated>
-    </task>
-    <task id="LOCAL-00011" summary="config file is now a parameter of the main routine">
-      <created>1599475362484</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1599475362484</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Script to set-up cluster with config outside of the source code&#10;- Updated sql queries to defer dynamic formatting of the queries until called by project">
-      <created>1599475990969</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1599475990969</updated>
-    </task>
-    <task id="LOCAL-00013" summary="added readme to the config folder">
-      <created>1599504451530</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1599504451530</updated>
-    </task>
-    <task id="LOCAL-00014" summary="updated readme with sample config">
-      <created>1599504683179</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1599504683179</updated>
-    </task>
-    <task id="LOCAL-00015" summary="adapated create_cluster to new version of config file">
-      <created>1599505323706</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1599505323706</updated>
-    </task>
-    <task id="LOCAL-00016" summary="created two main routines in src, and their equivalent outside of the src code">
-      <created>1601924265173</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1601924265174</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Clarified Readme.md&#10;Linked to AWS Documentation">
-      <created>1601924728135</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1601924728135</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Init createenv sub-module&#10;Createenv is dedicated to setting-up the cluster and creating the table&#10;It makes the code more readable.">
-      <created>1601926046067</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1601926046067</updated>
-    </task>
-    <task id="LOCAL-00019" summary="updated parameters">
-      <created>1601927389462</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1601927389462</updated>
-    </task>
-    <task id="LOCAL-00020" summary="updated main routine doc">
-      <created>1601930684540</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1601930684540</updated>
-    </task>
-    <task id="LOCAL-00021" summary="added IAM Archi diagram v1">
-      <created>1601930867235</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1601930867235</updated>
-    </task>
-    <task id="LOCAL-00022" summary="included in Readme.md">
-      <created>1601931000164</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1601931000164</updated>
-    </task>
-    <task id="LOCAL-00023" summary="included in Readme.md">
-      <created>1601931062095</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1601931062095</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Updated filename">
-      <created>1601931124303</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1601931124303</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Updated filename">
-      <created>1601931159583</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1601931159583</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Updated file and filepath">
-      <created>1601932507910</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1601932507910</updated>
-    </task>
-    <task id="LOCAL-00027" summary="added file">
-      <created>1601934759357</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934759357</updated>
-    </task>
-    <task id="LOCAL-00028" summary="updated queries">
-      <created>1601934769958</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934769958</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Updated Readme.md">
-      <created>1601934853626</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934853626</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Updated Readme.md">
-      <created>1601934868385</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934868385</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Started work on etl&#10;- Added data flow chart&#10;- Movded into sub-module">
-      <created>1601934928658</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934928658</updated>
+      <workItem from="1602018607533" duration="2662000" />
+      <workItem from="1602238307573" duration="1940000" />
+      <workItem from="1602839918571" duration="1352000" />
+      <workItem from="1603093874042" duration="3377000" />
+      <workItem from="1603115145657" duration="1858000" />
+      <workItem from="1603134098814" duration="2666000" />
+      <workItem from="1603144387194" duration="103000" />
+      <workItem from="1603144629405" duration="561000" />
+      <workItem from="1603183941348" duration="3989000" />
+      <workItem from="1604399547328" duration="14353000" />
     </task>
     <task id="LOCAL-00032" summary="added Readme and init">
       <created>1601934964624</created>
@@ -618,7 +472,161 @@
       <option name="project" value="LOCAL" />
       <updated>1602019001679</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Updated images path">
+      <created>1602019190362</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1602019190362</updated>
+    </task>
+    <task id="LOCAL-00060" summary="updated README.md">
+      <created>1602019248807</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1602019248807</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Copied file from Udacity">
+      <created>1602057874209</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057874209</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Added row files from udacity">
+      <created>1602057893485</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057893485</updated>
+    </task>
+    <task id="LOCAL-00063" summary="added gitignore">
+      <created>1602057965607</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057965608</updated>
+    </task>
+    <task id="LOCAL-00064" summary="added gitignore">
+      <created>1602057979778</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1602057979778</updated>
+    </task>
+    <task id="LOCAL-00065" summary="added gitignore">
+      <created>1602058016288</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1602058016288</updated>
+    </task>
+    <task id="LOCAL-00066" summary="added gitignore">
+      <created>1602058137858</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1602058137858</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Added reference to Spark Cluster Set-up">
+      <created>1602840070076</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1602840070077</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Added tutorials how to use spark">
+      <created>1603187331933</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1603187331935</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Updated tutorials">
+      <created>1604654890783</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1604654890784</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Completed Readme.md">
+      <created>1604654913358</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1604654913358</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Refactored folder name">
+      <created>1604654931741</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1604654931741</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Added tutorials notebook with basic S3-Spark operations">
+      <created>1604654980364</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1604654980365</updated>
+    </task>
+    <task id="LOCAL-00073" summary="updated etl structure">
+      <created>1604655006490</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1604655006490</updated>
+    </task>
+    <task id="LOCAL-00074" summary="fixed local spark session with as much options I could get">
+      <created>1604655111208</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1604655111208</updated>
+    </task>
+    <task id="LOCAL-00075" summary="added script to submit to emr">
+      <created>1604658117050</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658117050</updated>
+    </task>
+    <task id="LOCAL-00076" summary="moved the file to submit to emr in specific folder">
+      <created>1604658405014</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658405014</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Updated tutorials with s3 create bucket">
+      <created>1604658434654</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658434654</updated>
+    </task>
+    <task id="LOCAL-00078" summary="updated readme of project source code">
+      <created>1604658447337</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658447337</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Removed old piece of code">
+      <created>1604658612768</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658612768</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Added example of aws cli commands">
+      <created>1604658637524</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658637524</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,38 +639,43 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="moved to etl sub-module" />
-    <MESSAGE value="moved sub-module" />
-    <MESSAGE value="updated etl&#10;refreshed create_cluster" />
-    <MESSAGE value="cleaned project structure, pre-test" />
-    <MESSAGE value="script will pause for 10 seconds after creating the cluster" />
-    <MESSAGE value="renamed routine to create the tables" />
-    <MESSAGE value="Added one util package to: get executable IP, get Cluster Endpoint&#10;Fixed region in create_cluster.py&#10;Fixed config file for admin and dbuser" />
-    <MESSAGE value="Fixed Readme and initiated elsewhere" />
-    <MESSAGE value="Worked on ETL to input JSON path" />
-    <MESSAGE value="Fixed bug on psycopg2 SQL query syntax&#10;Fixed bug on table name songplay&#10;Created routines for data loading" />
-    <MESSAGE value="fixed configuration of path&#10;fixed query to insert into songplays" />
-    <MESSAGE value="renamed src to p3src" />
-    <MESSAGE value="cleaned folder" />
-    <MESSAGE value="Updated utils description" />
-    <MESSAGE value="Moved images" />
-    <MESSAGE value="Added setup and requirement file" />
-    <MESSAGE value="Added next steps: do an upsert or merge when ETL, with the documentation found" />
-    <MESSAGE value="Init most_played artist" />
-    <MESSAGE value="Describe rep" />
     <MESSAGE value="Project instructions" />
     <MESSAGE value="Added analytics queries" />
     <MESSAGE value="fixed project scope" />
     <MESSAGE value="Removed pics" />
     <MESSAGE value="test rebase" />
     <MESSAGE value="removed diagram" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed diagram" />
+    <MESSAGE value="Updated images path" />
+    <MESSAGE value="updated README.md" />
+    <MESSAGE value="Copied file from Udacity" />
+    <MESSAGE value="Added row files from udacity" />
+    <MESSAGE value="added gitignore" />
+    <MESSAGE value="Added reference to Spark Cluster Set-up" />
+    <MESSAGE value="Added tutorials how to use spark" />
+    <MESSAGE value="Updated tutorials" />
+    <MESSAGE value="Completed Readme.md" />
+    <MESSAGE value="Refactored folder name" />
+    <MESSAGE value="Added tutorials notebook with basic S3-Spark operations" />
+    <MESSAGE value="updated etl structure" />
+    <MESSAGE value="fixed local spark session with as much options I could get" />
+    <MESSAGE value="added script to submit to emr" />
+    <MESSAGE value="moved the file to submit to emr in specific folder" />
+    <MESSAGE value="Updated tutorials with s3 create bucket" />
+    <MESSAGE value="updated readme of project source code" />
+    <MESSAGE value="Removed old piece of code" />
+    <MESSAGE value="Added example of aws cli commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added example of aws cli commands" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599471165534">
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604581335159">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1599471165534" />
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1604581335159" />
+    <state x="369" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604605438465">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="369" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1604605438465" />
+    <state x="369" y="227" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.777@0.23.1280.777" timestamp="1602244855528" />
     <state x="377" y="191" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1598356152442">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -671,87 +684,105 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1598791918198" />
-    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1601972522396">
+    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1604580972701">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1601972522396" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1602019189775">
+    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1604580972701" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604658637119">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1602019189775" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604658637119" />
+    <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="394" y="172" key="EnvironmentVariablesDialog/0.0.1280.800@0.0.1280.800" timestamp="1603144371649" />
+    <state x="427" y="162" key="FileChooserDialogImpl" timestamp="1603135816880">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="427" y="162" key="FileChooserDialogImpl/0.0.1280.800@0.0.1280.800" timestamp="1603135816880" />
     <state x="430" y="300" key="Github.ShareDialog" timestamp="1598347656609">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="430" y="300" key="Github.ShareDialog/0.0.1280.800@0.0.1280.800" timestamp="1598347656609" />
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom" timestamp="1602018593183">
+    <state width="1238" height="226" key="GridCell.Tab.0.bottom" timestamp="1604658543721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1602018593183" />
-    <state width="1238" height="226" key="GridCell.Tab.0.center" timestamp="1602018593182">
+    <state width="1238" height="226" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
+    <state width="1238" height="226" key="GridCell.Tab.0.center" timestamp="1604658543721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1602018593182" />
-    <state width="1238" height="226" key="GridCell.Tab.0.left" timestamp="1602018593181">
+    <state width="1238" height="226" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
+    <state width="1238" height="226" key="GridCell.Tab.0.left" timestamp="1604658543720">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1602018593181" />
-    <state width="1238" height="226" key="GridCell.Tab.0.right" timestamp="1602018593182">
+    <state width="1238" height="226" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604658543720" />
+    <state width="1238" height="226" key="GridCell.Tab.0.right" timestamp="1604658543721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1602018593182" />
+    <state width="1238" height="226" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
     <state x="353" y="123" key="MultipleFileMergeDialog" timestamp="1602018981243">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="353" y="123" key="MultipleFileMergeDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018981243" />
-    <state x="149" y="39" key="SettingsEditor" timestamp="1601994037802">
+    <state x="149" y="39" key="SettingsEditor" timestamp="1603135833301">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="149" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1601994037802" />
+    <state x="149" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1603135833301" />
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog" timestamp="1602018803593">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1602019193400">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1602019251110">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1602019193400" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1602019251110" />
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1602018697851">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018697851" />
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1602015003185">
-      <screen x="0" y="23" width="1280" height="777" />
-    </state>
-    <state x="319" y="232" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1601924178283" />
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1602015003185" />
-    <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602018970503">
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1604399547864">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1602018970503" />
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1604399547864" />
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1603192958311" />
+    <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604659401834">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1604659401834" />
     <state x="232" y="125" width="816" height="550" key="find.popup" timestamp="1601993017643">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="232" y="125" width="816" height="550" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1601993017643" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1603187593322">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1603187593322" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_cluster.coverage" NAME="create_cluster Coverage Results" MODIFIED="1599471505669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$gistconn.coverage" NAME="gistconn Coverage Results" MODIFIED="1599311182740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_tables__1_.coverage" NAME="create_tables (1) Coverage Results" MODIFIED="1598359266261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p1_datamodelling_postgres/p1utils" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$etl.coverage" NAME="etl Coverage Results" MODIFIED="1598356860503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_cluster_main.coverage" NAME="create_cluster_main Coverage Results" MODIFIED="1601979401861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$etl_main.coverage" NAME="etl_main Coverage Results" MODIFIED="1601993608489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/routines" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest.coverage" NAME="pytest Coverage Results" MODIFIED="1598356174360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_tables_main.coverage" NAME="create_tables_main Coverage Results" MODIFIED="1601992343714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$other.coverage" NAME="other Coverage Results" MODIFIED="1598359042251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$sparklocaltest.coverage" NAME="sparklocaltest Coverage Results" MODIFIED="1603183958869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_tables.coverage" NAME="create_tables Coverage Results" MODIFIED="1598358257332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_main.coverage" NAME="create_main Coverage Results" MODIFIED="1598358864206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$aws.coverage" NAME="aws Coverage Results" MODIFIED="1601979121203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/src/utils" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest_in_tests_basic_py.coverage" NAME="pytest in tests_basic.py Coverage Results" MODIFIED="1598358166008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL/tests" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest_for_tests_basic_test_conn.coverage" NAME="pytest for tests_basic.test_conn Coverage Results" MODIFIED="1598358072076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL/tests" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$analytics_queries.coverage" NAME="analytics_queries Coverage Results" MODIFIED="1602018039382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/project/analytics" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_main__1_.coverage" NAME="create_main (1) Coverage Results" MODIFIED="1598790220012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
-    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest_for_tests_basic_test_upsert_data.coverage" NAME="pytest for tests_basic.test_upsert_data Coverage Results" MODIFIED="1598358156127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL/tests" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$localsparkcontext.coverage" NAME="localsparkcontext Coverage Results" MODIFIED="1603187865840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P4-Data_Lake_with_Spark/tutorials" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$mainconnect.coverage" NAME="mainconnect Coverage Results" MODIFIED="1598791059683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_cluster.coverage" NAME="create_cluster Coverage Results" MODIFIED="1599471505669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$gistconn.coverage" NAME="gistconn Coverage Results" MODIFIED="1599311182740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$etl.coverage" NAME="etl Coverage Results" MODIFIED="1604582297802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p4_datalake_spark/" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_cluster_main.coverage" NAME="create_cluster_main Coverage Results" MODIFIED="1601979401861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$sparksessiontest.coverage" NAME="sparksessiontest Coverage Results" MODIFIED="1603187440937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$sparklocaltest__1_.coverage" NAME="sparklocaltest (1) Coverage Results" MODIFIED="1604580554848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p4-Data_Lake_with_Spark/p4src/etl" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest.coverage" NAME="pytest Coverage Results" MODIFIED="1598356174360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$other.coverage" NAME="other Coverage Results" MODIFIED="1598359042251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_main.coverage" NAME="create_main Coverage Results" MODIFIED="1598358864206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$aws.coverage" NAME="aws Coverage Results" MODIFIED="1601979121203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p3_datawarehouse_aws_redshift/src/utils" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest_in_tests_basic_py.coverage" NAME="pytest in tests_basic.py Coverage Results" MODIFIED="1598358166008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL/tests" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$etl__1_.coverage" NAME="etl (1) Coverage Results" MODIFIED="1604581146665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p4_Data_Lake_with_Spark/p4src/etl" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$sparksessiontest__1_.coverage" NAME="sparksessiontest (1) Coverage Results" MODIFIED="1604580591756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p4-Data_Lake_with_Spark/p4src/etl" />
+    <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest_for_tests_basic_test_upsert_data.coverage" NAME="pytest for tests_basic.test_upsert_data Coverage Results" MODIFIED="1598358156127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL/tests" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$oth.coverage" NAME="oth Coverage Results" MODIFIED="1598359141262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest_for_tests_basic_test_artists_primarykey.coverage" NAME="pytest for tests_basic.test_artists_primarykey Coverage Results" MODIFIED="1598358116874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL/tests" />
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$pytest_for_tests_basic_test_access_data.coverage" NAME="pytest for tests_basic.test_access_data Coverage Results" MODIFIED="1598358020612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/P1-Data_Modelling_with_PostgreSQL/tests" />

@@ -10,6 +10,7 @@ from p3src.utils import get_myip, get_cluster_properties, get_conn
 # - Rewrote script using my style to better understand the steps
 # - Updated the doc strings
 # - added condition to only open ports on myIP
+# - Extracted functions to write them as helper functions in the utils module because I reuse them everywhere
 # - added a pause in the execution to let the cluster time to start
 # - the main routine needs a config parameter
 # - added sample test of connector
