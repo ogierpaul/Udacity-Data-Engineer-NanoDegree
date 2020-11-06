@@ -16,4 +16,13 @@
 - Create a Spark Context
 - Calculate Pi
 
-### localsparksession.py
+### Read data from s3 with pandas
+* connect to s3
+* read csv or multiple files to Pandas
+
+### Read data from s3 with pyspark
+* create a spark cluster with AWS credentials
+* read s3 bucket
+
+## Ressources Used:
+* [Amazon S3 tutorial](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-examples.html)
