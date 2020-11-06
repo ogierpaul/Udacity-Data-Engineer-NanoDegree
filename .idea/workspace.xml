@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/p4src/etlemr.py" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/emrsubmit/etlemr.py" afterDir="false" />
+    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="updated readme of project source code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Emptycode/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Emptycode/etl.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/p4_datalake_spark/tutorials/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/tutorials/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,28 +284,7 @@
       <workItem from="1603144387194" duration="103000" />
       <workItem from="1603144629405" duration="561000" />
       <workItem from="1603183941348" duration="3989000" />
-      <workItem from="1604399547328" duration="13899000" />
-    </task>
-    <task id="LOCAL-00027" summary="added file">
-      <created>1601934759357</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934759357</updated>
-    </task>
-    <task id="LOCAL-00028" summary="updated queries">
-      <created>1601934769958</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934769958</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Updated Readme.md">
-      <created>1601934853626</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934853626</updated>
+      <workItem from="1604399547328" duration="14166000" />
     </task>
     <task id="LOCAL-00030" summary="Updated Readme.md">
       <created>1601934868385</created>
@@ -627,7 +608,28 @@
       <option name="project" value="LOCAL" />
       <updated>1604658117050</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="moved the file to submit to emr in specific folder">
+      <created>1604658405014</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658405014</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Updated tutorials with s3 create bucket">
+      <created>1604658434654</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658434654</updated>
+    </task>
+    <task id="LOCAL-00078" summary="updated readme of project source code">
+      <created>1604658447337</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658447337</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,9 +642,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="Moved images" />
-    <MESSAGE value="Added setup and requirement file" />
-    <MESSAGE value="Added next steps: do an upsert or merge when ETL, with the documentation found" />
     <MESSAGE value="Init most_played artist" />
     <MESSAGE value="Describe rep" />
     <MESSAGE value="Project instructions" />
@@ -665,7 +664,10 @@
     <MESSAGE value="updated etl structure" />
     <MESSAGE value="fixed local spark session with as much options I could get" />
     <MESSAGE value="added script to submit to emr" />
-    <option name="LAST_COMMIT_MESSAGE" value="added script to submit to emr" />
+    <MESSAGE value="moved the file to submit to emr in specific folder" />
+    <MESSAGE value="Updated tutorials with s3 create bucket" />
+    <MESSAGE value="updated readme of project source code" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated readme of project source code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604581335159">
@@ -689,10 +691,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1604580972701" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604658404602">
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604658458354">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604658404602" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604658458354" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -705,22 +707,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="430" y="300" key="Github.ShareDialog/0.0.1280.800@0.0.1280.800" timestamp="1598347656609" />
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom" timestamp="1604582297817">
+    <state width="1238" height="226" key="GridCell.Tab.0.bottom" timestamp="1604658543721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604582297817" />
-    <state width="1238" height="226" key="GridCell.Tab.0.center" timestamp="1604582297816">
+    <state width="1238" height="226" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
+    <state width="1238" height="226" key="GridCell.Tab.0.center" timestamp="1604658543721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604582297816" />
-    <state width="1238" height="226" key="GridCell.Tab.0.left" timestamp="1604582297815">
+    <state width="1238" height="226" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
+    <state width="1238" height="226" key="GridCell.Tab.0.left" timestamp="1604658543720">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604582297815" />
-    <state width="1238" height="226" key="GridCell.Tab.0.right" timestamp="1604582297816">
+    <state width="1238" height="226" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604658543720" />
+    <state width="1238" height="226" key="GridCell.Tab.0.right" timestamp="1604658543721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604582297816" />
+    <state width="1238" height="226" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
     <state x="353" y="123" key="MultipleFileMergeDialog" timestamp="1602018981243">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

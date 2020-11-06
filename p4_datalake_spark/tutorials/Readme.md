@@ -26,3 +26,20 @@
 
 ## Ressources Used:
 * [Amazon S3 tutorial](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-examples.html)
+
+## Creating a cluster
+https://towardsdatascience.com/how-to-create-and-run-an-emr-cluster-using-aws-cli-3a78977dc7f0
+### 1: Set-up key-pair credentials in EC2
+
+### 2: Create an S3 bucket to store logs
+
+### 3: Create an EMR cluster
+
+### 4: Allow SSH to the cluster
+
+### 5: SSH to the cluster
+
+### 6: You're good to go
+
+#### Automating With Python
+https://janakiev.com/blog/python-shell-commands/
