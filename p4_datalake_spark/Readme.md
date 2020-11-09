@@ -12,8 +12,15 @@
 - You'll deploy this Spark process on a cluster using AWS.
 
 ## Resolution
-- Run the etl.py file in order to:
+- Run the etl.ipnyb file in p4src in order to:
     - Create a spark session
     - Read the data from the S3 bucket
     - Create the normalized tables from the raw data
     - Write the data to S3 as parquet files
+- make sure to have installed pyspark installed beforehand
+
+## Code Structure
+- sparkinit.py: contains the code to init a spark session
+- reads3.py: methods to read the logs and song raw data from s3 as spark dataframe
+- transform.py: methods to transform the raw data into a star schema
+- etl.py: Main Function, contains the configuration path and chains the different operations

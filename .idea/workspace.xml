@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/p4src/.ipynb_checkpoints/Exploration-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/p4src/.ipynb_checkpoints/Exploration-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/emrsubmit/etlemr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/p4src/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/p4src/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,14 +284,7 @@
       <workItem from="1603183941348" duration="3989000" />
       <workItem from="1604399547328" duration="14978000" />
       <workItem from="1604662505668" duration="895000" />
-      <workItem from="1604755437613" duration="152000" />
-    </task>
-    <task id="LOCAL-00033" summary="moved to etl sub-module">
-      <created>1601972483778</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1601972483778</updated>
+      <workItem from="1604755437613" duration="637000" />
     </task>
     <task id="LOCAL-00034" summary="moved sub-module">
       <created>1601972548183</created>
@@ -628,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604659641733</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="dropped the duplicates according to specific columns for better quality">
+      <created>1604917637573</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1604917637574</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +642,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="Added analytics queries" />
     <MESSAGE value="fixed project scope" />
     <MESSAGE value="Removed pics" />
     <MESSAGE value="test rebase" />
@@ -666,7 +666,8 @@
     <MESSAGE value="Removed old piece of code" />
     <MESSAGE value="Added example of aws cli commands" />
     <MESSAGE value="Added project 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added project 2" />
+    <MESSAGE value="dropped the duplicates according to specific columns for better quality" />
+    <option name="LAST_COMMIT_MESSAGE" value="dropped the duplicates according to specific columns for better quality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604581335159">
@@ -690,10 +691,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1604580972701" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604659641182">
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604917633922">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604659641182" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604917633922" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
