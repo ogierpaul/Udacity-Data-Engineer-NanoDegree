@@ -17,7 +17,7 @@
     - Read the data from the S3 bucket
     - Create the normalized tables from the raw data
     - Write the data to S3 as parquet files
-- make sure to have installed pyspark installed beforehand
+- make sure to have installed pyspark on your local machine installed beforehand
 
 ## Code Structure
 - sparkinit.py: contains the code to init a spark session
