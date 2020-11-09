@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/p4src/.ipynb_checkpoints/Exploration-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/p4src/.ipynb_checkpoints/Exploration-checkpoint.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,18 +240,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.localsparkcontext" />
-      <item itemvalue="Python.sparklocaltest (1)" />
-      <item itemvalue="Python.sparksessiontest (1)" />
       <item itemvalue="Python.etl (1)" />
       <item itemvalue="Python.etl" />
+      <item itemvalue="Python.localsparkcontext" />
+      <item itemvalue="Python.sparklocaltest" />
+      <item itemvalue="Python.sparksessiontest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.etl" />
         <item itemvalue="Python.etl (1)" />
-        <item itemvalue="Python.sparksessiontest (1)" />
-        <item itemvalue="Python.sparklocaltest (1)" />
         <item itemvalue="Python.localsparkcontext" />
       </list>
     </recent_temporary>
@@ -281,14 +281,9 @@
       <workItem from="1603144387194" duration="103000" />
       <workItem from="1603144629405" duration="561000" />
       <workItem from="1603183941348" duration="3989000" />
-      <workItem from="1604399547328" duration="14353000" />
-    </task>
-    <task id="LOCAL-00032" summary="added Readme and init">
-      <created>1601934964624</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1601934964624</updated>
+      <workItem from="1604399547328" duration="14978000" />
+      <workItem from="1604662505668" duration="895000" />
+      <workItem from="1604755437613" duration="152000" />
     </task>
     <task id="LOCAL-00033" summary="moved to etl sub-module">
       <created>1601972483778</created>
@@ -626,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604658637524</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Added project 2">
+      <created>1604659641733</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1604659641733</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +641,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="Project instructions" />
     <MESSAGE value="Added analytics queries" />
     <MESSAGE value="fixed project scope" />
     <MESSAGE value="Removed pics" />
@@ -664,7 +665,8 @@
     <MESSAGE value="updated readme of project source code" />
     <MESSAGE value="Removed old piece of code" />
     <MESSAGE value="Added example of aws cli commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added example of aws cli commands" />
+    <MESSAGE value="Added project 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added project 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604581335159">
@@ -688,10 +690,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1604580972701" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604658637119">
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604659641182">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604658637119" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604659641182" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -704,22 +706,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="430" y="300" key="Github.ShareDialog/0.0.1280.800@0.0.1280.800" timestamp="1598347656609" />
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom" timestamp="1604658543721">
+    <state width="1238" height="226" key="GridCell.Tab.0.bottom" timestamp="1604661113099">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
-    <state width="1238" height="226" key="GridCell.Tab.0.center" timestamp="1604658543721">
+    <state width="1238" height="226" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604661113099" />
+    <state width="1238" height="226" key="GridCell.Tab.0.center" timestamp="1604661113098">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
-    <state width="1238" height="226" key="GridCell.Tab.0.left" timestamp="1604658543720">
+    <state width="1238" height="226" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604661113098" />
+    <state width="1238" height="226" key="GridCell.Tab.0.left" timestamp="1604661113098">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604658543720" />
-    <state width="1238" height="226" key="GridCell.Tab.0.right" timestamp="1604658543721">
+    <state width="1238" height="226" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604661113098" />
+    <state width="1238" height="226" key="GridCell.Tab.0.right" timestamp="1604661113099">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604658543721" />
+    <state width="1238" height="226" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604661113099" />
     <state x="353" y="123" key="MultipleFileMergeDialog" timestamp="1602018981243">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -732,18 +734,18 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1602019251110">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604659649674">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1602019251110" />
-    <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1602018697851">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604659649674" />
+    <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1604660115263">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018697851" />
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1604399547864">
+    <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1280.800@0.0.1280.800" timestamp="1604660115263" />
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1604662515542">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1604399547864" />
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1604662515542" />
     <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1603192958311" />
     <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604659401834">
       <screen x="0" y="0" width="1280" height="800" />

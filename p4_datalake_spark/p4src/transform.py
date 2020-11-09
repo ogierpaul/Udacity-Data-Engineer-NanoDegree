@@ -14,7 +14,7 @@ def select_songs_data(df):
     # extract columns to create songs table
     song_cols = ["title", "artist_id", "year", "duration"]
     songs_table = df.select(song_cols).\
-        dropDuplicates().\
+        dropDuplicates(subset=["title", 'artist_id']).\
         withColumn("song_id", F.monotonically_increasing_id())
     return songs_table
 
@@ -31,6 +31,7 @@ def select_artists_data(df):
     # extract columns to create artists table
     artist_cols = ["artist_id", "artist_name", "artist_location", "artist_latitude", "artist_longitude"]
     artists_table = df.select(artist_cols). \
+        dropDuplicates(subset=['artist_id']). \
         withColumnRenamed("artist_name", "name"). \
         withColumnRenamed("artist_location", "location"). \
         withColumnRenamed("artist_latitude", "latitude"). \
@@ -51,6 +52,7 @@ def select_users_data(df):
     """
     user_cols = ['userId', 'firstName', 'lastName', 'gender', 'level', ]
     user_table = df.select(user_cols).\
+        dropDuplicates(subset=['userId']).\
         withColumnRenamed("firstName", "first_name").\
         withColumnRenamed("lastName", "last_name").\
         withColumnRenamed("userId", "user_id")
@@ -113,5 +115,5 @@ def create_songplay(df_event, songs, artists):
         F.col('sessionId').alias('session_id'),
         F.col('userAgent').alias('user_agent'),
         F.col('itemInSession').alias('iteminsession')
-    ).dropDuplicates()
+    ).dropDuplicates(subset=['start_time', 'user_id'])
     return songplay

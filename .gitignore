@@ -2,3 +2,7 @@
 .idea/workspace.xml
 .pytest_cache/*
 .idea
+/p4_datalake_spark/dbuser_config.cfg
+/Udacity_Sparkify_Cassandra/event_data/2018-11-01-events.csv
+/Udacity_Sparkify_Cassandra/event_data/2018-11-02-events.csv
+/Udacity_Sparkify_Cassandra/event_data/2018-11-03-events.csv
