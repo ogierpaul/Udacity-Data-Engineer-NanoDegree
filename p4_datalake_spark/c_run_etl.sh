@@ -1,0 +1,1 @@
+docker exec -ti p4cont bash /home/jovyan/etl.py
