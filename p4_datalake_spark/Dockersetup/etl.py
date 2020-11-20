@@ -65,14 +65,12 @@ def main(configpath, logpath, songpath):
     return None
 
 if __name__ == '__main__':
-    logpath = "s3a://udacity-dend/log_data/2018/11/2018-11-0*.json"
-    songpath = "s3a://udacity-dend/song_data/A/A/*/*.json"
-    # logpath = "/home/jovyan/data/log/2018-11-0*.json"
-    # songpath = "/home/jovyan/data/song/A/A/A/*.json"
+    logpath = "s3a://udacity-dend/log_data/*/*/.json"
+    songpath = "s3a://udacity-dend/song_data/*/*/*/*.json"
     configpath = '/home/jovyan/aws/config.cfg'
-    print('start from main')
+    print('Launching scrip etl')
     main(configpath, logpath, songpath)
-    print('successfull')
+    print('ETL script successfull')
     pass
 
 

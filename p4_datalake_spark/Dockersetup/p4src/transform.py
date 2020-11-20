@@ -111,9 +111,14 @@ def select_songplay(df_event, songs, artists):
         df_mapping,
         on=['song', 'artist'],
         how='left'
+    ).withColumn(
+        "year",
+        F.year(F.col("start_time"))
     )
+
     songplay = songplay.select(
         F.col('start_time'),
+        F.col("year"),
         F.col('userId').alias('user_id'),
         F.col('artist_id'),
         F.col('song_id'),
@@ -121,5 +126,4 @@ def select_songplay(df_event, songs, artists):
         F.col('userAgent').alias('user_agent'),
         F.col('itemInSession').alias('iteminsession')
     ).dropDuplicates(subset=['start_time', 'user_id'])
-
     return songplay
