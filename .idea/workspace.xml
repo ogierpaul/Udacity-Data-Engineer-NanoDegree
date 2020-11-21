@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Udacity-Data-Engineer-NanoDegree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Udacity-Data-Engineer-NanoDegree.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/emrsubmit/etlemr.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/p4src/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/p4src/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/etl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/p4src/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/p4src/transform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/notebooks/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/notebooks/Read data from s3 with pyspark.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/notebooks/Read data from s3 with pyspark.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/notebooks/Untitled.ipynb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +69,7 @@
     <property name="DatabaseDriversLRU" value="redshift" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sparkdocker/p4src" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -79,19 +83,21 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/p4_datalake_spark/tutorials" />
-      <recent name="$PROJECT_DIR$/p4_datalake_spark/emrsubmit" />
-      <recent name="$PROJECT_DIR$/p4_datalake_spark/p4src" />
       <recent name="$PROJECT_DIR$/p4_datalake_spark" />
-      <recent name="$PROJECT_DIR$/p4_datalake_spark/p4src/" />
+      <recent name="$PROJECT_DIR$/sparkdocker/Dockersetup" />
+      <recent name="$PROJECT_DIR$/sparkdocker" />
+      <recent name="$PROJECT_DIR$/sparkdocker/notebooks" />
+      <recent name="$PROJECT_DIR$/sparkdocker/Dockersetup/p4src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sparkdocker/p4src" />
+      <recent name="$PROJECT_DIR$/withdocker/airflowdags" />
       <recent name="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.etl">
+  <component name="RunManager" selected="Python.p4sparkdocker">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -114,50 +120,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="etl (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Udacity-Data-Engineer-NanoDegree" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/udacitypostgres/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p4_Data_Lake_with_Spark/p4src/etl" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p4_Data_Lake_with_Spark/p4src/etl/etl.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="etl" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Udacity-Data-Engineer-NanoDegree" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/p4_datalake_spark/" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/p4_datalake_spark/p4src/etl/etl.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="localsparkcontext" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Udacity-Data-Engineer-NanoDegree" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -172,6 +134,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P4-Data_Lake_with_Spark/tutorials/localsparkcontext.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="p4sparkdocker" type="PythonConfigurationType" factoryName="Python">
+      <module name="Udacity-Data-Engineer-NanoDegree" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sparkdocker/p4src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sparkdocker/p4src/etl.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -241,19 +225,28 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.etl (1)" />
-      <item itemvalue="Python.etl" />
+      <item itemvalue="Python.p4sparkdocker" />
       <item itemvalue="Python.localsparkcontext" />
       <item itemvalue="Python.sparklocaltest" />
       <item itemvalue="Python.sparksessiontest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.etl" />
-        <item itemvalue="Python.etl (1)" />
         <item itemvalue="Python.localsparkcontext" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -284,21 +277,13 @@
       <workItem from="1603183941348" duration="3989000" />
       <workItem from="1604399547328" duration="14978000" />
       <workItem from="1604662505668" duration="895000" />
-      <workItem from="1604755437613" duration="637000" />
-    </task>
-    <task id="LOCAL-00034" summary="moved sub-module">
-      <created>1601972548183</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1601972548183</updated>
-    </task>
-    <task id="LOCAL-00035" summary="updated etl&#10;refreshed create_cluster">
-      <created>1601973695114</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1601973695114</updated>
+      <workItem from="1604755437613" duration="2195000" />
+      <workItem from="1605045393039" duration="555000" />
+      <workItem from="1605602180776" duration="1177000" />
+      <workItem from="1605614947694" duration="9669000" />
+      <workItem from="1605647005740" duration="600000" />
+      <workItem from="1605782504860" duration="394000" />
+      <workItem from="1605784121212" duration="13654000" />
     </task>
     <task id="LOCAL-00036" summary="cleaned project structure, pre-test">
       <created>1601974338343</created>
@@ -629,7 +614,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604917637574</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Readme.md moved to the root folder with instructions how to run the project">
+      <created>1604918461158</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1604918461158</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Readme.md moved to the root folder with instructions how to run the project">
+      <created>1604918477894</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1604918477894</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -642,7 +641,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="fixed project scope" />
     <MESSAGE value="Removed pics" />
     <MESSAGE value="test rebase" />
     <MESSAGE value="removed diagram" />
@@ -667,13 +665,18 @@
     <MESSAGE value="Added example of aws cli commands" />
     <MESSAGE value="Added project 2" />
     <MESSAGE value="dropped the duplicates according to specific columns for better quality" />
-    <option name="LAST_COMMIT_MESSAGE" value="dropped the duplicates according to specific columns for better quality" />
+    <MESSAGE value="Readme.md moved to the root folder with instructions how to run the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme.md moved to the root folder with instructions how to run the project" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604581335159">
+    <state x="349" y="0" key="#Dockerconf/jupyter.dockerfile" timestamp="1605792456428">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1604581335159" />
+    <state x="349" y="0" key="#Dockerconf/jupyter.dockerfile/0.0.1280.800@0.0.1280.800" timestamp="1605792456428" />
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605789789994">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1605789789994" />
     <state x="369" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604605438465">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -691,10 +694,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1604580972701" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604918460337">
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604918477077">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604918460337" />
+    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604918477077" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -735,31 +738,31 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604659649674">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604919177721">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604659649674" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604919177721" />
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1604660115263">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1280.800@0.0.1280.800" timestamp="1604660115263" />
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1604662515542">
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1605782507185">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1604662515542" />
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1605782507185" />
     <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1603192958311" />
     <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604659401834">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1604659401834" />
-    <state x="232" y="125" width="816" height="550" key="find.popup" timestamp="1601993017643">
+    <state x="232" y="125" width="816" height="550" key="find.popup" timestamp="1605805088475">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="232" y="125" width="816" height="550" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1601993017643" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1603187593322">
+    <state x="232" y="125" width="816" height="550" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1605805088475" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1605803228165">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1603187593322" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1605803228165" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_tables__1_.coverage" NAME="create_tables (1) Coverage Results" MODIFIED="1598359266261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p1_datamodelling_postgres/p1utils" />

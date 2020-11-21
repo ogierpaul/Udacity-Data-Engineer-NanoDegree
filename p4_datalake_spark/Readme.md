@@ -1,4 +1,7 @@
-# Project: Data Lake
+# P4_SparkDatalake
+## Purpose
+- ETL the data from one S3 bucket to another S3 bucket using Spark and parquet
+
 ## Introduction
 - A music streaming startup, Sparkify, has grown their user base and song database even more and want to move their data warehouse to a data lake.
 - Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
@@ -11,16 +14,37 @@
 - To complete the project, you will need to load data from S3, process the data into analytics tables using Spark, and load them back into S3.
 - You'll deploy this Spark process on a cluster using AWS.
 
-## Resolution
-- Run the etl.ipnyb file in p4src in order to:
-    - Create a spark session
-    - Read the data from the S3 bucket
-    - Create the normalized tables from the raw data
-    - Write the data to S3 as parquet files
-- make sure to have installed pyspark on your local machine installed beforehand
+## Installation
+- Adapt the instructions below to your environment
 
-## Code Structure
-- sparkinit.py: contains the code to init a spark session
-- reads3.py: methods to read the logs and song raw data from s3 as spark dataframe
-- transform.py: methods to transform the raw data into a star schema
-- etl.py: Main Function, contains the configuration path and chains the different operations
+### Clone this project
+- Clone this project using `git`
+- cd to this directory
+
+### Configure your AWS parameters
+- Create a `config.cfg` file with your AWS credentials in the `aws` repository using the instructions in this reposority
+
+### Install Docker
+- Make sure you have docker installed: [Get docker](https://docs.docker.com/get-docker/)
+
+### Build the docker image
+- Launch the script to build the image called ogierpaul/p4spark
+```shell script
+bash a_build_docker_image.sh
+```
+Todo: you can as well directly pull the docker image from host using:
+```shell script
+docker pull ogierpaul/p4spark
+```
+
+### Run the docker image
+```shell script
+bash b_run_docker.sh
+```
+- connect to `localhost:8888` to see the jupyter notebook interface
+
+### Run the etl script
+- run the etl.py script located in `/home/jovyan/`
+```shell script
+bash c_run_etl.py
+```
