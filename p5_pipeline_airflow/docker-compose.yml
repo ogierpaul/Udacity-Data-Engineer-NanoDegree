@@ -1,53 +1,29 @@
 version: "3"
 services:
-  jups:
-    # From the Dockerfile for jupyter defined in /Dockerfiles/dockerfile-jupyter
-    # Give a name to this image
+  pg:
     build:
       context: ./
-      dockerfile: ./Dockerconf/jupyter.dockerfile
-    image: wdjup
-
-    # Map the host port (8888) to the container port (8888)
-    ports:
-      - "8888:8888"
-    # Set the token to the environment variable defined in .env
-    environment:
-        JUPYTER_TOKEN: "$JUPYTER_TOKEN"
-        POSTGRES_PASSWORD: "$POSTGRES_PASSWORD"
-        CHOWN_EXTRA: "/home/jovyan/stagingarea"
-    user: root
-    volumes:
-       - ./notebooks:/home/jovyan/notebooks
-       - ./data:/data
-       - stagingarea:/stagingarea
-
-  pgs:
-    build:
-      context: ./
-      dockerfile: ./Dockerconf/postgres.dockerfile
-    image: wdps
+      dockerfile: ./Dockersetup/postgres.dockerfile
+    image: p5pg
     # Set up some environment variables. Password is stored in the .env file
     environment:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: "$POSTGRES_PASSWORD"
       POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
     volumes:
-      - stagingarea:/stagingarea
+      - ./data:/data
 
-  afs:
+  af:
       build:
         context: ./
-        dockerfile: ./Dockerconf/airflow.dockerfile
-      image: wdaf
+        dockerfile: ./Dockersetup/airflow.dockerfile
+      image: p5af
       environment:
         AIRFLOW_CONN_PG: "$AIRFLOW_CONN_PG"
       ports:
         - "8080:8080"
       volumes:
-        - ./airflowdags:/usr/local/airflow/dags
-        - stagingarea:/stagingarea
-        - ./data:/data
-
-volumes:
-  stagingarea:
+        - ./airflowcode/dags:/usr/local/airflow/dags
+        - ./airflowcode/plugins:/usr/local/airflow/plugins

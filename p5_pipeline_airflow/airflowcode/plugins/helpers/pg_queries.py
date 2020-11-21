@@ -1,50 +1,15 @@
-from airflow import DAG
-from datetime import datetime
-from airflow.operators.postgres_operator import PostgresOperator
-from airflow.utils.dates import days_ago
-import logging
+class PgQueries:
 
-outputfolder = '/stagingarea/'
-
-dag = DAG("load_events",
-          start_date=days_ago(7),
-          schedule_interval=None
-          )
-
-q_copyevents = """
-COPY staging_events (
-artist,
-auth,
-firstName ,
-gender,
-itemInSession ,
-lastName,
-length,
-level ,
-location,
-method,
-page,
-registration,
-sessionId,
-song,
-status,
-ts,
-userAgent,
-userId)
-FROM '/stagingarea/events.csv'
-WITH CSV HEADER DELIMITER '|';
-"""
-
-q_users_insert = """
+    user_table_insert = ("""
 INSERT INTO users(user_id, first_name, last_name, gender, level) 
 SELECT userId as user_id, firstName as first_name, lastName as last_name, gender, level
 FROM (SELECT DISTINCT ON(userId) userId,  firstName, lastName, gender, level FROM staging_events WHERE userId is NOT NULL) b
 ON CONFLICT (user_id)
     DO UPDATE
     SET level = excluded.level;
-"""
+    """)
 
-q_time_insert = """
+    time_table_insert = ("""
 INSERT INTO time (start_time, hour, day, week, month, year, weekday)
 SELECT DISTINCT start_time,
                 EXTRACT(HOUR from start_time) as hour,
@@ -57,9 +22,9 @@ FROM (SELECT to_timestamp( TRUNC( CAST( ts AS bigint ) / 1000 ) ) as start_time 
 WHERE ts IS NOT NULL) b
 ON CONFLICT (start_time)
     DO NOTHING;
-"""
+    """)
 
-q_songplays_insert = """
+    songplay_table_insert = ("""
     INSERT INTO songplays(start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
     SELECT DISTINCT to_timestamp( TRUNC( CAST( ts AS bigint ) / 1000 ) ) as start_time,
                     a.userId as user_id,
@@ -88,50 +53,67 @@ q_songplays_insert = """
         a.song = b.title
     AND
         a.artist = b.name;
-"""
+    """)
 
-q_stagingevents_delete = """
-DELETE FROM staging_events WHERE 1=0
-"""
+    staging_events_delete = """
+    DELETE FROM staging_events WHERE 1=1;
+    """
 
-copyrawevents = PostgresOperator(
-    sql=q_copyevents,
-    postgres_conn_id='mypg',
-    autocommit=True,
-    task_id='copyrawevents',
-    dag=dag
-)
+    staging_events_copy = """
+    COPY staging_events (
+    artist,
+    auth,
+    firstName ,
+    gender,
+    itemInSession ,
+    lastName,
+    length,
+    level ,
+    location,
+    method,
+    page,
+    registration,
+    sessionId,
+    song,
+    status,
+    ts,
+    userAgent,
+    userId)
+    FROM '/data/stagingarea/staging_events.csv'
+    WITH CSV HEADER DELIMITER '|';
+    """
 
-insertusers = PostgresOperator(
-    sql=q_users_insert,
-    postgres_conn_id='mypg',
-    autocommit=True,
-    task_id='insertusers',
-    dag=dag
-)
+    staging_songs_copy = """
+    COPY staging_songs (
+        artist_id,
+     artist_latitude,
+     artist_location,
+     artist_longitude,
+     artist_name,
+     duration,
+     song_id,
+     title, 
+     year)
+    FROM '/data/stagingarea/staging_songs.csv'
+    WITH CSV HEADER DELIMITER '|';
+    """
 
-inserttime = PostgresOperator(
-    sql=q_time_insert,
-    postgres_conn_id='mypg',
-    autocommit=True,
-    task_id='inserttime',
-    dag=dag
-)
+    songs_table_insert = """
+    INSERT INTO songs (song_id, title, artist_id, year, duration)
+    SELECT song_id, title, artist_id, year, duration
+    FROM staging_songs
+    ON CONFLICT (song_id)
+        DO NOTHING;
+    """
 
-insertsongplays = PostgresOperator(
-    sql=q_time_insert,
-    postgres_conn_id='mypg',
-    autocommit=True,
-    task_id='insertsongplays',
-    dag=dag
-)
+    artists_table_insert = """
+    INSERT INTO artists (artist_id, name, location, latitude, longitude)
+    SELECT artist_id, artist_name as name, artist_location as location, artist_latitude as latitude, artist_longitude as longitude
+    FROM staging_songs
+    ON CONFLICT (artist_id)
+        DO NOTHING;
+    """
 
-deletestagingevents = PostgresOperator(
-    sql=q_stagingevents_delete,
-    postgres_conn_id='mypg',
-    autocommit=True,
-    task_id='deletestaging',
-    dag=dag
-)
-
-copyrawevents >> [insertusers, inserttime, insertsongplays] >> deletestagingevents
+    staging_songs_delete = """
+    DELETE FROM staging_songs WHERE 1=1;
+    """
