@@ -21,7 +21,8 @@
 - Dockersetup
     - store Docker files to create images of Airflow and Postgres
     - and sample scripts how to launch airflow and pg as stand-alone
-- 
+- docker-compose.yml, .env files:
+    - environment-specific files, need to be configured before launching docker-compose
 
 ## Set-up of the project
 ### Test Environment: Use PG
@@ -40,7 +41,7 @@ docker-compose build
 docker-compose up -d
 ```
 - connect to `localhost:8080` for the Airflow U
-- Trigger the DAG
+- Trigger the DAG pg_sample_dag
 
 ### AWS environment: Using AWS S3 and Redshift
 #### Pre-requisite
@@ -52,7 +53,7 @@ docker-compose up -d
 - Using the same docker-compose as above
     - If needed, remove Postgre service is superfluous
 - connect to `localhost:8080` for the Airflow U
-- Trigger the DAG
+- Trigger the DAG **rs_dag**
 
 
 ## References
