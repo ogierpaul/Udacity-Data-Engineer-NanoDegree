@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="Readme.md moved to the root folder with instructions how to run the project">
+      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/example_build_run_airflow.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/create_schema.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/load_tables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/pg_stage_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/sampleenv.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Udacity-Data-Engineer-NanoDegree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Udacity-Data-Engineer-NanoDegree.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/etl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/p4src/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/Dockersetup/p4src/transform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/notebooks/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/notebooks/Read data from s3 with pyspark.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/p4_datalake_spark/notebooks/Read data from s3 with pyspark.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p4_datalake_spark/notebooks/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/.env" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/airflow.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/airflow.dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/build_run_pg.sh" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/example_build_run_pg.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/pgschemacreation/1_create_staging_events.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/pgschemacreation/2_create_staging_songs.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/pgschemacreation/3_create_songs.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/pgschemacreation/4_create_artists.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/pgschemacreation/5_create_users.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/pgschemacreation/6_create_time.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/pgschemacreation/7_create_songplays.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/create_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/pg_operator_dag.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/pg_queries.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/sql_queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/sql_queries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/data_quality.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/data_quality.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/load_dimension.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/load_fact.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/stage_pg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/stage_redshift.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/data/stagingarea/staging_songs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/data/stagingarea/staging_songs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/runairflowdocker.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +54,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mydb@myclusterusw2.cel1pvopzvkm.us-west-2.redshift.amazonaws.com" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -66,10 +98,10 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="redshift" />
+    <property name="DatabaseDriversLRU" value="redshift&#10;postgresql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sparkdocker/p4src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/p5_pipeline_airflow" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -83,18 +115,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/p4_datalake_spark" />
-      <recent name="$PROJECT_DIR$/sparkdocker/Dockersetup" />
-      <recent name="$PROJECT_DIR$/sparkdocker" />
-      <recent name="$PROJECT_DIR$/sparkdocker/notebooks" />
-      <recent name="$PROJECT_DIR$/sparkdocker/Dockersetup/p4src" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/workdir" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/others_dags" />
       <recent name="$PROJECT_DIR$/sparkdocker/p4src" />
       <recent name="$PROJECT_DIR$/withdocker/airflowdags" />
       <recent name="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/1-Data Modelling With PostgreSQL/code" />
     </key>
   </component>
   <component name="RunManager" selected="Python.p4sparkdocker">
@@ -284,13 +316,11 @@
       <workItem from="1605647005740" duration="600000" />
       <workItem from="1605782504860" duration="394000" />
       <workItem from="1605784121212" duration="13654000" />
-    </task>
-    <task id="LOCAL-00036" summary="cleaned project structure, pre-test">
-      <created>1601974338343</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1601974338343</updated>
+      <workItem from="1605957057757" duration="21487000" />
+      <workItem from="1606159469602" duration="7165000" />
+      <workItem from="1606209442387" duration="3701000" />
+      <workItem from="1606243534801" duration="7272000" />
+      <workItem from="1606254458360" duration="1213000" />
     </task>
     <task id="LOCAL-00037" summary="script will pause for 10 seconds after creating the cluster">
       <created>1601975659612</created>
@@ -628,7 +658,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604918477894</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="test with Posgre OK&#10;&#10;In order to test the Airflow pipeline, I created locally first an airflow pipeline from csv files to PG&#10;Using PostgreOperator&#10;Postgre and Airflow are set up using docker-compose.yml&#10;I then run the dag pg_dag">
+      <created>1605966451633</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1605966451634</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +678,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="Removed pics" />
     <MESSAGE value="test rebase" />
     <MESSAGE value="removed diagram" />
     <MESSAGE value="Updated images path" />
@@ -666,17 +702,18 @@
     <MESSAGE value="Added project 2" />
     <MESSAGE value="dropped the duplicates according to specific columns for better quality" />
     <MESSAGE value="Readme.md moved to the root folder with instructions how to run the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readme.md moved to the root folder with instructions how to run the project" />
+    <MESSAGE value="test with Posgre OK&#10;&#10;In order to test the Airflow pipeline, I created locally first an airflow pipeline from csv files to PG&#10;Using PostgreOperator&#10;Postgre and Airflow are set up using docker-compose.yml&#10;I then run the dag pg_dag" />
+    <option name="LAST_COMMIT_MESSAGE" value="test with Posgre OK&#10;&#10;In order to test the Airflow pipeline, I created locally first an airflow pipeline from csv files to PG&#10;Using PostgreOperator&#10;Postgre and Airflow are set up using docker-compose.yml&#10;I then run the dag pg_dag" />
   </component>
   <component name="WindowStateProjectService">
     <state x="349" y="0" key="#Dockerconf/jupyter.dockerfile" timestamp="1605792456428">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="349" y="0" key="#Dockerconf/jupyter.dockerfile/0.0.1280.800@0.0.1280.800" timestamp="1605792456428" />
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605789789994">
+    <state x="68" y="64" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606113184934">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1605789789994" />
+    <state x="68" y="64" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1606113184934" />
     <state x="369" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604605438465">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -686,18 +723,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="377" y="191" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.800@0.0.1280.800" timestamp="1598356152442" />
-    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598791918198">
+    <state x="108" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606109932190">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1598791918198" />
-    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1604580972701">
+    <state x="108" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.800@0.0.1280.800" timestamp="1606109932190" />
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606219192528">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1604580972701" />
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2" timestamp="1604918477077">
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1606219192528" />
+    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1605963720587">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="0" width="1192" height="800" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1604918477077" />
+    <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1605963720587" />
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2" timestamp="1605966450087">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1605966450087" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -710,22 +751,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="430" y="300" key="Github.ShareDialog/0.0.1280.800@0.0.1280.800" timestamp="1598347656609" />
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom" timestamp="1604661113099">
+    <state width="846" height="212" key="GridCell.Tab.0.bottom" timestamp="1606160091761">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1604661113099" />
-    <state width="1238" height="226" key="GridCell.Tab.0.center" timestamp="1604661113098">
+    <state width="846" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1606160091761" />
+    <state width="846" height="212" key="GridCell.Tab.0.center" timestamp="1606160091759">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1604661113098" />
-    <state width="1238" height="226" key="GridCell.Tab.0.left" timestamp="1604661113098">
+    <state width="846" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1606160091759" />
+    <state width="846" height="212" key="GridCell.Tab.0.left" timestamp="1606160091758">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1604661113098" />
-    <state width="1238" height="226" key="GridCell.Tab.0.right" timestamp="1604661113099">
+    <state width="846" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1606160091758" />
+    <state width="846" height="212" key="GridCell.Tab.0.right" timestamp="1606160091760">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="226" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1604661113099" />
+    <state width="846" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1606160091760" />
     <state x="353" y="123" key="MultipleFileMergeDialog" timestamp="1602018981243">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -738,31 +779,31 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604919177721">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1605966456849">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604919177721" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1605966456849" />
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1604660115263">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1280.800@0.0.1280.800" timestamp="1604660115263" />
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1605782507185">
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1606243564830">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1605782507185" />
-    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1603192958311" />
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1606243564830" />
+    <state x="319" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1605957580198" />
     <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604659401834">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="429" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800@0.0.1280.800" timestamp="1604659401834" />
-    <state x="232" y="125" width="816" height="550" key="find.popup" timestamp="1605805088475">
+    <state x="232" y="125" width="816" height="550" key="find.popup" timestamp="1606253950924">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="232" y="125" width="816" height="550" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1605805088475" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1605803228165">
+    <state x="232" y="125" width="816" height="550" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1606253950924" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1606255158395">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1605803228165" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1606255158395" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Udacity_Data_Engineer_NanoDegree$create_tables__1_.coverage" NAME="create_tables (1) Coverage Results" MODIFIED="1598359266261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/p1_datamodelling_postgres/p1utils" />

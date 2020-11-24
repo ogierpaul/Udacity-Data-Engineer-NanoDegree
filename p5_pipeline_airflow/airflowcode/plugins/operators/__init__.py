@@ -1,11 +1,13 @@
-from operators.stage_redshift import StageToRedshiftOperator
-from operators.load_fact import LoadFactOperator
-from operators.load_dimension import LoadDimensionOperator
+from operators.pg_stage_data import PgStagingOperator
+from operators.load_tables import PgUpsertOperator
 from operators.data_quality import DataQualityOperator
+from operators.create_schema import CreateSchemaOperator
+from operators.rs_stage_data import RedshiftStagingOperator
 
 __all__ = [
-    'StageToRedshiftOperator',
-    'LoadFactOperator',
-    'LoadDimensionOperator',
-    'DataQualityOperator'
+    'PgStagingOperator',
+    'PgUpsertOperator',
+    'DataQualityOperator',
+    'CreateSchemaOperator',
+    'RedshiftStagingOperator'
 ]

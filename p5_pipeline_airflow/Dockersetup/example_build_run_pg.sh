@@ -1,4 +1,4 @@
-docker build -t p5pg -f ./Dockersetup/postgres.dockerfile .
+docker build -t pgcont -f ./Dockersetup/postgres.dockerfile .
 
 docker run \
   -d \

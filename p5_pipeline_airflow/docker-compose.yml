@@ -21,7 +21,8 @@ services:
         dockerfile: ./Dockersetup/airflow.dockerfile
       image: p5af
       environment:
-        AIRFLOW_CONN_PG: "$AIRFLOW_CONN_PG"
+        AIRFLOW_CONN_AA_PG: "$AIRFLOW_CONN_AA_PG"
+        FERNET_KEY: "$FERNET_KEY"
       ports:
         - "8080:8080"
       volumes:
