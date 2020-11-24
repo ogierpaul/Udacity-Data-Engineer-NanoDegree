@@ -9,3 +9,4 @@
 /*.cfg
 
 /p4_datalake_spark/aws/config.cfg
+/p5_pipeline_airflow/.env

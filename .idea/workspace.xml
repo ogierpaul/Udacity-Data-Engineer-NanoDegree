@@ -114,19 +114,19 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/others_dags" />
+      <recent name="$PROJECT_DIR$/sparkdocker/p4src" />
+      <recent name="$PROJECT_DIR$/withdocker/airflowdags" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow" />
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode" />
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/workdir" />
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators" />
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags" />
-      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/others_dags" />
-      <recent name="$PROJECT_DIR$/sparkdocker/p4src" />
-      <recent name="$PROJECT_DIR$/withdocker/airflowdags" />
-      <recent name="$PROJECT_DIR$/P4-Data_Lake_with_Spark/p4src/etl" />
     </key>
   </component>
   <component name="RunManager" selected="Python.p4sparkdocker">
@@ -735,10 +735,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1605963720587" />
-    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2" timestamp="1605966450087">
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2" timestamp="1606255768941">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1605966450087" />
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1606255768941" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -779,10 +779,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1605966456849">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1606255795638">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1605966456849" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1606255795638" />
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1604660115263">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
