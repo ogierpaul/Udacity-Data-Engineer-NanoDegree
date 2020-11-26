@@ -13,3 +13,15 @@
 /p5_pipeline_airflow/notshown.txt
 /.idea/
 /.pytest_cache/
+/.idea/dataSources/
+/.idea/inspectionProfiles/
+/.idea/$CACHE_FILE$
+/.idea/.gitignore
+/.idea/dataSources.local.xml
+/.idea/dataSources.xml
+/.idea/dictionaries
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/Udacity-Data-Engineer-NanoDegree.iml
+/.idea/vcs.xml
+/.idea/workspace.xml
