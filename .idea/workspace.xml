@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="Ready for Udacity submission">
-      <change beforePath="$PROJECT_DIR$/.idea/Udacity-Data-Engineer-NanoDegree.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Udacity-Data-Engineer-NanoDegree.iml" afterDir="false" />
+    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="Added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p6_capstone/data/DECP/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p6_capstone/data/DECP/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,19 +81,19 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/subdags" />
-      <recent name="$PROJECT_DIR$/p5_pipeline_airflow" />
-      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode" />
-      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/workdir" />
-      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags" />
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators" />
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow" />
       <recent name="$PROJECT_DIR$/p5_pipeline_airflow/others_dags" />
       <recent name="$PROJECT_DIR$/sparkdocker/p4src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/p6_capstone/data/DECP" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/subdags" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode" />
+      <recent name="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/workdir" />
     </key>
   </component>
   <component name="RunManager" selected="Python.p4sparkdocker">
@@ -289,20 +289,6 @@
       <workItem from="1606243534801" duration="7272000" />
       <workItem from="1606254458360" duration="13361000" />
       <workItem from="1606316406728" duration="10084000" />
-    </task>
-    <task id="LOCAL-00043" summary="Fixed bug on psycopg2 SQL query syntax&#10;Fixed bug on table name songplay&#10;Created routines for data loading">
-      <created>1601988173626</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1601988173626</updated>
-    </task>
-    <task id="LOCAL-00044" summary="fixed configuration of path&#10;fixed query to insert into songplays">
-      <created>1601992116994</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1601992116994</updated>
     </task>
     <task id="LOCAL-00045" summary="renamed src to p3src">
       <created>1601992707684</created>
@@ -633,7 +619,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606393815792</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Init Capstone project">
+      <created>1606408278470</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1606408278470</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Started documenting the data gathering&#10;&#10;One Readme.md explanations (URL, Description, others) per data source.&#10;One exploration notebook per data source.">
+      <created>1606418465729</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1606418465729</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,8 +646,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="Copied file from Udacity" />
-    <MESSAGE value="Added row files from udacity" />
     <MESSAGE value="added gitignore" />
     <MESSAGE value="Added reference to Spark Cluster Set-up" />
     <MESSAGE value="Added tutorials how to use spark" />
@@ -671,7 +669,9 @@
     <MESSAGE value="Update documentation" />
     <MESSAGE value="Test Full workflow on Redshift and Postgre ok&#10;&#10;Tested full workflow on redshift and Postgre (Create -&gt; Stage -&gt; Load -&gt; Truncate), including data quality checks&#10;Documented the workflow, operators&#10;Todo: test passing connection variables via ENV variable (Redshift, ARN)" />
     <MESSAGE value="Clarified deliveries for submission" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clarified deliveries for submission" />
+    <MESSAGE value="Init Capstone project" />
+    <MESSAGE value="Started documenting the data gathering&#10;&#10;One Readme.md explanations (URL, Description, others) per data source.&#10;One exploration notebook per data source." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started documenting the data gathering&#10;&#10;One Readme.md explanations (URL, Description, others) per data source.&#10;One exploration notebook per data source." />
   </component>
   <component name="WindowStateProjectService">
     <state x="349" y="0" key="#Dockerconf/jupyter.dockerfile" timestamp="1605792456428">
@@ -703,10 +703,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1605963720587" />
-    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2" timestamp="1606393815272">
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2" timestamp="1606418464839">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1606393815272" />
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1606418464839" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -747,10 +747,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1606408254575">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1606418468752">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1606408254575" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1606418468752" />
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1604660115263">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
