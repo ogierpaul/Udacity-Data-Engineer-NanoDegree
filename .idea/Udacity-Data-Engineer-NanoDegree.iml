@@ -2,10 +2,11 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/p3_datawarehouse_aws_redshift/p3src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/p3_datawarehouse_aws_redshift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/p4_datalake_spark/p4src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/p4_datalake_spark" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sparkdocker/Dockersetup/p4src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/p5_pipeline_airflow" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/p5_pipeline_airflow/airflowcode" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/p5_pipeline_airflow/airflowcode/plugins" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (dend)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

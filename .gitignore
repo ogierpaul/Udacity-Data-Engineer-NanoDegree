@@ -6,3 +6,8 @@
 /Udacity_Sparkify_Cassandra/event_data/2018-11-01-events.csv
 /Udacity_Sparkify_Cassandra/event_data/2018-11-02-events.csv
 /Udacity_Sparkify_Cassandra/event_data/2018-11-03-events.csv
+/*.cfg
+
+/p4_datalake_spark/aws/config.cfg
+/p5_pipeline_airflow/.env
+/p5_pipeline_airflow/notshown.txt
