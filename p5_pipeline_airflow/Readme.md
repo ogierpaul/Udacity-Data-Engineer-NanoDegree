@@ -1,19 +1,34 @@
 # Project 5 : Data Pipeline with Airflow
 ## Purpose
-### End Result
-- Demonstrate Airflow
-- Create dags, queries, and ad-hoc operators with Airflow
-- ETL data from S3 bucket to Redshit
-- Features: Copy from S3, Upsert into Star Schema, Data Quality Checks
-
 ### Context:
 - A music streaming company, Sparkify, has decided that it is time to introduce more automation and monitoring to their data warehouse ETL pipelines and come to the conclusion that the best tool to achieve this is Apache Airflow.
 - They have decided to bring you into the project and expect you to create high grade data pipelines that are dynamic and built from reusable tasks, can be monitored, and allow easy backfills. They have also noted that the data quality plays a big part when analyses are executed on top the data warehouse and want to run tests against their datasets after the ETL steps have been executed to catch any discrepancies in the datasets.
 - The source data resides in S3 and needs to be processed in Sparkify's data warehouse in Amazon Redshift. The source datasets consist of CSV logs that tell about user activity in the application and JSON metadata about the songs the users listen to.
 
+### End Result
+- Demonstrate Airflow
+- Create dags, queries, and ad-hoc operators with Airflow
+- ETL data from S3 bucket to Redshit
 
-### Happy Flow
+### Submission comment
+#### Instructions (short)
+- git-clone and Install via docker (see below)
+- Connection parameters are stored in the `.env` file --> adapt them to your configuration
+- Connect to airflow on `localhost:8080` and run DAG `udacity_s3_redshift_dag`
+
+#### Prerequisites
+- Redshift has rights (ARN) to access S3
+- Redshift cluster is running
+
+#### Order of Operations (Happy Flow)
+1. Create the Schema if not exits
+2. Truncate staging tables and insert data from S3 (RedshiftStagingOperator)
+3. Load fact and dimension tables with Upsert (RsUpsertOperator), check rows are created, and no duplicates on primary key
+4. Truncate staging tables
+5. End
 ![Happy_flow_p5](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/Happy_flow_Redshift.png)
+
+
 
 ### Reminder: Airflow is not ETL
 - Airflow is at its core a scheduler
@@ -21,8 +36,8 @@
 - Here, Airflow will call on Redshift to query S3, and trigger other Redshift Queries
 
 ## Structure
-### Project Structure
-![Project_5_Structure](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/p5_Airflow.jpg)
+### Project Architecture
+![Project_5_Architecture](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/p5_Airflow.jpg)
 ### Repository
 - airflowcode:
     - store dags, operators, and helpers functions used in Airflow
