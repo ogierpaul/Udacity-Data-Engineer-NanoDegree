@@ -4,13 +4,20 @@
 - Demonstrate Airflow
 - Create dags, queries, and ad-hoc operators with Airflow
 - ETL data from S3 bucket to Redshit
+- Features: Copy from S3, Upsert into Star Schema, Data Quality Checks
+
+### Happy Flow
+![Happy_flow_p5](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/Happy_flow_Redshift.png)
 
 ### Reminder: Airflow is not ETL
 - Airflow is at its core a scheduler
 - It does not transport data itself, but can launch tasks that do that
 - Here, Airflow will call on Redshift to query S3, and trigger other Redshift Queries
 
-## Repository structure
+## Structure
+### Project Structure
+![Project_5_Structure](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/p5_Airflow.jpg)
+### Repository
 - airflowcode:
     - store dags, operators, and helpers functions used in Airflow
     - is synced with the airflow running on docker (uses a bind mount, see docker-compose file)
