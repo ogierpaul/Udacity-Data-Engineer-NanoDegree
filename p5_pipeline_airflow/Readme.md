@@ -3,7 +3,7 @@
 ### End Result
 - Demonstrate Airflow
 - Create dags, queries, and ad-hoc operators with Airflow
-- ETL data from S4 bucket to Redshit
+- ETL data from S3 bucket to Redshit
 
 ### Reminder: Airflow is not ETL
 - Airflow is at its core a scheduler
@@ -20,7 +20,7 @@
     - not needed for Redshift as it will directly query S3
 - Dockersetup
     - store Docker files to create images of Airflow and Postgres
-    - and sample scripts how to launch airflow and pg as stand-alone
+    - and sample scripts how to launch airflow and pg as stand-alone for debugging
 - docker-compose.yml, .env files:
     - environment-specific files, need to be configured before launching docker-compose
 
@@ -40,30 +40,29 @@ To test the environment without launching a Redshift Cluster, you can test Airfl
 docker-compose build
 docker-compose up -d
 ```
-- connect to `localhost:8080` for the Airflow U
-- Trigger the DAG pg_sample_dag
+- connect to `localhost:8080` for the Airflow UI
+- Trigger the DAG **pg_sample_dag**
 
 ### AWS environment: Using AWS S3 and Redshift
 #### Pre-requisite
-- Update the `.env` file with your AWS credentials and ARN role
-- As well as the Redshift Cluster connection details
+- Update the `.env` file with your ARN role, as well as the Redshift Cluster connection details
 - see section en configuring .env file with `.sampleenv`
-
+- Make sure your redshift cluster has the right permissions
+    - Can access S3
+    - Authorize traffic TCP from your IP ( See Project 3)
+  
 #### Run airflow
 - Using the same docker-compose as above
-    - If needed, remove Postgre service is superfluous
-- connect to `localhost:8080` for the Airflow U
-- Trigger the DAG **rs_dag**
+    - If needed, remove Postgre service as it is superfluous
+- connect to `localhost:8080` for the Airflow UI
+- Trigger the DAG **udacity_s3_redshift_dag**
 
 
 ## References
-- https://airflow.apache.org/docs/1.10.3/howto/connection/aws.html
-- https://docs.aws.amazon.com/us_en/redshift/latest/dg/copy-parameters-data-source-s3.html
-- https://www.astronomer.io/guides/connections/
-- https://airflow.apache.org/docs/stable/howto/connection/index.html#generating-a-connection-uri
-- https://airflow.apache.org/docs/stable/howto/connection/index.html#storing-a-connection-in-environment-variables
+- [Connect airflow to AWS](https://airflow.apache.org/docs/1.10.3/howto/connection/aws.html)
+- [Redshift: Copy data from S3](https://docs.aws.amazon.com/us_en/redshift/latest/dg/copy-parameters-data-source-s3.html)
+- [Manage connections in Airflow](https://www.astronomer.io/guides/connections/)
+- [Airflow: Generate a connection URI](https://airflow.apache.org/docs/stable/howto/connection/index.html#generating-a-connection-uri) for use as environment variable
+- [Airflow: Input connection URI as environment variable](https://airflow.apache.org/docs/stable/howto/connection/index.html#storing-a-connection-in-environment-variables
+) to be called this connection from the environment variables
 
-Make sure your redshift cluster has the right permissions
-- Can access S3
-- Authorize traffic TCP from your IP
-    - See Project 3

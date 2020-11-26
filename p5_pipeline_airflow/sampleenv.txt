@@ -1,8 +1,6 @@
 POSTGRES_PASSWORD = <mypassword>
 AIRFLOW_CONN_AA_PG=postgresql://myuser:<mypassword>@<postgreservicenameindockercompose>/mydb
-AIRFLOW_CONN_AA_AWS=aws://<AccessKeyIs>:<SecretKey>
-AIRFLOW_CONN_AA_RS=postgres://<redshiftuser>:<redshiftpassword>@e<redshiftendpoint>:5439/<redshiftdbname>
-AWS_ARN=<redshiftarnrolefors3access>
+AIRFLOW_CONN_AA_RS=postgres://<redshiftuser>:<redshiftpassword>@<redshiftendpoint>:5439/<redshiftdbname>
+AWS_ARN=<rarn:aws:iam::awsaccountid12digits:role/redshiftarnrolefors3access >
 FERNET_KEY=<aFernetKey>
-
 

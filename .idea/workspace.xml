@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/udacity_s3_redshift_dag.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/pg_upsert_tables.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/rs_upsert_tables.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p5_pipeline_airflow/data/Readme.md" afterDir="false" />
+    <list default="true" id="19a4f918-cabb-4f5e-9fd0-e335c62bb429" name="Default Changelist" comment="Test Full workflow on Redshift and Postgre ok&#10;&#10;Tested full workflow on redshift and Postgre (Create -&gt; Stage -&gt; Load -&gt; Truncate), including data quality checks&#10;Documented the workflow, operators&#10;Todo: test passing connection variables via ENV variable (Redshift, ARN)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/.env" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/airflow.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/airflow.dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/example_build_run_pg.sh" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/example_build_run_pg.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/postgres.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Dockersetup/postgres.dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/pg_sample_dag.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/pg_sample_dag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/rs_dag.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/sql_queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/helpers/sql_queries.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/create_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/create_schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/data_quality.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/load_tables.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/pg_stage_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/pg_stage_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/rs_stage_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/plugins/operators/rs_stage_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/udacity_s3_redshift_dag.py" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/airflowcode/dags/udacity_s3_redshift_dag.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/p5_pipeline_airflow/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/p5_pipeline_airflow/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -309,14 +294,7 @@
       <workItem from="1606209442387" duration="3701000" />
       <workItem from="1606243534801" duration="7272000" />
       <workItem from="1606254458360" duration="13361000" />
-      <workItem from="1606316406728" duration="8721000" />
-    </task>
-    <task id="LOCAL-00041" summary="Fixed Readme and initiated elsewhere">
-      <created>1601977940713</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1601977940713</updated>
+      <workItem from="1606316406728" duration="10084000" />
     </task>
     <task id="LOCAL-00042" summary="Worked on ETL to input JSON path">
       <created>1601980499668</created>
@@ -654,7 +632,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606256099952</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Test Full workflow on Redshift and Postgre ok&#10;&#10;Tested full workflow on redshift and Postgre (Create -&gt; Stage -&gt; Load -&gt; Truncate), including data quality checks&#10;Documented the workflow, operators&#10;Todo: test passing connection variables via ENV variable (Redshift, ARN)">
+      <created>1606387826971</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1606387826972</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +652,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/Udacity_Sparkify_Cassandra" />
     </ignored-roots>
-    <MESSAGE value="Updated images path" />
     <MESSAGE value="updated README.md" />
     <MESSAGE value="Copied file from Udacity" />
     <MESSAGE value="Added row files from udacity" />
@@ -692,7 +676,8 @@
     <MESSAGE value="test with Posgre OK&#10;&#10;In order to test the Airflow pipeline, I created locally first an airflow pipeline from csv files to PG&#10;Using PostgreOperator&#10;Postgre and Airflow are set up using docker-compose.yml&#10;I then run the dag pg_dag" />
     <MESSAGE value="Project runs correctly on PG&#10;&#10;Project has been tested on PG using the dag pg_sample_dag.py&#10;It has to be tested on Redshift still&#10;Documentation has been instantiated" />
     <MESSAGE value="Update documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update documentation" />
+    <MESSAGE value="Test Full workflow on Redshift and Postgre ok&#10;&#10;Tested full workflow on redshift and Postgre (Create -&gt; Stage -&gt; Load -&gt; Truncate), including data quality checks&#10;Documented the workflow, operators&#10;Todo: test passing connection variables via ENV variable (Redshift, ARN)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Full workflow on Redshift and Postgre ok&#10;&#10;Tested full workflow on redshift and Postgre (Create -&gt; Stage -&gt; Load -&gt; Truncate), including data quality checks&#10;Documented the workflow, operators&#10;Todo: test passing connection variables via ENV variable (Redshift, ARN)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="349" y="0" key="#Dockerconf/jupyter.dockerfile" timestamp="1605792456428">
@@ -716,18 +701,18 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="108" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.800@0.0.1280.800" timestamp="1606109932190" />
-    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606219192528">
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606389364171">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1606219192528" />
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1606389364171" />
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1605963720587">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="415" y="140" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1280.800@0.0.1280.800" timestamp="1605963720587" />
-    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2" timestamp="1606387798622">
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2" timestamp="1606389414733">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1606387798622" />
+    <state x="0" y="23" width="1192" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1606389414733" />
     <state x="394" y="172" key="EnvironmentVariablesDialog" timestamp="1603144371649">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -768,10 +753,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="100" y="100" width="1080" height="600" key="ShowDiffWithBranchDialog/0.0.1280.800@0.0.1280.800" timestamp="1602018803593" />
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1606256121372">
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1606387852826">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1606256121372" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1606387852826" />
     <state x="100" y="100" width="1080" height="600" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1604660115263">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

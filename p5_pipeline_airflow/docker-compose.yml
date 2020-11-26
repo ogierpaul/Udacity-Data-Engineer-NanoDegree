@@ -1,10 +1,10 @@
-version: "3"
+version: "3.8"
 services:
   pg:
     build:
       context: ./
       dockerfile: ./Dockersetup/postgres.dockerfile
-    image: p5pg
+    image: ogierpaul/p5pg
     # Set up some environment variables. Password is stored in the .env file
     environment:
       POSTGRES_USER: myuser
@@ -19,7 +19,7 @@ services:
       build:
         context: ./
         dockerfile: ./Dockersetup/airflow.dockerfile
-      image: p5af
+      image: ogierpaul/p5af
       environment:
         AIRFLOW_CONN_AA_PG: "$AIRFLOW_CONN_AA_PG"
         AIRFLOW_CONN_AA_RS: "$AIRFLOW_CONN_AA_RS"

@@ -7,11 +7,8 @@ from airflow.operators import RedshiftStagingOperator, CreateSchemaOperator, RsU
 import os
 
 # Parameters:
-#TODO: Check ARN
-# arn = os.environ.get('AWS_ARN')
-arn = "arn:aws:iam::075227836161:role/iacredshifts3access"
-#TODO: check conn_id
-conn_id = 'ab_redshift2'
+arn = os.environ.get('AWS_ARN')
+conn_id = 'aa_rs'
 region = 'us-west-2'
 song_path = "s3://udacity-dend/song_data/A/A/A"
 log_path = "s3://udacity-dend/log_data/"

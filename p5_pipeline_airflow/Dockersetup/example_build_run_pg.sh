@@ -6,7 +6,7 @@ docker run \
   --name pgcont \
   -p 5432:5432  \
   -v $PWD/data:/data \
-  -e POSTGRES_PASSWORD=letmein \
+  -e POSTGRES_PASSWORD=<password> \
   -e POSTGRES_USER=myuser \
   -e POSTGRES_DB=mydb \
   p5pg
