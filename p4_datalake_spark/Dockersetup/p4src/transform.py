@@ -74,7 +74,7 @@ def select_time_data(df):
         .withColumn("month", F.month(F.col("start_time"))) \
         .withColumn("year", F.year(F.col("start_time"))) \
         .withColumn("weekday", F.date_format(F.col("start_time"), 'E'))
-    time_table = df2.dropDuplicates().select("start_time", "hour", "day", "week", "month", "year", "weekday")
+    time_table = df2.select("start_time", "hour", "day", "week", "month", "year", "weekday")
     return time_table
 
 def select_songplay(df_event, songs, artists):
