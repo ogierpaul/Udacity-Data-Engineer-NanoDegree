@@ -1,2 +1,2 @@
-FROM postgres:f14f876334e9
+FROM postgres
 COPY ./Dockersetup/pgschemacreation/ /docker-entrypoint-initdb.d/
