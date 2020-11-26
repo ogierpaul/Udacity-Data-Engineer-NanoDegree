@@ -11,10 +11,9 @@ def select_songs_data(df):
         pyspark.sql.DataFrame
     """
     # extract columns to create songs table
-    song_cols = ["title", "artist_id", "year", "duration"]
+    song_cols = ["song_id", "title", "artist_id", "year", "duration"]
     songs_table = df.select(song_cols).\
-        dropDuplicates(subset=["title", 'artist_id']).\
-        withColumn("song_id", F.monotonically_increasing_id())
+        dropDuplicates(subset=["song_id"])
     return songs_table
 
 def select_artists_data(df):
@@ -68,7 +67,7 @@ def select_time_data(df):
     Returns:
         pyspark.sql.DataFrame
     """
-    df2 = df.select("start_time").dropDuplicates() \
+    df2 = df.select("start_time").dropDuplicates(subset="start_time") \
         .withColumn("hour", F.hour(F.col("start_time"))) \
         .withColumn("day", F.dayofmonth(F.col("start_time"))) \
         .withColumn("week", F.weekofyear(F.col("start_time"))) \
