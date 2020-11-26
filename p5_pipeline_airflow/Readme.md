@@ -62,7 +62,8 @@ docker-compose up -d
 - https://www.astronomer.io/guides/connections/
 - https://airflow.apache.org/docs/stable/howto/connection/index.html#generating-a-connection-uri
 - https://airflow.apache.org/docs/stable/howto/connection/index.html#storing-a-connection-in-environment-variables
+
 Make sure your redshift cluster has the right permissions
 - Can access S3
 - Authorize traffic TCP from your IP
-    - See P3
+    - See Project 3

@@ -26,7 +26,7 @@ class CreateSchemaOperator(BaseOperator):
         Executes all the queries in the "sql_statements" file
         - Used to create a schema in the Database
         Args:
-            context:
+            context: See Airflow context
 
         Returns:
 
@@ -34,13 +34,14 @@ class CreateSchemaOperator(BaseOperator):
         self.log.info('Creating schema..')
         self.log.info(os.listdir(os.getcwd()))
         hook = PostgresHook(postgres_conn_id=self.conn_id)
+
+        # Create a list of sql commands from the sql_statements file
         f = open(CreateSchemaOperator.sql_statements_path, 'r')
         sql_all = f.read()
         f.close()
+        q_all = [S.SQL(q + ';') for q in sql_all.split(';') if q.rstrip()!= '']
 
-        sql_commands = sql_all.split(';')
+        # Execute them
+        hook.run(q_all)
 
-        for command in sql_commands:
-            if command.rstrip() != '':
-                hook.run((S.SQL(command+';'), ))
         self.log.info('Schema created')

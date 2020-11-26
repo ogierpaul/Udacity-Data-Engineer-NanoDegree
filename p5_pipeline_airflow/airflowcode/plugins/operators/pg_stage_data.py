@@ -5,6 +5,7 @@ import psycopg2.sql as S
 
 class PgStagingOperator(BaseOperator):
     """
+    This operator will COPY FROM a CSV
     """
     ui_color = '#358140'
     query =   """
