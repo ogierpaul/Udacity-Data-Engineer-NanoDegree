@@ -1,4 +1,4 @@
-# Data Exploration Method
+# Data Exploration Method in order to do BI
 ## For a dataset
 ### Data Ingestion
 #### Data Structure coherency
@@ -20,10 +20,14 @@
 #### Objectives
 - Validate the data ingestion step
 - Explore the data set and understand it
+- Create a Hello World of an app using just this table
+- Create a prototype of the future app, (just one sheet, one table, one app)
+- Validate with the business user the data
 
 #### Examples
 - For measures: What is the dispersion / Distribution of variables? Outliers: Keep or exclude?
 - For categories: what is the frequency (value_counts) of each variable? Is there any categories to exclude?
+
 
 #### Tools:
 - Use BI Tool like Qliksense to drill down and explore the dataset
