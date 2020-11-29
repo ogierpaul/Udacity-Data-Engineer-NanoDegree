@@ -61,6 +61,7 @@ CREATE TABLE decp_titulaires
 
 INSERT INTO decp_titulaires
 SELECT CAST(md5(CAST(decp_uid AS VARCHAR) || CAST(titulaire_id AS VARCHAR)  || CAST(titulaire_name AS VARCHAR) ) AS UUID)as decp_titulaire_uid,
+       decp_uid,
        titulaire_id,
        titulaire_name,
        titulaire_typeidentifiant
@@ -76,6 +77,5 @@ FROM (SELECT DISTINCT decp_uid, titulaire_id, titulaire_name, titulaire_typeiden
 WHERE c.titulaire_id IS NOT NULL;
 
 
-    /  #TODO: Check headers and delimiter
-COPY decp_attributes TO '/data/15-DECP/9-output/decp_attributes.csv' DELIMITER ',';
-COPY decp_titulaires TO '/data/15-DECP/9-output/decp_titulaires.csv' DELIMITER ',';
+COPY decp_attributes TO '/data/15-DECP/9-output/decp_attributes.csv' CSV DELIMITER '|' HEADER QUOTE '"';
+COPY decp_titulaires TO '/data/15-DECP/9-output/decp_titulaires.csv' CSV DELIMITER '|' HEADER QUOTE '"';
