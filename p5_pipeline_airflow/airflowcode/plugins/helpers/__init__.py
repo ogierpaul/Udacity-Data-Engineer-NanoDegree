@@ -1,6 +1,5 @@
-from helpers.sql_queries import SqlQueries, PgQueries
+from helpers.sql_queries import SqlQueries
 
 __all__ = [
-    'SqlQueries',
-    'PgQueries'
+    'SqlQueries'
 ]

@@ -7,19 +7,6 @@
 - Init the database schema via `CREATE IF NOT EXISTS` the tables
 - the schema is defined in the file `create_tables.sql`
 
-### pg_stage_data
-- Load data from flat files into the staging tables
-- for data flow test purpose
-
-### pg_upsert_tables
-#### Upsert data in Postgre
-1. Create Temporary Staging Table
-2. Delete rows from Target table that are present in Staging tables
-3. Insert into Target Tables from Staging Table
-4. Delete Staging Table
-#### Data Quality Checks
-1. Check the target table has a positive number of rows
-2. Check the target table has no duplicate primary key    
 
 ### rs_stage_data
 #### Steps
@@ -32,14 +19,17 @@
 
 ### rs_upsert_tables
 - Redshift does not natively support Upsert, thus a workaround is necessary
+
 #### Upsert data in Postgre
 1. Create Temporary Staging Table
 2. Delete rows from Target table that are present in Staging tables
 3. Insert into Target Tables from Staging Table
 4. Delete Staging Table
+
 #### Data Quality Checks
 1. Check the target table has a positive number of rows
 2. Check the target table has no duplicate primary key   
+
 #### Arguments:
 - table: target table name
 - staging_prefix: prefix to be added to the temporary staging table
