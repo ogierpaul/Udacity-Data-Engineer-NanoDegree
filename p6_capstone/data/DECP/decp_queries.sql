@@ -59,6 +59,10 @@ CREATE TABLE decp_titulaires
 );
 
 
+//todo: Deduplicate on id and uid
+// clean 99999 into Null
+// Remove blanks and points
+
 INSERT INTO decp_titulaires
 SELECT CAST(md5(CAST(decp_uid AS VARCHAR) || CAST(titulaire_id AS VARCHAR)  || CAST(titulaire_name AS VARCHAR) ) AS UUID)as decp_titulaire_uid,
        decp_uid,
@@ -77,5 +81,80 @@ FROM (SELECT DISTINCT decp_uid, titulaire_id, titulaire_name, titulaire_typeiden
 WHERE c.titulaire_id IS NOT NULL;
 
 
+
+
+
+
 COPY decp_attributes TO '/data/15-DECP/9-output/decp_attributes.csv' CSV DELIMITER '|' HEADER QUOTE '"';
 COPY decp_titulaires TO '/data/15-DECP/9-output/decp_titulaires.csv' CSV DELIMITER '|' HEADER QUOTE '"';
+
+
+
+
+(SELECT
+       DISTINCT
+        CASE
+           WHEN titulaire_typeidentifiant = 'SIRET' THEN LEFT(titulaire_id, 9)
+           WHEN Left(titulaire_typeidentifiant, 3) = 'TVA' AND LEFT(titulaire_id, 2) = 'FR' THEN  substr(titulaire_id, 5, 9)
+           ELSE NULL
+        END as siren
+FROM
+     (SELECT DISTINCT  titulaire_typeidentifiant, REPLACE(REPLACE(titulaire_id, ' ',''),'.', '') as titulaire_id
+    FROM decp_titulaires
+     WHERE titulaire_typeidentifiant = 'SIRET'
+     OR (Left(titulaire_typeidentifiant, 3) = 'TVA' AND LEFT(titulaire_id, 2) = 'FR')
+        OR titulaire_id = '999999999'
+         OR titulaire_id IS NULL
+         ) b
+) c;
+
+
+COPY decp_titulaires
+FROM 's3://paulogiereucentral1/decp_titulaires.csv'
+IAM_ROLE 'arn:aws:iam::075227836161:role/iacredshifts3access'
+FORMAT AS CSV IGNOREHEADER AS 1 DELIMITER AS '|';
+
+
+CREATE TABLE decp_supplier
+(
+    decp_uid    varchar(128),
+    siren       VARCHAR(9),
+    eu_vat      VARCHAR(32),
+    countrycode VARCHAR(2)
+);
+
+
+INSERT INTO decp_supplier
+SELECT decp_uid,
+       CASE
+           WHEN titulaire_typeidentifiant = 'SIRET' THEN LEFT(titulaire_id, 9)
+           WHEN Left(titulaire_typeidentifiant, 3) = 'TVA' AND LEFT(titulaire_id, 2) = 'FR'
+               THEN substring(titulaire_id, 5, 9)
+           ELSE NULL
+           END as siren,
+        CASE
+            WHEN LEFT(titulaire_typeidentifiant, 3) = 'TVA' THEN titulaire_id
+            WHEN titulaire_typeidentifiant = 'SIRET' THEN 'FR' || LPAD(CAST(MOD(12 + 3*MOD(CAST(LEFT(titulaire_id, 9) AS INTEGER), 97), 97) AS VARCHAR), 2) || titulaire_id
+            ELSE NULL
+        END as eu_vat,
+       CASE
+            WHEN LEFT(titulaire_typeidentifiant, 3) = 'TVA' THEN LEFT(titulaire_id,2)
+            WHEN titulaire_typeidentifiant = 'SIRET' THEN 'FR'
+            ELSE NULL
+        END as countrycode
+FROM (SELECT DISTINCT decp_uid,
+                      titulaire_typeidentifiant,
+                      titulaire_id
+      FROM
+           (SELECT decp_uid,
+               titulaire_typeidentifiant,
+                REPLACE(REPLACE(titulaire_id, ' ', ''),'.','') as titulaire_id
+           FROM decp_titulaires) b
+      WHERE NOT (titulaire_id = '999999999' OR titulaire_id IS NULL OR titulaire_id = '')
+        AND (
+              (titulaire_typeidentifiant = 'SIRET' AND LENGTH(titulaire_id) <=14 AND (titulaire_id ~ '^[0-9]*$'))
+              OR
+              (LEFT(titulaire_typeidentifiant, 3) = 'TVA' AND titulaire_id ~ '^[A-z][A-z]')
+          )
+     ) c;
+
