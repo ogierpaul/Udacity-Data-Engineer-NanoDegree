@@ -53,24 +53,6 @@
     - environment-specific files, need to be configured before launching docker-compose
 
 ## Set-up of the project
-### Test Environment: Use PG
-#### Why PG
-To test the environment without launching a Redshift Cluster, you can test Airflow with PG using:
-- Using the sample data in `data/stagingarea/`
-- Triggering the `pg_sample_dag.py` dag in `airflowcode/dags/`
-
-#### how to launch PG + Airflow
-- Modify the environment variables in the `.env` file
-    - see `.sampleenv` for example
-- Check the `docker-compose.yml` script
-- run docker:
-```shell script
-docker-compose build
-docker-compose up -d
-```
-- connect to `localhost:8080` for the Airflow UI
-- Trigger the DAG **pg_sample_dag**
-
 ### AWS environment: Using AWS S3 and Redshift
 #### Pre-requisite
 - Update the `.env` file with your ARN role, as well as the Redshift Cluster connection details
