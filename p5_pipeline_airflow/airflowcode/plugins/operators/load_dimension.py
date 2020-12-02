@@ -3,9 +3,8 @@ from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 import psycopg2.sql as S
 
-class LoadTableOperator(BaseOperator):
+class LoadDimensionOperator(BaseOperator):
     """
-    - Replaces LoadDimensionOperator or LoadFactOperator as I do not see differences in the steps involved (simplification)
     Demonstrator of an Operator to UPSERT data in Redshift, and then perform data quality checks
     See pseudocode here: https://docs.aws.amazon.com/redshift/latest/dg/merge-replacing-existing-rows.html
     Upsert:
@@ -24,7 +23,7 @@ class LoadTableOperator(BaseOperator):
         - See here a workaround : https://gist.github.com/jmindek/62c50dd766556b7b16d6
         - Make sure that there are no duplicates in the select query
     """
-    ui_color = '#80BD9E'
+    ui_color = '#9bf6ff'
     # Queries used for Upsert
     q_temp_drop = """DROP TABLE IF EXISTS {stage};"""
     q_temp_create = """CREATE TABLE IF NOT EXISTS {stage}  (LIKE {table});"""
@@ -58,7 +57,7 @@ class LoadTableOperator(BaseOperator):
             *args:
             **kwargs:
         """
-        super(LoadTableOperator, self).__init__(*args, **kwargs)
+        super(LoadDimensionOperator, self).__init__(*args, **kwargs)
         self.conn_id = conn_id
         self.query = query
         self.table = table
@@ -70,7 +69,7 @@ class LoadTableOperator(BaseOperator):
             'stage': S.Identifier(self.stage),
             'query': S.SQL(self.query)
         }
-        self.qf_all = [S.SQL(q).format(**self.params) for q in LoadTableOperator.q_all]
+        self.qf_all = [S.SQL(q).format(**self.params) for q in LoadDimensionOperator.q_all]
 
 
     def execute(self, context):

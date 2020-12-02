@@ -16,6 +16,7 @@
 - *path*: path to S3
 - *arn*: ARN credentials to be assumed by Redshift
 - *table*: table name
+- *jsonformat* : Optional, Json mapping
 
 ### Load_table.py (LoadTableOperator)
 - Redshift does not natively support Upsert, thus a workaround is necessary

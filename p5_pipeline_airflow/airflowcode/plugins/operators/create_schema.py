@@ -10,7 +10,7 @@ class CreateSchemaOperator(BaseOperator):
     Make sure they are separated by ;
     """
     sql_statements_path = 'plugins/operators/create_tables.sql'
-    ui_color = '#89DA59'
+    ui_color = '#ffd6a5'
 
     @apply_defaults
     def __init__(self,

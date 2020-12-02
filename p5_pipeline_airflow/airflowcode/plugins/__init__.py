@@ -9,7 +9,7 @@ class UdacityPlugin(AirflowPlugin):
     name = "udacity_plugin"
     operators = [
         operators.CreateSchemaOperator,
-        operators.LoadTableOperator,
+        operators.LoadDimensionOperator,
         operators.DataQualityOperator,
         operators.StageToRedshiftOperator
     ]

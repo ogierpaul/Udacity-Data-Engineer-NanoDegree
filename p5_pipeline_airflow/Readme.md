@@ -19,13 +19,15 @@
 #### Prerequisites
 - Redshift has rights (ARN) to access S3
 - Redshift cluster is running
+- Redshift connection is saved in Airflow under *aa_redshift*
 
-#### Order of Operations (Happy Flow)
+#### Order of Operations (Happy Flow)# Order of Operations (Happy Flow)
 1. Create the Schema if not exits
-2. Truncate staging tables and insert data from S3 (RedshiftStagingOperator)
-3. Load fact and dimension tables with Upsert (RsUpsertOperator), check rows are created, and no duplicates on primary key
-4. Truncate staging tables
-5. End
+2. Truncate staging tables and upload data from S3
+3. Load fact and dimension tables with upsert
+4. check tables are not empty and no duplicates on primary key
+5. Truncate staging tables
+6. End
 ![Happy_flow_p5](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/Happy_flow_Redshift.png)
 
 

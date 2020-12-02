@@ -3,37 +3,45 @@ from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from helpers import SqlQueries
 from airflow.operators.postgres_operator import PostgresOperator
-from airflow.operators import CreateSchemaOperator, LoadTableOperator, StageToRedshiftOperator, DataQualityOperator
+from airflow.operators import CreateSchemaOperator, LoadDimensionOperator, StageToRedshiftOperator, DataQualityOperator
 import os
 
 # Parameters:
 arn = os.environ.get('AWS_ARN')
-conn_id = 'aa_rs'
+conn_id = 'aa_redshift'
 region = 'us-west-2'
 song_path = "s3://udacity-dend/song_data/A/A/A"
 log_path = "s3://udacity-dend/log_data/"
+log_jsonpath = 's3://udacity-dend/log_json_path.json'
 
 default_args = {
     'owner': 'paulogier',
-    'start_date': datetime(2019, 1, 12)
+    'start_date': datetime(2018, 5, 1),
+    'end_date': datetime(2018, 11, 30),
+    'depends_on_past': False,
+    'retries': 3,
+    'retry_delay': timedelta(minutes=1),
+    'catchup': False,
+    'email_on_retry': False
 }
 
 
 # Submission to the Udacity Project
 # This DAGS ETL the data from S3 to Redshift
 # Prerequisites
-# - Redshift registered in Airflow
+# - Redshift Connection registered in Airflow as aa_redshift
 # - Redshift has rights (ARN) to access S3
 # - SQL queries and Operators are defined in airflowcode.plugins.helpers and airflowcode.plugins.operators
 # - Plugins directory availabe in $AIRFLOW_HOME
 # Order of Operations (Happy Flow)
 # 1. Create the Schema if not exits
 # 2. Truncate staging tables and upload data from S3 (RedshiftStagingOperator)
-# 3. Load fact and dimension tables with upsert, check no duplicates on primary key (RsUpsertOperator)
-# 4. Truncate staging tables
-# 5. End
+# 3. Load fact and dimension tables with upsert (LoadDimensionOperator)
+# 4. check tables are not empty and no duplicates on primary key (DataQualitOperator)
+# 5. Truncate staging tables
+# 6. End
 # Notes
-# One could use a SUBDAG for the operation LoadTable > DataQualityChecks, And maybe for the Stage > LoadTable > DataQualityCheks > Truncate
+# One could use a SUBDAG for the operation LoadDimension > DataQualityChecks, And maybe for the Stage > LoadDimension > DataQualityCheks > Truncate
 # I did not, I think that it has more potential for destabilization than for optimization
 # In particular, it makes the complete flow less readable
 
@@ -41,7 +49,8 @@ default_args = {
 dag = DAG('udacity_s3_redshift_dag',
           default_args=default_args,
           description='Load and transform data in Redshift from S3 bucket',
-          schedule_interval=None
+          schedule_interval='@daily',
+          max_active_runs=2
           )
 
 Start_operator = DummyOperator(task_id='Begin_execution', dag=dag)
@@ -60,6 +69,7 @@ Stage_events = StageToRedshiftOperator(
     region=region,
     table="staging_events",
     path=log_path,
+    jsonformat=log_jsonpath
 
 )
 
@@ -70,11 +80,12 @@ Stage_songs = StageToRedshiftOperator(
     conn_id=conn_id,
     region=region,
     table="staging_songs",
-    path=song_path
+    path=song_path,
+    jsonformat = 'auto'
 
 )
 
-load_songplays_table = LoadTableOperator(
+load_songplays_table = LoadDimensionOperator(
     task_id='Upsert_songplays_fact_table',
     dag=dag,
     conn_id=conn_id,
@@ -91,7 +102,7 @@ quality_songplays = DataQualityOperator(
     pkey='songplay_id'
 )
 
-load_user_dimension_table = LoadTableOperator(
+load_user_dimension_table = LoadDimensionOperator(
     task_id='Upsert_user_dim_table',
     dag=dag,
     conn_id=conn_id,
@@ -108,7 +119,7 @@ quality_users = DataQualityOperator(
     pkey='user_id'
 )
 
-load_song_dimension_table = LoadTableOperator(
+load_song_dimension_table = LoadDimensionOperator(
     task_id='Upsert_song_dim_table',
     dag=dag,
     conn_id=conn_id,
@@ -126,7 +137,7 @@ quality_songs = DataQualityOperator(
 )
 
 
-load_artist_dimension_table = LoadTableOperator(
+load_artist_dimension_table = LoadDimensionOperator(
     task_id='Upsert_artist_dim_table',
     dag=dag,
     conn_id=conn_id,
@@ -143,7 +154,7 @@ quality_artists = DataQualityOperator(
     pkey='artist_id'
 )
 
-load_time_dimension_table = LoadTableOperator(
+load_time_dimension_table = LoadDimensionOperator(
     task_id='Upsert_time_dim_table',
     dag=dag,
     conn_id=conn_id,

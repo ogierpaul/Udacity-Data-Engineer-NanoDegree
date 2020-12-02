@@ -11,16 +11,16 @@ class StageToRedshiftOperator(BaseOperator):
     - qf_truncate: SQL to TRUNCATE the table. Qf means Query Formatted.
     - qf_copy: SQL to COPY FROM.
     """
-    ui_color = '#358140'
+    ui_color = '#fdffb6'
     q_copy = """
     COPY {table}
     FROM {path}
-    IAM_ROLE {arn}
-    COMPUPDATE OFF
+    IAM_ROLE AS {arn}
     REGION {region}
+    COMPUPDATE OFF
     TIMEFORMAT as 'epochmillisecs'
     TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL
-    FORMAT AS JSON 'auto';
+    FORMAT AS JSON {jsonformat};
     """
 
     @apply_defaults
@@ -30,6 +30,7 @@ class StageToRedshiftOperator(BaseOperator):
                  region="",
                  path="",
                  table="",
+                 jsonformat="auto",
                  *args, **kwargs):
         """
 
@@ -44,6 +45,7 @@ class StageToRedshiftOperator(BaseOperator):
         super(StageToRedshiftOperator, self).__init__(*args, **kwargs)
         self.arn = arn
         self.conn_id = conn_id
+        self.jsonformat= jsonformat
         self.path = path
         self.region = region
         self.table = table
@@ -52,7 +54,9 @@ class StageToRedshiftOperator(BaseOperator):
             table=S.Identifier(self.table),
             path=S.Literal(self.path),
             arn=S.Literal(self.arn),
-            region=S.Literal(self.region)
+            region=S.Literal(self.region),
+            jsonformat=S.Literal(self.jsonformat)
+
         )
 
     def execute(self, context):
