@@ -73,7 +73,8 @@
 ## References
 ### How to Upsert
 -[AWS example how to do upsert in redshift](https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-upsert.html)
-![Upsert](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/Upsert.jpg)
+
+![Upsert](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/upsert.jpg)
 
 ### Other references
 - [Connect airflow to AWS](https://airflow.apache.org/docs/1.10.3/howto/connection/aws.html)
