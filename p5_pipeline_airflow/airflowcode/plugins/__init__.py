@@ -1,5 +1,4 @@
 from __future__ import division, absolute_import, print_function
-
 from airflow.plugins_manager import AirflowPlugin
 
 import operators
@@ -10,8 +9,9 @@ class UdacityPlugin(AirflowPlugin):
     name = "udacity_plugin"
     operators = [
         operators.CreateSchemaOperator,
-        operators.RedshiftStagingOperator,
-        operators.RsUpsertOperator
+        operators.LoadTableOperator,
+        operators.DataQualityOperator,
+        operators.StageToRedshiftOperator
     ]
     helpers = [
         helpers.SqlQueries

@@ -10,3 +10,8 @@
 - SQL queries are defined in the airflowcode/plugins/helpers
 - see `docker-compose.yml` file to check how to mount the volume
 
+### NOtes
+- It is possible to use a SUBDAG for the operation LoadTable (Upsert) > DataQualityChecks, And maybe for the Stage > LoadTable > DataQualityCheks > Truncate
+- I did not, I think that it has more potential for destabilization than for optimization
+- In particular, it makes the complete flow less readable
+- It also puts less flexibility if additional steps are needed later on

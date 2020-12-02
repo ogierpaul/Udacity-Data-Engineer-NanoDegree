@@ -3,7 +3,7 @@ from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from helpers import SqlQueries
 from airflow.operators.postgres_operator import PostgresOperator
-from airflow.operators import RedshiftStagingOperator, CreateSchemaOperator, RsUpsertOperator
+from airflow.operators import CreateSchemaOperator, LoadTableOperator, StageToRedshiftOperator, DataQualityOperator
 import os
 
 # Parameters:
@@ -32,6 +32,10 @@ default_args = {
 # 3. Load fact and dimension tables with upsert, check no duplicates on primary key (RsUpsertOperator)
 # 4. Truncate staging tables
 # 5. End
+# Notes
+# One could use a SUBDAG for the operation LoadTable > DataQualityChecks, And maybe for the Stage > LoadTable > DataQualityCheks > Truncate
+# I did not, I think that it has more potential for destabilization than for optimization
+# In particular, it makes the complete flow less readable
 
 
 dag = DAG('udacity_s3_redshift_dag',
@@ -43,12 +47,12 @@ dag = DAG('udacity_s3_redshift_dag',
 Start_operator = DummyOperator(task_id='Begin_execution', dag=dag)
 
 CreateSchema = CreateSchemaOperator(
-    task_id='create_schema',
+    task_id='Create_schema',
     conn_id=conn_id,
     dag=dag
 )
 
-Stage_events = RedshiftStagingOperator(
+Stage_events = StageToRedshiftOperator(
     task_id='Stage_events',
     dag=dag,
     arn=arn,
@@ -59,7 +63,7 @@ Stage_events = RedshiftStagingOperator(
 
 )
 
-Stage_songs = RedshiftStagingOperator(
+Stage_songs = StageToRedshiftOperator(
     task_id='Stage_songs',
     dag=dag,
     arn=arn,
@@ -70,7 +74,7 @@ Stage_songs = RedshiftStagingOperator(
 
 )
 
-load_songplays_table = RsUpsertOperator(
+load_songplays_table = LoadTableOperator(
     task_id='Upsert_songplays_fact_table',
     dag=dag,
     conn_id=conn_id,
@@ -79,7 +83,15 @@ load_songplays_table = RsUpsertOperator(
     pkey='songplay_id'
 )
 
-load_user_dimension_table = RsUpsertOperator(
+quality_songplays = DataQualityOperator(
+    task_id='CheckQuality_Songplays',
+    dag=dag,
+    conn_id=conn_id,
+    table='songplays',
+    pkey='songplay_id'
+)
+
+load_user_dimension_table = LoadTableOperator(
     task_id='Upsert_user_dim_table',
     dag=dag,
     conn_id=conn_id,
@@ -88,7 +100,15 @@ load_user_dimension_table = RsUpsertOperator(
     pkey='user_id'
 )
 
-load_song_dimension_table = RsUpsertOperator(
+quality_users = DataQualityOperator(
+    task_id='CheckQuality_Users',
+    dag=dag,
+    conn_id=conn_id,
+    table='users',
+    pkey='user_id'
+)
+
+load_song_dimension_table = LoadTableOperator(
     task_id='Upsert_song_dim_table',
     dag=dag,
     conn_id=conn_id,
@@ -97,7 +117,16 @@ load_song_dimension_table = RsUpsertOperator(
     pkey='song_id'
 )
 
-load_artist_dimension_table = RsUpsertOperator(
+quality_songs = DataQualityOperator(
+    task_id='CheckQuality_Songs',
+    dag=dag,
+    conn_id=conn_id,
+    table='songs',
+    pkey='song_id'
+)
+
+
+load_artist_dimension_table = LoadTableOperator(
     task_id='Upsert_artist_dim_table',
     dag=dag,
     conn_id=conn_id,
@@ -106,7 +135,15 @@ load_artist_dimension_table = RsUpsertOperator(
     pkey='artist_id'
 )
 
-load_time_dimension_table = RsUpsertOperator(
+quality_artists = DataQualityOperator(
+    task_id='CheckQuality_Artists',
+    dag=dag,
+    conn_id=conn_id,
+    table='artists',
+    pkey='artist_id'
+)
+
+load_time_dimension_table = LoadTableOperator(
     task_id='Upsert_time_dim_table',
     dag=dag,
     conn_id=conn_id,
@@ -115,15 +152,23 @@ load_time_dimension_table = RsUpsertOperator(
     pkey='start_time'
 )
 
+quality_time = DataQualityOperator(
+    task_id='CheckQuality_Time',
+    dag=dag,
+    conn_id=conn_id,
+    table='time',
+    pkey='start_time'
+)
+
 truncate_staging_songs = PostgresOperator(
-    task_id='truncate_staging_songs',
+    task_id='Truncate_staging_songs',
     dag=dag,
     postgres_conn_id=conn_id,
     sql=SqlQueries.staging_songs_truncate
 )
 
 truncate_staging_events = PostgresOperator(
-    task_id='truncate_staging_events',
+    task_id='Truncate_staging_events',
     dag=dag,
     postgres_conn_id=conn_id,
     sql=SqlQueries.staging_events_truncate
@@ -132,6 +177,14 @@ truncate_staging_events = PostgresOperator(
 end_operator = DummyOperator(task_id='Stop_execution', dag=dag)
 
 Start_operator >> CreateSchema >> [Stage_songs, Stage_events]
-Stage_events >> [load_user_dimension_table, load_time_dimension_table, load_songplays_table] >> truncate_staging_events
-Stage_songs >> [load_artist_dimension_table, load_song_dimension_table, load_songplays_table] >> truncate_staging_songs
+Stage_events >> [load_user_dimension_table, load_time_dimension_table, load_songplays_table]
+load_user_dimension_table >> quality_users
+load_time_dimension_table >> quality_time
+load_songplays_table >> quality_songplays
+[quality_users, quality_time, quality_songplays] >> truncate_staging_events
+Stage_songs >> [load_artist_dimension_table, load_song_dimension_table, load_songplays_table]
+load_artist_dimension_table >> quality_artists
+load_song_dimension_table >> quality_songs
+load_songplays_table >> quality_songplays
+[quality_songs, quality_artists, quality_songplays ] >> truncate_staging_songs
 [truncate_staging_events, truncate_staging_songs] >> end_operator

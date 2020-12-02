@@ -1,9 +1,11 @@
-from operators.rs_upsert_tables import RsUpsertOperator
+from operators.stage_redshift import StageToRedshiftOperator
+from operators.load_table import LoadTableOperator
+from operators.data_quality import DataQualityOperator
 from operators.create_schema import CreateSchemaOperator
-from operators.rs_stage_data import RedshiftStagingOperator
 
 __all__ = [
     'CreateSchemaOperator',
-    'RedshiftStagingOperator',
-    'RsUpsertOperator'
+    'StageToRedshiftOperator',
+    'LoadTableOperator',
+    'DataQualityOperator'
 ]

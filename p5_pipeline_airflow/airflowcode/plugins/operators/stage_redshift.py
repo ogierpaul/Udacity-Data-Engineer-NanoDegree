@@ -3,8 +3,7 @@ from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 import psycopg2.sql as S
 
-
-class RedshiftStagingOperator(BaseOperator):
+class StageToRedshiftOperator(BaseOperator):
     """
     Copy Data from S3 onto Redshift
     Props:
@@ -12,7 +11,7 @@ class RedshiftStagingOperator(BaseOperator):
     - qf_truncate: SQL to TRUNCATE the table. Qf means Query Formatted.
     - qf_copy: SQL to COPY FROM.
     """
-    ui_color = '#3482ab'
+    ui_color = '#358140'
     q_copy = """
     COPY {table}
     FROM {path}
@@ -42,14 +41,14 @@ class RedshiftStagingOperator(BaseOperator):
             table (str): Redshift table name
             **kwargs:
         """
-        super(RedshiftStagingOperator, self).__init__(*args, **kwargs)
+        super(StageToRedshiftOperator, self).__init__(*args, **kwargs)
         self.arn = arn
         self.conn_id = conn_id
         self.path = path
         self.region = region
         self.table = table
         self.qf_truncate = S.SQL("TRUNCATE {};").format(S.Identifier(self.table))
-        self.qf_copy = S.SQL(RedshiftStagingOperator.q_copy).format(
+        self.qf_copy = S.SQL(StageToRedshiftOperator.q_copy).format(
             table=S.Identifier(self.table),
             path=S.Literal(self.path),
             arn=S.Literal(self.arn),
@@ -75,3 +74,9 @@ class RedshiftStagingOperator(BaseOperator):
         )
         self.log.info('Ran COPY query for table {}'.format(self.table))
         pass
+
+
+
+
+
+
