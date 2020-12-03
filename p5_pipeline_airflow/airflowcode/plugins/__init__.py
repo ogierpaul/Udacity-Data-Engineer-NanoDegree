@@ -11,7 +11,8 @@ class UdacityPlugin(AirflowPlugin):
         operators.CreateSchemaOperator,
         operators.LoadDimensionOperator,
         operators.DataQualityOperator,
-        operators.StageToRedshiftOperator
+        operators.StageToRedshiftOperator,
+        operators.LoadFactOperator
     ]
     helpers = [
         helpers.SqlQueries

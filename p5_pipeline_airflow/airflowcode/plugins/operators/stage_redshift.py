@@ -1,4 +1,5 @@
 from airflow.hooks.postgres_hook import PostgresHook
+from airflow.contrib.hooks.aws_hook import AwsHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 import psycopg2.sql as S
@@ -22,13 +23,16 @@ class StageToRedshiftOperator(BaseOperator):
     TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL
     FORMAT AS JSON {jsonformat};
     """
+    template_fields = ("s3_key",)
 
     @apply_defaults
     def __init__(self,
                  arn="",
+                 aws_credentials_id="",
                  conn_id="",
                  region="",
-                 path="",
+                 s3_bucket="",
+                 s3_key="",
                  table="",
                  jsonformat="auto",
                  *args, **kwargs):
@@ -36,7 +40,9 @@ class StageToRedshiftOperator(BaseOperator):
 
         Args:
             arn (str): name of ARN role assumed by the Redshift cluster
-            path (str): path to file(s)
+            aws_credentials_id (str): AWS credentials in Airflow
+            s3_bucket (str): path to file(s)
+            s3_key (str): path to file(s)
             conn_id (str): Redshift connection ID in Airflow
             region (str): AWS region
             table (str): Redshift table name
@@ -44,20 +50,15 @@ class StageToRedshiftOperator(BaseOperator):
         """
         super(StageToRedshiftOperator, self).__init__(*args, **kwargs)
         self.arn = arn
+        self.aws_credentials_id = aws_credentials_id
         self.conn_id = conn_id
+        self.execution_date = kwargs.get('execution_date')
         self.jsonformat= jsonformat
-        self.path = path
+        self.s3_bucket = s3_bucket
+        self.s3_key = s3_key
         self.region = region
         self.table = table
         self.qf_truncate = S.SQL("TRUNCATE {};").format(S.Identifier(self.table))
-        self.qf_copy = S.SQL(StageToRedshiftOperator.q_copy).format(
-            table=S.Identifier(self.table),
-            path=S.Literal(self.path),
-            arn=S.Literal(self.arn),
-            region=S.Literal(self.region),
-            jsonformat=S.Literal(self.jsonformat)
-
-        )
 
     def execute(self, context):
         """
@@ -71,10 +72,21 @@ class StageToRedshiftOperator(BaseOperator):
             None
         """
         self.log.info('Executing StagingOperator')
-        hook = PostgresHook(postgres_conn_id=self.conn_id)
-        hook.run(sql=(
+        redshift_hook = PostgresHook(postgres_conn_id=self.conn_id)
+        aws_hook = AwsHook(self.aws_credentials_id)
+        credentials = aws_hook.get_credentials()
+        path = f"s3://{self.s3_bucket}/{self.s3_key}/"
+        qf_copy = S.SQL(StageToRedshiftOperator.q_copy).format(
+            table=S.Identifier(self.table),
+            path=S.Literal(path),
+            arn=S.Literal(self.arn),
+            region=S.Literal(self.region),
+            jsonformat=S.Literal(self.jsonformat)
+
+        )
+        redshift_hook.run(sql=(
             self.qf_truncate,
-            self.qf_copy)
+            qf_copy)
         )
         self.log.info('Ran COPY query for table {}'.format(self.table))
         pass

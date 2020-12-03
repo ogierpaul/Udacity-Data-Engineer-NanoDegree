@@ -1,30 +1,11 @@
 from datetime import datetime, timedelta
+import os
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
-from helpers import SqlQueries
 from airflow.operators.postgres_operator import PostgresOperator
-from airflow.operators import CreateSchemaOperator, LoadDimensionOperator, StageToRedshiftOperator, DataQualityOperator
-import os
-
-# Parameters:
-arn = os.environ.get('AWS_ARN')
-conn_id = 'aa_redshift'
-region = 'us-west-2'
-song_path = "s3://udacity-dend/song_data/A/A/A"
-log_path = "s3://udacity-dend/log_data/"
-log_jsonpath = 's3://udacity-dend/log_json_path.json'
-
-default_args = {
-    'owner': 'paulogier',
-    'start_date': datetime(2018, 5, 1),
-    'end_date': datetime(2018, 11, 30),
-    'depends_on_past': False,
-    'retries': 3,
-    'retry_delay': timedelta(minutes=1),
-    'catchup': False,
-    'email_on_retry': False
-}
-
+from helpers import SqlQueries
+from airflow.operators import (CreateSchemaOperator, LoadDimensionOperator,
+                               LoadFactOperator, StageToRedshiftOperator, DataQualityOperator)
 
 # Submission to the Udacity Project
 # This DAGS ETL the data from S3 to Redshift
@@ -36,7 +17,7 @@ default_args = {
 # Order of Operations (Happy Flow)
 # 1. Create the Schema if not exits
 # 2. Truncate staging tables and upload data from S3 (RedshiftStagingOperator)
-# 3. Load fact and dimension tables with upsert (LoadDimensionOperator)
+# 3. Load fact and dimension tables with upsert (LoadDimensionOperator and LoadFactOperator)
 # 4. check tables are not empty and no duplicates on primary key (DataQualitOperator)
 # 5. Truncate staging tables
 # 6. End
@@ -46,10 +27,33 @@ default_args = {
 # In particular, it makes the complete flow less readable
 
 
+# Parameters:
+arn = os.environ.get('AWS_ARN')
+aws_credentials_id = 'aws_credentials'
+conn_id = 'redshift'
+region = 'us-west-2'
+s3_bucket = "udacity-dend"
+log_s3_key = "log_data/2018/11"
+song_s3_key = "song_data/A/A"
+log_jsonpath = 's3://udacity-dend/log_json_path.json'
+
+start_date = datetime.utcnow()
+
+default_args = {
+    'owner': 'udacity',
+    'start_date': datetime(2018, 5, 1),
+    'end_date': datetime(2020, 12, 30),
+    'depends_on_past': False,
+    'retries': 3,
+    'retry_delay': timedelta(minutes=5),
+    'catchup': False,
+    'email_on_retry': False
+}
+
 dag = DAG('udacity_s3_redshift_dag',
           default_args=default_args,
           description='Load and transform data in Redshift from S3 bucket',
-          schedule_interval='@daily',
+          schedule_interval='@hourly',
           max_active_runs=2
           )
 
@@ -67,8 +71,11 @@ Stage_events = StageToRedshiftOperator(
     arn=arn,
     conn_id=conn_id,
     region=region,
+    aws_credentials_id=aws_credentials_id,
     table="staging_events",
-    path=log_path,
+    s3_bucket=s3_bucket,
+    s3_key=log_s3_key,
+    execution_date=start_date,
     jsonformat=log_jsonpath
 
 )
@@ -77,29 +84,14 @@ Stage_songs = StageToRedshiftOperator(
     task_id='Stage_songs',
     dag=dag,
     arn=arn,
+    aws_credentials_id=aws_credentials_id,
+    table="staging_songs",
+    s3_bucket=s3_bucket,
+    s3_key=song_s3_key,
+    execution_date=start_date,
     conn_id=conn_id,
     region=region,
-    table="staging_songs",
-    path=song_path,
-    jsonformat = 'auto'
-
-)
-
-load_songplays_table = LoadDimensionOperator(
-    task_id='Upsert_songplays_fact_table',
-    dag=dag,
-    conn_id=conn_id,
-    query=SqlQueries.songplays_table_select,
-    table='songplays',
-    pkey='songplay_id'
-)
-
-quality_songplays = DataQualityOperator(
-    task_id='CheckQuality_Songplays',
-    dag=dag,
-    conn_id=conn_id,
-    table='songplays',
-    pkey='songplay_id'
+    jsonformat='auto'
 )
 
 load_user_dimension_table = LoadDimensionOperator(
@@ -119,6 +111,23 @@ quality_users = DataQualityOperator(
     pkey='user_id'
 )
 
+load_time_dimension_table = LoadDimensionOperator(
+    task_id='Upsert_time_dim_table',
+    dag=dag,
+    conn_id=conn_id,
+    query=SqlQueries.time_table_select,
+    table='time',
+    pkey='start_time'
+)
+
+quality_time = DataQualityOperator(
+    task_id='CheckQuality_Time',
+    dag=dag,
+    conn_id=conn_id,
+    table='time',
+    pkey='start_time'
+)
+
 load_song_dimension_table = LoadDimensionOperator(
     task_id='Upsert_song_dim_table',
     dag=dag,
@@ -135,7 +144,6 @@ quality_songs = DataQualityOperator(
     table='songs',
     pkey='song_id'
 )
-
 
 load_artist_dimension_table = LoadDimensionOperator(
     task_id='Upsert_artist_dim_table',
@@ -154,21 +162,22 @@ quality_artists = DataQualityOperator(
     pkey='artist_id'
 )
 
-load_time_dimension_table = LoadDimensionOperator(
-    task_id='Upsert_time_dim_table',
+load_songplays_table = LoadFactOperator(
+    task_id='Copy_songplays_fact_table',
     dag=dag,
     conn_id=conn_id,
-    query=SqlQueries.time_table_select,
-    table='time',
-    pkey='start_time'
+    query=SqlQueries.songplays_table_select,
+    aws_credentials_id=aws_credentials_id,
+    table='songplays',
+    truncate=True
 )
 
-quality_time = DataQualityOperator(
-    task_id='CheckQuality_Time',
+quality_songplays = DataQualityOperator(
+    task_id='CheckQuality_Songplays',
     dag=dag,
     conn_id=conn_id,
-    table='time',
-    pkey='start_time'
+    table='songplays',
+    pkey='songplay_id'
 )
 
 truncate_staging_songs = PostgresOperator(
@@ -197,5 +206,5 @@ Stage_songs >> [load_artist_dimension_table, load_song_dimension_table, load_son
 load_artist_dimension_table >> quality_artists
 load_song_dimension_table >> quality_songs
 load_songplays_table >> quality_songplays
-[quality_songs, quality_artists, quality_songplays ] >> truncate_staging_songs
+[quality_songs, quality_artists, quality_songplays] >> truncate_staging_songs
 [truncate_staging_events, truncate_staging_songs] >> end_operator

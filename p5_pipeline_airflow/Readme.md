@@ -19,7 +19,8 @@
 #### Prerequisites
 - Redshift has rights (ARN) to access S3
 - Redshift cluster is running
-- Redshift connection is saved in Airflow under *aa_redshift*
+- Redshift connection is saved in Airflow under *redshift*
+- Aws credentials are saved in Airflow connections under *aws_credentials*
 
 #### Order of Operations (Happy Flow)# Order of Operations (Happy Flow)
 1. Create the Schema if not exits
@@ -30,16 +31,28 @@
 6. End
 ![Happy_flow_p5](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/Happy_flow_Redshift.png)
 
+#### Data quality checks
+- It is better to separate the data quality check per table
+- Airflow should be one task per step
+- It is much easier to debug, without looking at the logs
+- Oone problem in one table does not hamper downstream tasks from other tables.
 
+#### Sub Dags
+- It is possible to use a SUBDAG for the operation LoadDimension (Upsert) > DataQualityChecks, And maybe for the Stage > LoadTable > DataQualityCheks > Truncate. I did not, I think that it has more potential for destabilization than for optimization
+- In particular, it makes the complete flow less readable
+- It also puts less flexibility if additional steps are needed later on
+
+
+## Structure
+### Project Architecture
+![Project_5_Architecture](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/p5_Airflow.jpg)
 
 ### Reminder: Airflow is not ETL
 - Airflow is at its core a scheduler
 - It does not transport data itself, but can launch tasks that do that
 - Here, Airflow will call on Redshift to query S3, and trigger other Redshift Queries
 
-## Structure
-### Project Architecture
-![Project_5_Architecture](https://github.com/ogierpaul/Udacity-Data-Engineer-NanoDegree/blob/master/99-Appendix/p5_Airflow.jpg)
+
 ### Repository
 - airflowcode:
     - store dags, operators, and helpers functions used in Airflow

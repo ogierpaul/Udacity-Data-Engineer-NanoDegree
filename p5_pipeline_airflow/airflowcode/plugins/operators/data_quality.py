@@ -14,7 +14,7 @@ class DataQualityOperator(BaseOperator):
     - q_pkeycount: query used to count the number of rows per primary key
     - qf_ stands for a template query q_ formatted with arguments
     """
-    ui_color = '#a0c4ff'
+    ui_color = '#ffc6ff'
     # Queries used for Data Quality checks
     q_rowcount = """SELECT COUNT(*) as n FROM {table}"""
     q_pkeycount = """SELECT MAX(n)  as n_pkey FROM (
