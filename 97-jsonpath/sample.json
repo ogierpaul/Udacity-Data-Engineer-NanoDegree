@@ -1,0 +1,9 @@
+{"marches":
+[
+{"id":1, "objet":"foo", "childs":[{"id":"ac1", "name":"pretty print"}, {"id":"cfo2", "name":"sample glass"}]},
+{"id": 2, "objet":"bar", "childs":[{"id": "hc1", "name": "techniker"}]},
+{"id":3, "objet":"my name is \"quote", "childs":[{"id":"na2", "name":"teerible two"}]},
+{"id":4, "objet":"I am null"},
+{"id":5, "objet":"My child has no name", "childs":[{"id": "hc1"}]}
+]
+}
