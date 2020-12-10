@@ -1,0 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS {schemaint};
+
+CREATE SCHEMA IF NOT EXISTS {schemaout};
+
+

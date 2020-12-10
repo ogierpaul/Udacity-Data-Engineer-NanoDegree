@@ -27,3 +27,7 @@
 /.idea/Udacity-Data-Engineer-NanoDegree.iml
 /.idea/vcs.xml
 /.idea/workspace.xml
+/p6_capstone/config/config_path.cfg
+/p6_capstone/config/capstone.cfg
+/p6_capstone/config/a_ec2_ssh.sh
+/p6_capstone/config/
