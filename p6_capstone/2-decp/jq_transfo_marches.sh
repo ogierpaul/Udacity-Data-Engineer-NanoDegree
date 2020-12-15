@@ -11,5 +11,7 @@
 "datenotification" : .dateNotification,
 "datepublicationdonnees": .datePublicationDonnees,
 "montant": .montant,
-"formeprix": .formePrix
+"formeprix": .formePrix,
+"acheteur_id": .acheteur.id,
+"acheteur_name": .acheteur.nom
 }

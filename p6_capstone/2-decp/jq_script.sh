@@ -7,8 +7,6 @@ export outputtemp=/home/ec2-user/data/temp_marches.json
 export outputmarches=/home/ec2-user/data/marches.json
 export outputtitulaires=/home/ec2-user/data/titulaires.json
 
-mkdir /home/ec2-user/data
-cd /home/ec2-user/data
 wget https://www.data.gouv.fr/fr/datasets/r/16962018-5c31-4296-9454-5998585496d2 -O decp.json
 
 
@@ -16,8 +14,6 @@ sudo yum install jq -y
 
 cat $inputpath  | jq -cr '.marches[]' | sed 's/\\[tn]//g' > $outputtemp
 head -5 $outputtemp
-
-
 
 echo 'PWD: ' $PWD
 

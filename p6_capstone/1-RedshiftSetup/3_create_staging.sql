@@ -14,7 +14,9 @@ CREATE TABLE IF NOT EXISTS {schemaint}.staging_decp_marches
     "datenotification"       VARCHAR(16),
     "datepublicationdonnees" VARCHAR,
     "montant"                DOUBLE PRECISION,
-    "formeprix"              varchar(64)
+    "formeprix"              varchar(64),
+    "acheteur_id": VARCHAR(128),
+    "acheteur_name": VARCHAR(256)
 );
 
 DROP TABLE IF EXISTS {schemaint}.staging_decp_titulaires;

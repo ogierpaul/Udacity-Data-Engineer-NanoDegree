@@ -13,7 +13,9 @@ CREATE TABLE IF NOT EXISTS {schemaout}.decp_marches(
     "datenotification"       varchar(16),
     "datepublicationdonnees" varchar(16),
     "montant"                DOUBLE PRECISION,
-    "formeprix"              varchar(64)
+    "formeprix"              varchar(64),
+    "acheteur_id": VARCHAR(128),
+    "acheteur_name": VARCHAR(256)
 );
 
 DROP TABLE IF EXISTS  {schemaout}.decp_titulaires;

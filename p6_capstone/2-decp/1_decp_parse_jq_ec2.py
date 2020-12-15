@@ -1,5 +1,6 @@
 from dendutils.config import get_project_config
-from dendutils.ec2 import create_vm, execute_shell_script
+from dendutils.ec2 import execute_shell_script
+from ec2.getorcreate import create_vm
 from s3 import upload_file
 from botocore.exceptions import ClientError
 import os

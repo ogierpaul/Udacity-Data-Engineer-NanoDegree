@@ -1,11 +1,8 @@
 #TODO:
 - Clean Readme
-- Add acheteurs to jq extract acheteurs[0]
 - Cleanse tables
 - Setup Redshift permissions automatically
 - Try to get instance status before rebooting
-- Same for EC2, get instance by id and retry on status
-- Verify read-only view of ro_user and no access to schema int
 
 # jq Transformations
 ## Purpose

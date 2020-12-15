@@ -1,7 +1,6 @@
 import time
 import psycopg2
-from iam import create_iam_role, open_ports
-from dendutils import get_myip
+from dendutils.iam import create_iam_role, open_ports, get_myip
 import boto3
 import pandas as pd
 import logging
