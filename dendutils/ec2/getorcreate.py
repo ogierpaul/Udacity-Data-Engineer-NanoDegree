@@ -84,6 +84,16 @@ def _create_vm(e, IMAGE_ID, KEY_NAME, INSTANCE_TYPE, SECURITY_GROUP, IAM_NAME, T
 
 
 def _on_stopped(ecr, instances, sleep):
+    """
+    On Status stop, restart
+    Args:
+        ecr:
+        instances:
+        sleep:
+
+    Returns:
+
+    """
     logger = logging.getLogger()
     i_id = instances[0][0]
     ecr.instances.filter(InstanceIds=[i_id]).start()
@@ -92,8 +102,53 @@ def _on_stopped(ecr, instances, sleep):
     time.sleep(sleep)
     return None
 
+def _on_no_instances(config, sleep):
+    """
+    If no instances, create
+    Args:
+        config:
+        sleep:
+
+    Returns:
+
+    """
+    logger = logging.getLogger()
+    logger.info(f'creating instance')
+    i_id = create_vm(config)
+    logger.info(f'waiting newly created instances {i_id} availability for {sleep} seconds')
+    time.sleep(sleep)
+    return None
+
+
+def _on_pending(instances, sleep):
+    """
+    If instance pending, wait
+    Args:
+        instances:
+        sleep:
+
+    Returns:
+
+    """
+    logger = logging.getLogger()
+    logger.info(
+        f'waiting pending instances availability {[c[0] for c in instances]} for {sleep} seconds')
+    time.sleep(sleep)
+    return None
+
 
 def getOrCreate(config, retry=3, sleep=30):
+    """
+    Try to get, or create, an instance matching the TAG_KEY, TAG_VALUE
+    Args:
+        config:
+        retry:
+        sleep:
+
+    Returns:
+        str: Instance Id
+    """
+
     logger = logging.getLogger()
     TAG_KEY = config.get("EC2", "TAG_KEY")
     TAG_VALUE = config.get("EC2", "TAG_VALUE")
@@ -137,27 +192,3 @@ def getOrCreate(config, retry=3, sleep=30):
         return res_id
 
 
-def _on_no_instances(config, sleep):
-    """
-
-    Args:
-        config:
-        sleep:
-
-    Returns:
-
-    """
-    logger = logging.getLogger()
-    logger.info(f'creating instance')
-    i_id = create_vm(config)
-    logger.info(f'waiting newly created instances {i_id} availability for {sleep} seconds')
-    time.sleep(sleep)
-    return None
-
-
-def _on_pending(instances, sleep):
-    logger = logging.getLogger()
-    logger.info(
-        f'waiting pending instances availability {[c[0] for c in instances]} for {sleep} seconds')
-    time.sleep(sleep)
-    return None

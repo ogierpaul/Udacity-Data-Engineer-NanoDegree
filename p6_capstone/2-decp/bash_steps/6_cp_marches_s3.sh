@@ -1,1 +1,0 @@
-aws s3 cp  $outputmarches $decp_marches_s3

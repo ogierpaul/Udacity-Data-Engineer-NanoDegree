@@ -81,8 +81,10 @@ DROP TABLE IF EXISTS {schemaint}.siren_present ;
 
 CREATE TABLE IF NOT EXISTS {schemaint}.siren_present (LIKE {schemaint}.staging_siren);
 
+DROP TABLE IF EXISTS {schemaint}.cpv;
+
 CREATE TABLE IF NOT EXISTS {schemaint}.cpv (
-    codecpv VARCHAR(8),
+    codecpv VARCHAR(8) PRIMARY KEY,
     description VARCHAR(128)
 );
 

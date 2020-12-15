@@ -42,3 +42,10 @@ CREATE TABLE {schemaout}.siren_directory (
     n_employees VARCHAR(256)
 );
 
+
+DROP TABLE IF EXISTS {schemaout}.cpv;
+
+CREATE TABLE IF NOT EXISTS {schemaout}.cpv (
+    codecpv VARCHAR(8) PRIMARY KEY,
+    description VARCHAR(128)
+);

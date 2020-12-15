@@ -1,1 +1,0 @@
-unzip siren.zip

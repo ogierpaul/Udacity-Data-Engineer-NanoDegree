@@ -6,12 +6,12 @@ import logging
 from .find import filter_on_custom_states
 
 
-def execute_shell_script(i_id, config, commands, sleep=2):
+def execute_shell_script(InstanceId, config, commands, sleep=2):
     """
     Make sure EC2 instance has policy AmazonSSMManagedInstanceCore
     See doc here: https://docs.aws.amazon.com/cli/latest/reference/ssm/get-command-invocation.html
     Args:
-        i_id (str): instance id
+        InstanceId (str): instance id
         config (cfg): config file with AWS credentials ("AWS", "KEY") and ("AWS", SECRET") and ("REGION", "REGION")
         commands (list): list of commands (str)
         sleep (int): sleep time (necessary for output)
@@ -25,17 +25,18 @@ def execute_shell_script(i_id, config, commands, sleep=2):
                        aws_secret_access_key=config.get("AWS", "SECRET"))
 
     response = ssm.send_command(
-        InstanceIds=[i_id],
+        InstanceIds=[InstanceId],
         DocumentName='AWS-RunShellScript',
         Parameters={"commands": commands}
     )
     import time
     time.sleep(sleep)
     # TODO: Add try and retry after sleep / get command invocation directly / use yield?? / Quality check
+    # TODO: List-commands from SSM?
     command_id = response['Command']['CommandId']
     output = ssm.get_command_invocation(
         CommandId=command_id,
-        InstanceId=i_id,
+        InstanceId=InstanceId,
     )
     return output
 
