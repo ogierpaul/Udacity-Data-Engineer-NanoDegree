@@ -1,6 +1,8 @@
 from dendutils.config import get_project_config
-from dendutils.ec2 import execute_shell_script, getOrCreate, terminate_instances
+from dendutils.ec2 import execute_shell_script,  terminate_instances
 from dendutils.redshift import execute_statements
+from dendutils.ec2 import  getOrCreate as ec2_getOrCreate
+from dendutils.redshift import getOrCreate as rs_getOrCreate
 from s3 import upload_file
 from botocore.exceptions import ClientError
 import os
@@ -139,11 +141,12 @@ def load_to_schemaout(config):
 if __name__ == '__main__':
     logger.info("Starting main")
     config = get_project_config(config_path)
-    i_id = getOrCreate(config)
+    i_id = ec2_getOrCreate(config)
     upload_jq_statements(config)
     commands =  read_commands(config)
     o = execute_shell_script(InstanceId=i_id, config=config, commands=commands, sleep=180)
     terminate_instances(config)
+    rs = rs_getOrCreate(config)
     copy_from_s3(config)
     stage_inside_redshift(config)
     load_to_schemaout(config)

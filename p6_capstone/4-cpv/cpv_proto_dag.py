@@ -1,6 +1,5 @@
 from dendutils.config import get_project_config
-from dendutils.ec2 import execute_shell_script, getOrCreate, terminate_instances
-from dendutils.redshift import execute_statements
+from dendutils.redshift import execute_statements, getOrCreate
 from s3 import upload_file
 from botocore.exceptions import ClientError
 import os
@@ -70,6 +69,7 @@ def stage_inside_redshift(config):
 if __name__ == '__main__':
     logger.info("Starting main")
     config = get_project_config(config_path)
+    rs = getOrCreate(config)
     upload_cpv_file(config)
     copy_from_s3(config)
     stage_inside_redshift(config)

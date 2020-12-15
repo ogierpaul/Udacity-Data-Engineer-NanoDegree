@@ -14,6 +14,7 @@ from p3src.utils import get_myip, get_cluster_properties, get_conn
 # - added a pause in the execution to let the cluster time to start
 # - the main routine needs a config parameter
 # - added sample test of connector
+import redshift.getorcreate
 
 
 def create_iam_role(iam, DWH_IAM_ROLE_NAME):
@@ -76,7 +77,7 @@ def create_cluster(redshift, roleArn, DWH_CLUSTER_TYPE, DWH_NODE_TYPE, DWH_NUM_N
 
     try:
         print("2.1. Creating redshift cluster")
-        response = redshift.create_cluster(
+        response = redshift.getorcreate._create_cluster(
             # Cluster Hardware specifications
             ClusterType=DWH_CLUSTER_TYPE,
             NodeType=DWH_NODE_TYPE,

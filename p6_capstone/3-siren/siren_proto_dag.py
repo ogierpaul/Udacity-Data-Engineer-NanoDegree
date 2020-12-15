@@ -1,5 +1,7 @@
 from dendutils.config import get_project_config
-from dendutils.ec2 import execute_shell_script, getOrCreate, terminate_instances
+from dendutils.ec2 import execute_shell_script, terminate_instances
+from dendutils.ec2 import  getOrCreate as ec2_getOrCreate
+from dendutils.redshift import getOrCreate as rs_getOrCreate
 import os
 import time
 import logging
@@ -81,14 +83,15 @@ def load_from_s3(config):
 if __name__ == '__main__':
     logger.info("Starting main")
     config = get_project_config(config_path)
-    i_id = getOrCreate(config)
+    i_id = ec2_getOrCreate(config)
     commands =  read_commands(config)
     for c in commands:
         logger.info(c)
     o = execute_shell_script(InstanceId=i_id, config=config, commands=commands, sleep=180)
+    rs = rs_getOrCreate(config)
     terminate_instances(config)
-    # load_from_s3(config)
-    # transform_inside_redshift(config)
+    load_from_s3(config)
+    transform_inside_redshift(config)
 
 
 

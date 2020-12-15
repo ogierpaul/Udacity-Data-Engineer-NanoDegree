@@ -1,8 +1,9 @@
-from .redshift import create_cluster_main, execute_statements, get_cluster_properties, get_conn
+from .redshift import execute_statements, get_cluster_properties, get_conn
+from .getorcreate import create_cluster, getOrCreate
 
 __all__ = [
-    'create_cluster_main',
     'execute_statements',
     'get_cluster_properties',
-    'get_conn'
+    'get_conn',
+    'getOrCreate'
 ]

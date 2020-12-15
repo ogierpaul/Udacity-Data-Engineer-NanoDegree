@@ -1,5 +1,5 @@
-from dendutils import get_project_config, create_cluster_main
-from dendutils.redshift import execute_statements
+from dendutils.redshift import execute_statements, getOrCreate
+from dendutils.config import get_project_config
 import psycopg2.sql as S
 from psycopg2 import (OperationalError, ProgrammingError, DatabaseError, DataError, NotSupportedError)
 import boto3
@@ -19,8 +19,7 @@ config_path = '/Users/paulogier/81-GithubPackages/Udacity-Data-Engineer-NanoDegr
 
 if __name__ == '__main__':
     config = get_project_config(config_path)
-    # mycluster = create_cluster_main(config=config, sleep=180)
-    #TODO: Add a check if the cluster is up and running
+    mycluster = getOrCreate(config, sleep=20)
     params = {
         'schemaint': S.Identifier(config.get("DB", "SCHEMA_INT")),
         'schemaout': S.Identifier(config.get("DB", "SCHEMA_OUT")),
