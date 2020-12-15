@@ -5,6 +5,11 @@
 - Add a sensor to verify the operations has been done
 - Add data quality check
 
+# Redshift
+- get or create
+- start operator
+- stop operator
+
 # Command Line Quality Queries
 - Create command line queries that can verify if a file exists on drive
 - if jq has been installed
