@@ -137,7 +137,7 @@ def _on_pending(instances, sleep):
     return None
 
 
-def getOrCreate(config, retry=3, sleep=30):
+def getOrCreate(config, retry=3, sleep=60):
     """
     Try to get, or create, an instance matching the TAG_KEY, TAG_VALUE
     Args:
@@ -165,6 +165,7 @@ def getOrCreate(config, retry=3, sleep=30):
     n = 0
     res_id = None
     while n <= retry and res_id is None:
+        n+=1
         instances = filter_per_tag(ecc, TAG_KEY, TAG_VALUE)
         # Get the list of active instances
         if instances is None or len(instances) == 0:
@@ -186,7 +187,7 @@ def getOrCreate(config, retry=3, sleep=30):
             _on_no_instances(config, sleep)
 
     if res_id is None:
-        raise ClientError(f'Unable to create instance with tag ({TAG_KEY}, {TAG_VALUE})')
+        raise ConnectionError(f'Unable to create instance with tag ({TAG_KEY}, {TAG_VALUE})')
     else:
         logger.info(f'active instance_id:{res_id}')
         return res_id

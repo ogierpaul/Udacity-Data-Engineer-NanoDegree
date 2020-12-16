@@ -4,9 +4,8 @@ from botocore.exceptions import ClientError
 import boto3
 import pandas as pd
 
-from iam import create_iam_role, open_ports
-from redshift import get_cluster_properties, get_conn
-
+from dendutils.iam import create_iam_role, open_ports
+from .redshift import get_cluster_properties, get_conn
 
 def get_cluster_status(config):
     logger = logging.getLogger()
@@ -36,9 +35,10 @@ def get_cluster_status(config):
         elif availability_status == 'Paused':
             return 'Paused'
         elif cluster_status in ['deleting', 'final-snapshot']:
-            return 'deleting'
-        elif availability_status in ['Maintenance', 'Modifying'] or cluster_status in ['creating', 'rebooting', 'renaming']:
-            return 'modifying'
+            return 'Deleting'
+        elif availability_status in ['Maintenance', 'Modifying'] or cluster_status in ['creating', 'rebooting', 'renaming', 'restoring']\
+            or (availability_status == 'Unavailable' and cluster_status == 'available'):
+            return 'Modifying'
         else:
             logger.warning(f"Availability Status {availability_status} ClusterStatus {cluster_status}")
             return None
@@ -235,13 +235,12 @@ def _on_pending(sleep):
 
     """
     logger = logging.getLogger()
-    logger.info(
-        f'waiting pending instances availability for {sleep} seconds')
+    logger.info(f'waiting pending instances availability for {sleep} seconds')
     time.sleep(sleep)
     return None
 
 
-def getOrCreate(config, retry=3, sleep=30):
+def getOrCreate(config, retry=3, sleep=60):
     """
     Try to get, or create, a cluster matching the CLUSTER_IDENTIFIER
     Args:
@@ -260,14 +259,12 @@ def getOrCreate(config, retry=3, sleep=30):
                        aws_access_key_id=config.get("AWS", "KEY"),
                        aws_secret_access_key=config.get("AWS", "SECRET")
                        )
-    rsr = boto3.resource('redshift',
-                         region_name=config.get("REGION", "REGION"),
-                         aws_access_key_id=config.get("AWS", "KEY"),
-                         aws_secret_access_key=config.get("AWS", "SECRET")
-                         )
     n = 0
     while n <= retry:
+        n+=1
+        logger.info(f'Getting Cluster {CLUSTER_IDENTIFIER}: Try {n}  of {retry}')
         status = get_cluster_status(config)
+        logger.info(f'Cluster status: {status}')
         if status == 'Available':
             return True
         elif status == 'Paused':
@@ -276,8 +273,8 @@ def getOrCreate(config, retry=3, sleep=30):
             _on_pending(sleep)
         elif status == 'NotFound':
             _on_no_instances(config, sleep)
-        elif status == 'deleting':
+        elif status == 'Deleting':
             time.sleep(3*sleep)
             _on_no_instances(config, sleep)
 
-    raise ClientError(f'Unable to create cluster with Identifier {CLUSTER_IDENTIFIER})')
+    raise ConnectionError(f'Unable to create cluster with Identifier {CLUSTER_IDENTIFIER})')
