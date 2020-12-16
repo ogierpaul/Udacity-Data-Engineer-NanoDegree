@@ -1,21 +1,16 @@
-# EC2
-- getOrCreate(Config) --> Done --> Transform to Operator
-- Start Operator --> TODO
-- stop and terminate --> Done --> Transform to Operator
-- Add a sensor to verify the operations has been done
-- Add data quality check
+# Infogreffe
+- Extract Information into staging area
+- Copy to Out schema
 
-# Redshift
-- get or create
-- start operator
-- stop operator
+# Operators
+- Create schema (with optional drop)
+- GetOrCreate Ec2
+- Terminate Ec2
+- Execute commands from file with params ec2
+- Execute commands from SQL statement with params Redshift
+- Load File to S3
 
-# Command Line Quality Queries
-- Create command line queries that can verify if a file exists on drive
-- if jq has been installed
-- if a file has been uploaded to S3 (See Pocket aws s3 cp s3://path/to/my/object - | head)
-
-# Infogreffe API
-- use requests
+# Create views on the data
+- 1 view per query
 
 # Finally do data quality checks
