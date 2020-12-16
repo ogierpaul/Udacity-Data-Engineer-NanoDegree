@@ -98,8 +98,8 @@ def copy_from_s3(config):
     s3_outputfolder =  config.get("S3", "DECP_OUTPUTFOLDER")
     s3_bucket = s3_bucket.rstrip('/')
     s3_outputfolder = s3_outputfolder.rstrip('/')
-    output_titulaires_s3 = 's3://' + s3_bucket + '/' + s3_outputfolder + '/' + 'titulaires.json',
-    output_marches_s3 =  's3://' + s3_bucket + '/' + s3_outputfolder + '/' + 'marches.json',
+    output_titulaires_s3 = 's3://' + s3_bucket + '/' + s3_outputfolder + '/' + 'titulaires.json'
+    output_marches_s3 =  's3://' + s3_bucket + '/' + s3_outputfolder + '/' + 'marches.json'
     d = [
         {'table': 'staging_decp_marches', 'inputpath': output_marches_s3},
         {'table': 'staging_decp_titulaires', 'inputpath': output_titulaires_s3}
@@ -117,7 +117,6 @@ def copy_from_s3(config):
 
 def stage_inside_redshift(config):
     # TODO: Rewrite "myext".decp_marches column "datenotification" is of type date but expression is of type character varying
-    # TODO: Review code CPV format
     execute_statements(
         filepath=os.path.join(os.path.dirname(os.path.abspath(__file__)), '3_decp_redshift_stage.sql'),
         config=config,
@@ -127,16 +126,7 @@ def stage_inside_redshift(config):
         }
     )
 
-def load_to_schemaout(config):
-    #TODO: Write those statements // Purpose?
-    execute_statements(
-        filepath=os.path.join(os.path.dirname(os.path.abspath(__file__)), '4_decp_load_out.sql'),
-        config=config,
-        params={
-            'schemaint': S.Identifier(config.get("DB", "SCHEMA_INT")),
-            'schemaout': S.Identifier(config.get("DB", "SCHEMA_OUT"))
-        }
-    )
+
 
 if __name__ == '__main__':
     logger.info("Starting main")
@@ -149,7 +139,6 @@ if __name__ == '__main__':
     rs = rs_getOrCreate(config)
     copy_from_s3(config)
     stage_inside_redshift(config)
-    load_to_schemaout(config)
     print('done')
 
 
