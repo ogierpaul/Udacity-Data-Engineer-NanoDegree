@@ -44,7 +44,7 @@ def read_commands(config):
         'ec2dir': ec2dir,
         'csvname': siren_csv,
         'input_file_ec2': ec2dir + '/siren.zip',
-        'output_siren_s3': 's3://' + s3_bucket + '/' + s3_outputfolder + '/' + 'siren.csv',
+        'output_siren_s3': 's3://' + s3_bucket + '/' + s3_outputfolder + '/' + siren_csv,
     }
 
     # Read the bash statement and format it with params
@@ -58,7 +58,7 @@ def read_commands(config):
     return commands
 
 def transform_inside_redshift(config):
-    copy_statement = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'siren_load.sql')
+    copy_statement = os.path.join(os.path.dirname(os.path.abspath(__file__)), '3_siren_stage.sql')
     params = {
         'schemaint': S.Identifier(config.get("DB", "SCHEMA_INT")),
         'schemaout': S.Identifier(config.get("DB", "SCHEMA_OUT"))
@@ -66,15 +66,14 @@ def transform_inside_redshift(config):
     execute_statements(filepath=copy_statement, config=config, params=params)
 
 def load_from_s3(config):
-    copy_statement = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'siren_copy.sql')
-    #TODO: Replace s3 path with bucket
-    p = {'table': 'staging_siren', 'inputpath': 's3://paulogiereucentral1/p6/siren/input/StockUniteLegale_utf8.csv'}
+    copy_statement = os.path.join(os.path.dirname(os.path.abspath(__file__)), '2_siren_copy.sql')
+    input_path =  's3://' + config.get("S3", "BUCKET").rstrip('/') + '/' + config.get("S3", "SIREN_OUTPUTFOLDER").rstrip('/') + '/' + config.get("DATA", "SIREN_CSV")
     params = {
         'schemaint': S.Identifier(config.get("DB", "SCHEMA_INT")),
         'arn': S.Literal(config.get("IAM", "CLUSTER_IAM_ARN")),
         'region': S.Literal(config.get("REGION", "REGION")),
-        'table': S.Identifier(p['table']),
-        'inputpath': S.Literal(p['inputpath'])
+        'table': S.Identifier("staging_siren"),
+        'inputpath': S.Literal(input_path)
     }
     execute_statements(filepath=copy_statement, config=config, params=params)
     return None
@@ -88,8 +87,8 @@ if __name__ == '__main__':
     for c in commands:
         logger.info(c)
     o = execute_shell_script(InstanceId=i_id, config=config, commands=commands, sleep=180)
-    rs = rs_getOrCreate(config)
     terminate_instances(config)
+    rs = rs_getOrCreate(config)
     load_from_s3(config)
     transform_inside_redshift(config)
 
