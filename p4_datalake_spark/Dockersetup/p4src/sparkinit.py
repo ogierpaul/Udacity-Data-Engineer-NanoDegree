@@ -18,5 +18,5 @@ def get_spark(config):
     os.environ['AWS_KEY_ID'] = config.get("AWS", "KEY")
     os.environ['AWS_SECRET'] = config.get("AWS", 'SECRET')
     # os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages "org.apache.hadoop:hadoop-aws:3.2.0" pyspark-shell'
-    spark = ec2.getorcreate.getOrCreate()
+    spark = ec2.getorcreate.getOrCreate_config()
     return spark

@@ -15,6 +15,7 @@ def get_instance_status(ecc, Instanceid):
 
     """
     logger = logging.getLogger()
+    assert isinstance(Instanceid, str)
     out = ecc.describe_instance_status(InstanceIds=[Instanceid], IncludeAllInstances=True)
     props = out['InstanceStatuses'][0]
     instance_status = props['InstanceStatus']['Status']

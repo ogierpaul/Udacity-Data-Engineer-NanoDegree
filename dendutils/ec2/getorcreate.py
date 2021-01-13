@@ -4,11 +4,11 @@ import time
 import boto3
 from botocore.exceptions import ClientError
 
-from .status import  get_instance_status
+from .status import get_instance_status
 from .find import filter_per_tag
 
 
-def create_vm(config):
+def create_vm_config(config):
     """
     Create an EC2 Instance from the parameters defined in the EC2 section:
     IMAGE_ID, KEY_PAIR, INSTANCE_TYPE, TAG_KEY, TAG_VALUE
@@ -41,35 +41,32 @@ def create_vm(config):
     return i
 
 
-def _create_vm(e, IMAGE_ID, KEY_NAME, INSTANCE_TYPE, SECURITY_GROUP, IAM_NAME, TAG_KEY, TAG_VALUE, sleep=15, retry=3):
+def _create_vm(ecr, ImageId, KeyName, InstanceType, SecurityGroupId, IamInstanceProfileName, TAG_KEY, TAG_VALUE):
     """
     See here: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Subnet.create_instances
     Args:
-        e (boto3.resource): boto3 resource
-        IMAGE_ID (str): VM (AMI) image Id
-        KEY_NAME (str): PEM key name
-        INSTANCE_TYPE (str): instance type , ex t2.micro
-        SECURITY_GROUP (str): Security Group Name
-        IAM_NAME (str): Iam Role Name
+        ecr (boto3.resource): boto3 resource
+        ImageId (str): VM (AMI) image Id
+        KeyName (str): PEM key name
+        InstanceType (str): instance type , ex t2.micro
+        SecurityGroupId (str): Security Group Name
+        IamInstanceProfileName (str): Iam Role Name
         TAG_KEY (str): Tag Key
         TAG_VALUE (str): Tag Value
-        sleep (int): time to sleep between retries
-        retry (int): Number of retries
-
     Returns:
         boto3.instance
     """
     logger = logging.getLogger()
     logger.info("CREATING INSTANCE")
-    new_instance = e.create_instances(
-        ImageId=IMAGE_ID,
-        KeyName=KEY_NAME,
-        InstanceType=INSTANCE_TYPE,
+    new_instance = ecr.create_instances(
+        ImageId=ImageId,
+        KeyName=KeyName,
+        InstanceType=InstanceType,
         MinCount=1,
         MaxCount=1,
-        SecurityGroupIds=[SECURITY_GROUP],
+        SecurityGroupIds=[SecurityGroupId],
         IamInstanceProfile={
-            'Name': IAM_NAME
+            'Name': IamInstanceProfileName
         },
         TagSpecifications=[{
             'ResourceType': 'instance',
@@ -102,22 +99,39 @@ def _on_stopped(ecr, instances, sleep):
     time.sleep(sleep)
     return None
 
-def _on_no_instances(config, sleep):
+
+
+def _on_no_instances(ecr, ImageId, KeyName, InstanceType, SecurityGroupId, IamInstanceProfileName, TAG_KEY, TAG_VALUE, StartSleep=120):
     """
-    If no instances, create
+    If no instance available, then create one
     Args:
-        config:
-        sleep:
+        ecr: boto3 ec2 ressource
+        ImageId (str):
+        KeyName (str): Key-Pair name
+        InstanceType (str): InstanceType
+        SecurityGroupId (str): Security Group to be assigned
+        IamInstanceProfileName (str): IAM Arn Role name
+        TAG_KEY (str):  Tag Key
+        TAG_VALUE (str): Tag Value
+        StartSleep (int): Time to wait until VM should be available
 
     Returns:
-
+        str: instance Id
     """
     logger = logging.getLogger()
     logger.info(f'creating instance')
-    i_id = create_vm(config)
+    i_id = _create_vm(ecr=ecr,
+                      ImageId=ImageId,
+                      KeyName=KeyName,
+                      InstanceType=InstanceType,
+                      SecurityGroupId=SecurityGroupId,
+                      IamInstanceProfileName=IamInstanceProfileName,
+                      TAG_KEY=TAG_KEY,
+                      TAG_VALUE=TAG_VALUE
+                      )[0].id
     logger.info(f'waiting newly created instances {i_id} availability for {sleep} seconds')
-    time.sleep(sleep)
-    return None
+    time.sleep(StartSleep)
+    return i_id
 
 
 def _on_pending(instances, sleep):
@@ -137,7 +151,104 @@ def _on_pending(instances, sleep):
     return None
 
 
-def getOrCreate(config, retry=3, sleep=60):
+def getOrCreate(aws_access_key_id, aws_secret_access_key, region_name, \
+                ImageId, InstanceType, KeyName, IamInstanceProfileName, SecurityGroupId, \
+                tag_key, tag_value, LoopSleep=30, StartSleep=60, retry=8):
+    """
+    Get InstanceId of Ec2 Instance matching tag_key and tag_value. If none exists, then create one.
+    The method will:
+    1. Initialize the arguments
+    2. Loop (retry) times and at each loop, check status of instances matching tag_key and tag_value. Break the loop if one is available
+    3. For each case possible (Available, Stopped, Pending, No Instance), do actions:
+        Available --> break loop
+        Stopped --> Resume Instance
+        Pending --> Wait (sleep until it is picked as available in the next loop)
+        No Instance --> Create one
+    4. Return either Available InstanceId, or raise Connection Error
+
+    Args:
+        aws_access_key_id:
+        aws_secret_access_key:
+        region_name:
+        ImageId:
+        InstanceType:
+        KeyName:
+        IamInstanceProfileName:
+        SecurityGroupId:
+        tag_key:
+        tag_value:
+        LoopSleep: time to wait between to loop
+        StartSleep: time to wait after instance has been created
+        retry:
+
+    Returns:
+        str: instance id
+    """
+    # 1. Initialization of loops
+    logger = logging.getLogger()
+    ecc = boto3.client('ec2',
+                       region_name=region_name,
+                       aws_access_key_id=aws_access_key_id,
+                       aws_secret_access_key=aws_secret_access_key
+                       )
+    ecr = boto3.resource('ec2',
+                         region_name=region_name,
+                         aws_access_key_id=aws_access_key_id,
+                         aws_secret_access_key=aws_secret_access_key
+                         )
+    n = 0
+    res_id = None
+    # Loop (retry) times while waiting (sleep) secondes between each loop
+    # Loop until either max number of tries has been done, or an available instance has been found
+    while n <= retry and res_id is None:
+        n += 1
+        # 2. Get the list of instances matching the tag_key and tag_value
+        instances = filter_per_tag(ecc, tag_key, tag_value)
+        # 2.1. Case none exists
+        if instances is None or len(instances) == 0:
+            logger.info(f"No instances found")
+            available_instances = stopped_instances = pending_instances = []
+        # 2.2. Case some exist, find available, stopped, or pending instances
+        else:
+            instances_status = [(c_id, get_instance_status(ecc, c_id)) for c_id in instances]
+            logger.info(f"instances per status:\n{instances_status}")
+            available_instances = [(c_id, c_stat) for c_id, c_stat in instances_status if c_stat == 'available']
+            stopped_instances = [(c_id, c_stat) for c_id, c_stat in instances_status if c_stat == 'stopped']
+            pending_instances = [(c_id, c_stat) for c_id, c_stat in instances_status if c_stat == 'modifying']
+
+        # 3. Decide what to do base on status of matching instances
+        # 3.1. If there are some available instances>: get their id (this will stop the loop)
+        if len(available_instances) > 0:
+            res_id = available_instances[0][0]
+        # 3.2. If there is a stopped instance, restart it, and wait (sleep) seconds, this will become available in next loop
+        elif len(stopped_instances) > 0:
+            _on_stopped(ecr, stopped_instances, StartSleep)
+        # 3.3. If there is a pending (rebooting, modifying...) instance: wait (sleep) secondes
+        elif len(pending_instances) > 0:
+            _on_pending(pending_instances, LoopSleep)
+        # 3.4. Last case. If there is no available, stopped or pending instance: start one.
+        else:
+            res_id = _on_no_instances(
+                ecr=ecr,
+                ImageId=ImageId,
+                KeyName=KeyName,
+                InstanceType=InstanceType,
+                SecurityGroupId=SecurityGroupId,
+                IamInstanceProfileName=IamInstanceProfileName,
+                TAG_KEY=tag_key,
+                TAG_VALUE=tag_value,
+                StartSleep=StartSleep
+            )
+
+    # 4.: After either all the loops have been run, or an available instance has been found and its id filled:
+    if res_id is None:
+        raise ConnectionError(f'Unable to create instance with tag ({tag_key}, {tag_value})')
+    else:
+        logger.info(f'active instance_id:{res_id}')
+        return res_id
+
+
+def getOrCreate_config(config, retry=3, sleep=60):
     """
     Try to get, or create, an instance matching the TAG_KEY, TAG_VALUE
     Args:
@@ -149,47 +260,17 @@ def getOrCreate(config, retry=3, sleep=60):
         str: Instance Id
     """
 
-    logger = logging.getLogger()
-    TAG_KEY = config.get("EC2", "TAG_KEY")
-    TAG_VALUE = config.get("EC2", "TAG_VALUE")
-    ecc = boto3.client('ec2',
-                       region_name=config.get("REGION", "REGION"),
-                       aws_access_key_id=config.get("AWS", "KEY"),
-                       aws_secret_access_key=config.get("AWS", "SECRET")
-                       )
-    ecr = boto3.resource('ec2',
-                         region_name=config.get("REGION", "REGION"),
+    res_id = getOrCreate(region_name=config.get("REGION", "REGION"),
                          aws_access_key_id=config.get("AWS", "KEY"),
-                         aws_secret_access_key=config.get("AWS", "SECRET")
+                         aws_secret_access_key=config.get("AWS", "SECRET"),
+                         tag_key=config.get("EC2", "TAG_KEY"),
+                         tag_value=config.get("EC2", "TAG_VALUE"),
+                         ImageId=config.get("EC2", "IMAGE_ID"),
+                         KeyName=config.get("EC2", "KEY_PAIR"),
+                         InstanceType=config.get("EC2", "INSTANCE_TYPE"),
+                         SecurityGroupId=config.get("SG", "SG_ID"),
+                         IamInstanceProfileName=config.get("IAM", "IAM_EC2_ROLE"),
+                         retry=retry,
+                         StartSleep=sleep
                          )
-    n = 0
-    res_id = None
-    while n <= retry and res_id is None:
-        n+=1
-        instances = filter_per_tag(ecc, TAG_KEY, TAG_VALUE)
-        # Get the list of active instances
-        if instances is None or len(instances) == 0:
-            logger.info(f"No instances found")
-            available_instances = stopped_instances = pending_instances = []
-        else:
-            instances_status = [(c_id, get_instance_status(ecc, c_id)) for c_id in instances]
-            logger.info(f"instances per status:\n{instances_status}")
-            available_instances = [(c_id, c_stat) for c_id, c_stat in instances_status if c_stat == 'available']
-            stopped_instances = [(c_id, c_stat) for c_id, c_stat in instances_status if c_stat == 'stopped']
-            pending_instances = [(c_id, c_stat) for c_id, c_stat in instances_status if c_stat == 'modifying']
-        if len(available_instances) > 0:
-            res_id = available_instances[0][0]
-        elif len(stopped_instances) > 0:
-            _on_stopped(ecr, stopped_instances, sleep)
-        elif len(pending_instances) > 0:
-            _on_pending(pending_instances, sleep)
-        else:
-            _on_no_instances(config, sleep)
-
-    if res_id is None:
-        raise ConnectionError(f'Unable to create instance with tag ({TAG_KEY}, {TAG_VALUE})')
-    else:
-        logger.info(f'active instance_id:{res_id}')
-        return res_id
-
-
+    return res_id

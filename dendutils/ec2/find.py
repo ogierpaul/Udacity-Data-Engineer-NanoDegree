@@ -36,7 +36,7 @@ def _check_is_instanceid(i):
     return True
 
 
-def filter_on_custom_states(config, states):
+def filter_on_custom_states_config(config, states):
     """
     Filter on custom states the VMs matching the TAG_KEY, TAG_VALUE parameters from config
     :param config:

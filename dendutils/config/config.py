@@ -24,3 +24,20 @@ def get_project_config(path):
     config.read(project_config_path)
     logger.info("Done reading config")
     return config
+
+def concat_path(file, filename):
+    """
+    Concatenate the absolute path to file and filename.
+    To use with __file__
+    Args:
+        file:
+        filename (str):
+
+    Returns:
+        str:
+    """
+    fp = os.path.join(
+        os.path.dirname(os.path.abspath(file)),
+        filename
+    )
+    return fp

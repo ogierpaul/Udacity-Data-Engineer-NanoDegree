@@ -12,7 +12,7 @@ config.read('/home/jovyan/aws/config.cfg')
 os.environ['AWS_KEY_ID'] = config.get("AWS", "KEY")
 os.environ['AWS_SECRET'] = config.get("AWS", 'SECRET')
 
-spark = ec2.getorcreate.getOrCreate()
+spark = ec2.getorcreate.getOrCreate_config()
 mycsv = "s3a://dendpaulogieruswest2/sampledata/titanic-data.csv"
 df = spark.read.option("header", "true").csv(mycsv)
 r = df.count()

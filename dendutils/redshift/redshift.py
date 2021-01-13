@@ -78,7 +78,7 @@ def execute_statements(filepath, config, params):
     logger.info(f"reading file {filepath}")
     statements = open(filepath,'r').read()
     sql_all = [S.SQL(q.strip() + ';').format(**params) for q in statements.split(';') if q.strip() != '']
-    conn= get_conn(config)
+    conn = get_conn(config)
     cur = conn.cursor()
     for q in sql_all:
         logger.info(f"execute query:{q.as_string(conn)}")
@@ -89,5 +89,13 @@ def execute_statements(filepath, config, params):
     logger.info(f"finished executing file {filepath}")
     conn.close()
     return True
+
+def read_format_sql(fp, **params):
+    with open(fp, 'r') as f:
+        statements = f.read()
+    f.close()
+    sql_all = [S.SQL(q.strip() + ';').format(**params) for q in statements.split(';') if q.strip() != '']
+    return sql_all
+
 
 
